@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>events - Juttle Visualization Library</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../custom_theme/extra.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "events";
+    var mkdocs_page_input_path = "charts/events.md";
+    var mkdocs_page_url = "/charts/events/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Juttle Visualization Library</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../..">About</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../barchart/">barchart</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 current">
+        <a class="current" href="./">events</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../file/">file</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../less/">less</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../text/">text</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../piechart/">piechart</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../scatterchart/">scatterchart</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../table/">table</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../tile/">tile</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../timechart/">timechart</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+<li>
+          
+            <li>
+  
+<li>
+          
+            <li>
+  
+<li>
+          
+            <li>
+  
+<li>
+          
+            <li>
+  
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Juttle Visualization Library</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>events</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          
+            <a href="https://github.com/juttle/juttle-viz/blob/master/docs/charts/events.md" class="icon icon-github"> Edit on GitHub</a>
+          
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="events">events</h1>
+<p>Overlay events as markers on top of a time chart.</p>
+<p><img alt="" src="../../images/screenshots/view_events.png" /></p>
+<pre><code>view events -o {
+  id: 'string',
+  title: 'string',
+  typeField: 'fieldname',
+  nameField: 'fieldname',
+  messageField: 'fieldname',
+  timeField: 'fieldname',
+  on: 'sinkID',
+  useMarkdown: 'true|false'
+}
+</code></pre>
+
+<p><em>or</em></p>
+<pre><code>view events -id 'string' -title 'string'
+  -typeField 'fieldname'
+  -nameField 'fieldname' -messageField 'fieldname' -timeField 'fieldname'
+  -on 'sinkID' -useMarkdown: 'true|false'
+</code></pre>
+
+<p>See <a href="../..#defining-view-parameters">Defining sink parameters</a>
+for an explanation of how sink parameters can be expressed as object literals.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th align="right">Required?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-id</code></td>
+<td>An identifier for this sink that serves as a handle for referencing the object in Juttle syntax; conceptually identical to a variable name</td>
+<td align="right">No</td>
+</tr>
+<tr>
+<td><code>-title</code></td>
+<td>The title for the user-visible output, if it has one; the value may be any valid Juttle expression that produces a string</td>
+<td align="right">No; defaults to the name field that is present in all metrics points</td>
+</tr>
+<tr>
+<td><code>-typeField</code></td>
+<td>The name of a field in your data points that contains the class string of the icon to display. If your points don't already contain such a field, you must add one like this: <br><code>... | put type='fa-smile-o' ...</code> <br><br>Coming soon: support for<a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/">Font Awesome</a> class strings (such as "fa-git" for git events).</td>
+<td align="right">No; the default fieldname is "type", and if no "type" field is set then the default icon is an empty circle</td>
+</tr>
+<tr>
+<td><code>-nameField</code></td>
+<td>The field from which to source the title of the tooltip</td>
+<td align="right">No</td>
+</tr>
+<tr>
+<td><code>-messageField</code></td>
+<td>The field to source the text content of the tooltip</td>
+<td align="right">No</td>
+</tr>
+<tr>
+<td><code>-timeField</code></td>
+<td>The field containing the time stamp</td>
+<td align="right">No; defaults to the time field</td>
+</tr>
+<tr>
+<td><code>-on</code></td>
+<td>The ID of the time chart upon which to overlay events. See <a href="../timechart_overlay/">Overlaying events on time charts</a> for information about overlaying charts.</td>
+<td align="right">No; when this option is omitted, events are displayed as a table</td>
+</tr>
+<tr>
+<td><code>-useMarkdown</code></td>
+<td>When this option is 'true', the values of the -nameField and the -messageField are parsed as markdown, allowing you to include links in your tooltips</td>
+<td align="right">No; the default is 'false'</td>
+</tr>
+</tbody>
+</table>
+<p><em>Example: Overlay two series of "git merge" events on a time chart showing CPU load</em></p>
+<pre><code>const spiketime1 = :7 minutes before 2014-01-01:;
+const spiketime2 = :3 minutes before 2014-01-01:;
+
+reducer spike_cpu(valfield,hostname,time) {
+
+    // workaround for PROD-5118, once its fixed we can remove this const redefinition
+    const spiketime1 = :7 minutes before 2014-01-01:;
+    const spiketime2 = :3 minutes before 2014-01-01:;
+
+    var spike1 = 0;
+    var spike2 = 0;
+    var val = 0;
+
+    function update() {
+        if (*time &gt; spiketime1) {
+        spike1 = 1;
+        }
+        if (*time &gt; spiketime2) {
+        spike2 = 1;
+        }
+        if ((*hostname == &quot;nyc.2&quot;) &amp;&amp; spike1 != 0) {
+        val = *valfield + 0.5;
+        } else {
+        if ((*hostname == &quot;sea.0&quot;) &amp;&amp; spike2 != 0) {
+            val = *valfield + 0.2;
+        } else {
+            val = *valfield;
+        }
+        }
+    }
+
+    function result() {
+        return val;
+    }
+
+}
+
+read stochastic -source 'cdn' -nhosts 3 -from :10 minutes before 2014-01-01: -to :2014-01-01: -source_type 'metrics' name = 'cpu'
+|filter name = 'cpu'
+|put value=spike_cpu(value,host,time)
+|  view timechart
+     -valueField 'value'
+     -keyField 'host'
+     -yScales.primary.tickFormat '%'
+     -title &quot;% CPU busy on all hosts&quot;
+     -id 'CPU';
+
+emit -limit 1 -from spiketime1
+| put title = &quot;title&quot;,type = &quot;git&quot;,text = &quot;Enable new CPU-consuming service in New York&quot;,label = &quot;git merge&quot;
+| view events
+    -on &quot;CPU&quot;
+    -typeField &quot;type&quot;
+    -timeField &quot;time&quot;
+    -messageField &quot;text&quot;
+    -nameField &quot;label&quot;;
+
+emit -limit 1 -from spiketime2
+| put title = &quot;title&quot;,type = &quot;git&quot;,text = &quot;Something that thrashes the CPU in Seattle&quot;,label = &quot;git merge&quot;
+| view events
+    -on &quot;CPU&quot; -typeField &quot;type&quot;
+    -timeField &quot;time&quot;
+    -messageField &quot;text&quot;
+    -nameField &quot;label&quot;;
+</code></pre>
+
+<p><img alt="" src="../../images/screenshots/view_events_1.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../file/" class="btn btn-neutral float-right" title="file">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../barchart/" class="btn btn-neutral" title="barchart"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/juttle/juttle-viz" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../barchart/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../file/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

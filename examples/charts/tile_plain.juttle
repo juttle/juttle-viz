@@ -1,0 +1,12 @@
+read stochastic -source 'cdn' -last :1 hour: -every :1m:  -source_type 'metrics' name='responses'
+| (
+  filter code = '200'
+  | reduce value = count()
+  | put level = 'success'
+  | view tile -title 'HTTP OK Responses' -display.levelField 'level'
+  ;
+  filter code != '200'
+  | reduce value = count()
+  | put level = 'error'
+  | view tile -title 'HTTP Errors' -display.levelField 'level'
+)

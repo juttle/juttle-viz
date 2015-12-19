@@ -1,0 +1,4 @@
+emit -every :0.2s: -limit 5 
+| put a = count(), b = Math.random() + Math.floor(Math.random() * 10) 
+| view table 
+    -columnOrder 'a','b','time'

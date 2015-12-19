@@ -1,0 +1,20 @@
+(
+emit -limit 10 | put  response_ms = count(), cpu = count(), service = 'search', host = 'host1';
+emit -limit 10 | put  response_ms = count()*2, cpu = count()*2, service = 'index', host = 'host2';
+emit -limit 10 | put  response_ms = count()*3, cpu = count()*3, service = 'auth', host = 'host1';
+emit -limit 10 | put  response_ms = count()*4, cpu = count()*4, service = 'test', host = 'host2';
+emit -limit 10 | put  response_ms = count()*5, cpu = count()*5, service = 'tim', host = 'host1';
+)
+| view scatterchart -o {
+  title: 'Faceted Scatter Chart',
+  valueField: 'cpu',
+  controlField: 'response_ms',
+  facet: {
+    fields: ['service'],
+    width: '1/3',
+    height: 150
+  },
+  display: {
+    duration: :10s:
+  }
+}

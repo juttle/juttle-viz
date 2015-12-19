@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>scatterchart - Juttle Visualization Library</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../custom_theme/extra.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "scatterchart";
+    var mkdocs_page_input_path = "charts/scatterchart.md";
+    var mkdocs_page_url = "/charts/scatterchart/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Juttle Visualization Library</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../..">About</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../barchart/">barchart</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../events/">events</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../file/">file</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../less/">less</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../text/">text</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../piechart/">piechart</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 current">
+        <a class="current" href="./">scatterchart</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../table/">table</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../tile/">tile</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../timechart/">timechart</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+<li>
+          
+            <li>
+  
+<li>
+          
+            <li>
+  
+<li>
+          
+            <li>
+  
+<li>
+          
+            <li>
+  
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Juttle Visualization Library</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>scatterchart</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          
+            <a href="https://github.com/juttle/juttle-viz/blob/master/docs/charts/scatterchart.md" class="icon icon-github"> Edit on GitHub</a>
+          
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="scatterchart">scatterchart</h1>
+<p>Plot data points as individual dots across two axes sourced from the data fields; can be faceted.</p>
+<p><img alt="" src="../../images/screenshots/view_scatterchart.png" /></p>
+<pre><code>view scatterchart -o {
+   title: string,
+   display: {
+     markerSize: n,
+     markerOpacity: n,
+     duration: duration,
+     limit: n
+   },
+   valueField: fieldname,
+   controlField: fieldname,
+   keyField: fieldname,
+   timeField: fieldname,
+   xScales: {
+     primary: {
+       label: string,
+       tickFormat: d3FormatString,
+       minValue: value,
+       maxValue: value
+     }
+   },
+   yScales: {
+     primary: {
+       label: string,
+       tickFormat: d3FormatString,
+       minValue: value,
+       maxValue: value,
+       displayOnAxis: 'left|right'
+     }
+   },
+   tooltip: {
+     titleField: fieldname,
+     controlLabel: string,
+     controlFormat: d3FormatString,
+     valueLabel: string,
+     valueFormat: d3FormatString
+   },
+   series: [
+   {
+     name: 'string',
+     label: 'string',
+     color: 'color'
+   },
+   {
+     name: 'anotherseries',
+     ...
+   }
+   ],
+   facet: {
+     fields: [field1, ...fieldN],
+     width: n,
+     height: n
+   }
+</code></pre>
+
+<p><em>or</em></p>
+<pre><code>view scatterchart -title string 
+-display.markerSize n -display.markerOpacity n -display.duration duration -display.limit n 
+-valueField fieldname -controlField fieldname -keyField fieldname -timeField fieldname 
+-xScales.primary.label string -xScales.primary.tickFormat d3FormatString -xScales.primary.minValue value -xScales.primary.maxValue value 
+-yScales.primary.label string -yScales.primary.tickFormat d3FormatString -yScales.primary.minValue value -yScales.primary.maxValue value -yScales.primary.displayOnAxis 'left|right' 
+-tooltip.titleField fieldname -tooltip.controlLabel string -tooltip.controlFormat d3FormatString -tooltip.valueLabel string -tooltip.valueFormat d3FormatString 
+-series [{name: 'string', label: 'string', color: 'color'},{name: 'anotherseries', ...}]
+  -facet.fields field1, ...fieldN -facet.width n -face.height n
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th align="right">Required?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-title</code></td>
+<td>The title for the user-visible output, if it has one; the value may be any valid Juttle expression that produces a string</td>
+<td align="right">No; defaults to the name field that is present in all metrics points</td>
+</tr>
+<tr>
+<td><code>-display.markerSize</code></td>
+<td>The pixel size of the circle for each point</td>
+<td align="right">No; defaults to 6</td>
+</tr>
+<tr>
+<td><code>-display.markerOpacity</code></td>
+<td>The opacity level of the datapoint marker, a number between 0.1 (10%) and 1 (100%)</td>
+<td align="right">No; defaults to 1</td>
+</tr>
+<tr>
+<td><code>-display.duration</code></td>
+<td>The span of time to display, either in seconds (&gt;=10) or as a Juttle moment literal</td>
+<td align="right">No; defaults to 5 minutes when querying live data</td>
+</tr>
+<tr>
+<td><code>-display.limit</code></td>
+<td>The maximum number of total data points to display</td>
+<td align="right">No; defaults to the first 1000 to avoid consuming unbounded memory</td>
+</tr>
+<tr>
+<td><code>-valueField</code></td>
+<td>The name of the field to use as the source for the numeric values</td>
+<td align="right">No; defaults to the <code>value</code> field that is present in all metrics points. If no value field is present, the first numeric field in the stream is used.</td>
+</tr>
+<tr>
+<td><code>-controlField</code></td>
+<td>The name of the field to use as the source for the X-axis values</td>
+<td align="right">No; defaults to a field called control, if present, otherwise the second numerical field in the stream</td>
+</tr>
+<tr>
+<td><code>-keyField</code></td>
+<td>The field containing the name of the series to which each point belongs</td>
+<td align="right">Required when series is configured; otherwise Jut looks for unique streams and creates a series for each one. For simple metrics, the key field defaults to the <code>name</code> field that is present in all metrics points</td>
+</tr>
+<tr>
+<td><code>-timeField</code></td>
+<td>The field containing the time stamp</td>
+<td align="right">No; defaults to the time field</td>
+</tr>
+<tr>
+<td><code>-xScales.primary.label</code></td>
+<td>A string to label the X axis</td>
+<td align="right">No; defaults to the name of the <code>-controlField</code></td>
+</tr>
+<tr>
+<td><code>-xScales.primary.tickFormat</code></td>
+<td>Customize the unit display for this axis, using the <a href="https://github.com/mbostock/d3/wiki/Formatting">d3 number formatting syntax</a></td>
+<td align="right">No</td>
+</tr>
+<tr>
+<td><code>-xScales.primary.minValue</code></td>
+<td>The value at the left end of the X scale</td>
+<td align="right">No; the default is automatically derived from your data</td>
+</tr>
+<tr>
+<td><code>-xScales.primary.maxValue</code></td>
+<td>The value at the right end of the X scale</td>
+<td align="right">No; the default is automatically derived from your data</td>
+</tr>
+<tr>
+<td><code>-yScales.primary.label</code></td>
+<td>A string to label the Y axis</td>
+<td align="right">No; default is the name of the <code>-valueField</code></td>
+</tr>
+<tr>
+<td><code>-yScales.primary.tickFormat</code></td>
+<td>Customize the unit display for the Y axis, using the <a href="https://github.com/mbostock/d3/wiki/Formatting">d3 number formatting syntax</a></td>
+<td align="right">No</td>
+</tr>
+<tr>
+<td><code>-yScales.primary.minValue</code></td>
+<td>The value at the bottom of the Y scale</td>
+<td align="right">No; the default is automatically derived from your data</td>
+</tr>
+<tr>
+<td><code>-yScales.primary.maxValue</code></td>
+<td>The value at the top of the Y scale</td>
+<td align="right">No; the default is automatically derived from your data</td>
+</tr>
+<tr>
+<td><code>-yScales.primary.displayOnAxis</code></td>
+<td>Where to display the Y axis; must be exactly one of the following depending on whether your bar chart is oriented vertically or horizontally:<ul><li>left</li><li>right</li></ul></td>
+<td align="right">No; the default is left</td>
+</tr>
+<tr>
+<td><code>-tooltip.titleField</code></td>
+<td>The name of the field containing a string to use as the title for the tooltip</td>
+<td align="right">No; defaults to the <code>-keyField</code></td>
+</tr>
+<tr>
+<td><code>-tooltip.controlLabel</code></td>
+<td>A string for the label to display in the tooltip for the -controlField value</td>
+<td align="right">No; defaults to the <code>-xScales.primary.label</code></td>
+</tr>
+<tr>
+<td><code>-tooltip.controlFormat</code></td>
+<td>The format for the <code>-tooltip.titleField</code>, using the <a href="https://github.com/mbostock/d3/wiki/Formatting">d3 number formatting syntax</a></td>
+<td align="right">No; defaults to the -xScales.primary.tickFormat</td>
+</tr>
+<tr>
+<td><code>-tooltip.valueLabel</code></td>
+<td>A string for the label to display in the tooltip for the -valueField value</td>
+<td align="right">No; defaults to the <code>-yScales.primary.label</code></td>
+</tr>
+<tr>
+<td><code>-tooltip.valueFormat</code></td>
+<td>The format for the -tooltip.valueField, using the <a href="https://github.com/mbostock/d3/wiki/Formatting">d3 number formatting syntax</a></td>
+<td align="right">No; defaults to the <code>-yScales.primary.tickFormat</code></td>
+</tr>
+<tr>
+<td><code>-series</code></td>
+<td>Configure one or more data series individually, using one or more arrays with additional parameters, <a href="#series-parameters">see below</a></td>
+<td align="right">No</td>
+</tr>
+<tr>
+<td><code>-facet.fields</code></td>
+<td>A comma-separated list of the fields on which facets are based</td>
+<td align="right">Required to enable faceting; omit this option to disable facets</td>
+</tr>
+<tr>
+<td><code>-facet.width</code></td>
+<td>The width configuration for facets, which may be a fluid or fixed width: <ul><li>Fluid width: A percentage or fraction defining the grid layout of facets, one of the following: '100%', '50%', '25%', '20%', '1/2', '1/3', '1/4', '1/5', '1/6'. For example, '1/2' means facets are displayed in two columns, as does '50%'.</li><li>Fixed width: A number larger than 150 defining the fixed pixel width of individual facets</li></ul></td>
+<td align="right">No; defaults to '1/3'</td>
+</tr>
+<tr>
+<td><code>-facet.height</code></td>
+<td>A number larger than 80 defining the fixed pixel height of individual facets</td>
+<td align="right">No; the default height is calculated based on the width</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Series Parameters</strong></p>
+<pre><code>   -series [   
+   {   
+     name : 'seriesname',   
+     label : 'string',   
+     color : 'color'   
+   },   
+   {   
+     name : 'someotherseries',   
+     ...   
+   }   
+   ]   
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>A series name that can be found in the specified <code>-keyField</code>; this parameter is required for any configured series.</td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td>An optional string to override the scale label for this series</td>
+</tr>
+<tr>
+<td><code>color</code></td>
+<td>The color to use for this series, specified with any <a href="http://www.w3.org/TR/css3-color/">CSS3-supported hex or name value</a>; if not specified, a color is selected from the built-in palette</td>
+</tr>
+</tbody>
+</table>
+<p><em>Example: Display a scatterchart showing CPU usage versus response time</em></p>
+<pre><code>(
+    read stochastic -source 'srch_cluster' -from :2 minutes ago: name = 'response_ms';
+    read stochastic -source 'srch_cluster' -from :2 minutes ago: name = 'cpu'
+)
+| put *name = value
+| join
+| keep time, cpu, response_ms, service
+| view scatterchart -o {
+    valueField: 'response_ms',
+    controlField: 'cpu',
+    keyField: 'service',
+    xScales: {
+        primary: {
+            label: 'CPU Utilization (%)',
+            tickFormat: '%'
+        }
+    },
+    yScales: {
+        primary: {
+            label: 'Response Time (ms)'
+        }
+    },
+    display: {
+        duration: :5m:
+    }
+}
+</code></pre>
+
+<p><img alt="" src="../../images/screenshots/view_scatterchart_plain.png" /></p>
+<p><em>Example: Display a faceted scatterchart</em> </p>
+<pre><code>(
+emit -limit 10 | put  response_ms = count(), cpu = count(), service = 'search', host = 'host1';
+emit -limit 10 | put  response_ms = count()*2, cpu = count()*2, service = 'index', host = 'host2';
+emit -limit 10 | put  response_ms = count()*3, cpu = count()*3, service = 'auth', host = 'host1';
+emit -limit 10 | put  response_ms = count()*4, cpu = count()*4, service = 'test', host = 'host2';
+emit -limit 10 | put  response_ms = count()*5, cpu = count()*5, service = 'tim', host = 'host1';
+)
+| view scatterchart -o {
+  title: 'Faceted Scatter Chart',
+  valueField: 'cpu',
+  controlField: 'response_ms',
+  facet: {
+    fields: ['service'],
+    width: '1/3',
+    height: 150
+  },
+  display: {
+    duration: :10s:
+  }
+}
+</code></pre>
+
+<p><img alt="" src="../../images/screenshots/view_scatterchart_faceted.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../table/" class="btn btn-neutral float-right" title="table">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../piechart/" class="btn btn-neutral" title="piechart"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/juttle/juttle-viz" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../piechart/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../table/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

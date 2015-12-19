@@ -1,0 +1,7 @@
+(
+read stochastic -source 'cdn' -from :7 days ago: -to :6 days ago: -daily .5  -source_type 'metrics' name = 'cpu';
+read stochastic -source 'cdn' -from :1 days ago: -to :now: -daily .5  -source_type 'metrics' name = 'cpu'
+)
+| view timechart
+    -duration :1 day:
+    -overlayTime true

@@ -1,0 +1,6 @@
+read stochastic -from :1 hour ago: -to :now: -source 'logs' -errp 0.10 message~'*error*'
+| reduce count() by message
+| put url='[google it](https://www.google.com/?gws_rd=ssl#&q=' 
+    + String.replace(message, /\(|\)/g, ' ') + ')' // not to confuse markdown with ()
+| sort count -desc
+| view table -markdownFields ['url'] -title 'Google These Errors'

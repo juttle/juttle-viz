@@ -1,0 +1,63 @@
+const spiketime1 = :7 minutes before 2014-01-01:;
+const spiketime2 = :3 minutes before 2014-01-01:;
+
+reducer spike_cpu(valfield,hostname,time) {
+
+    // workaround for PROD-5118, once its fixed we can remove this const redefinition
+    const spiketime1 = :7 minutes before 2014-01-01:;
+    const spiketime2 = :3 minutes before 2014-01-01:;
+
+    var spike1 = 0;
+    var spike2 = 0;
+    var val = 0;
+
+    function update() {
+        if (*time > spiketime1) {
+        spike1 = 1;
+        }
+        if (*time > spiketime2) {
+        spike2 = 1;
+        }
+        if ((*hostname == "nyc.2") && spike1 != 0) {
+        val = *valfield + 0.5;
+        } else {
+        if ((*hostname == "sea.0") && spike2 != 0) {
+            val = *valfield + 0.2;
+        } else {
+            val = *valfield;
+        }
+        }
+    }
+
+    function result() {
+        return val;
+    }
+
+}
+
+read stochastic -source 'cdn' -nhosts 3 -from :10 minutes before 2014-01-01: -to :2014-01-01: -source_type 'metrics' name = 'cpu'
+|filter name = 'cpu'
+|put value=spike_cpu(value,host,time)
+|  view timechart
+     -valueField 'value'
+     -keyField 'host'
+     -yScales.primary.tickFormat '%'
+     -title "% CPU busy on all hosts"
+     -id 'CPU';
+
+emit -limit 1 -from spiketime1
+| put title = "title",type = "git",text = "Enable new CPU-consuming service in New York",label = "git merge"
+| view events
+    -on "CPU"
+    -typeField "type"
+    -timeField "time"
+    -messageField "text"
+    -nameField "label";
+
+emit -limit 1 -from spiketime2
+| put title = "title",type = "git",text = "Something that thrashes the CPU in Seattle",label = "git merge"
+| view events
+    -on "CPU" -typeField "type"
+    -timeField "time"
+    -messageField "text"
+    -nameField "label";

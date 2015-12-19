@@ -1,0 +1,35 @@
+// approach 1: split points to get separate series
+// use default colors
+read stochastic -source 'cdn' -from :-1m: -every :2s: -source_type 'metrics' name='cpu'
+| reduce -every :10s: time = first(time), min = min(value), max = max(value), avg = avg(value)
+| split min, avg, max
+| view timechart;
+
+// approach 2: split points to get separate series
+// assign custom color to each series
+read stochastic -source 'cdn' -from :-1m: -every :2s: -source_type 'metrics' name='cpu'
+| reduce -every :10s: time = first(time), min = min(value), max = max(value), avg = avg(value)
+| split min, avg, max
+| view timechart -series [
+    {name: 'min', color: 'yellow'},
+    {name: 'avg', color: 'blue'},
+    {name: 'max', color: 'red'}
+  ];
+
+// approach 3: derive series from reducing by a field
+// (unique values of that field define individual series)
+// assign custom colors via function
+function getcolor(pop) {
+    if (pop == 'sea') { return 'green'; }
+    if (pop == 'sjc') { return 'lightblue'; }
+    if (pop == 'nyc') { return 'white'; }
+    return 'red';
+}
+read stochastic -source 'cdn' -from :-1m: -every :2s: -nhosts 3 -source_type 'metrics' name='response_ms'
+| reduce -every :10s: value=max(value) by pop
+| put color = getcolor(pop)
+| view timechart -series [
+    {name: 'sea', color: getcolor('sea')},
+    {name: 'sjc', color: getcolor('sjc')},
+    {name: 'nyc', color: getcolor('nyc')}
+    ];

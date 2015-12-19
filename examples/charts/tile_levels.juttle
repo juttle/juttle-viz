@@ -1,0 +1,33 @@
+sub fakesource(counter, level) {
+    emit -limit 1 -from :2014-01-01:
+    | put counter=counter, level = level
+}
+
+fakesource -counter 0.99 -level 'success'
+| view tile -o {
+    title: 'Hit Rate',
+    valueFormat: 'e',
+    levelField: 'level',
+    valueField: 'counter'
+};
+
+fakesource -counter 97.5 -level 'warning'
+| view tile -o {
+    title: 'Requests per second',
+    levelField: 'level',
+    valueField: 'counter'
+};
+
+fakesource -counter 125 -level 'info'
+| view tile -o {
+    title: 'Requests per second',
+    valueField: 'counter'
+};
+
+fakesource -counter 3 -level 'error'
+| view tile -o {
+    title: 'Host reboots',
+    valueFormat: 'p',
+    levelField: 'level',
+    valueField: 'counter'
+};

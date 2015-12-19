@@ -1,0 +1,2 @@
+read stochastic -last :1 minute: -source 'logs'
+| view less

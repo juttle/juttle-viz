@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>timechart - Juttle Visualization Library</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../custom_theme/extra.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "timechart";
+    var mkdocs_page_input_path = "charts/timechart.md";
+    var mkdocs_page_url = "/charts/timechart/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Juttle Visualization Library</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../..">About</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../barchart/">barchart</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../events/">events</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../file/">file</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../less/">less</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../text/">text</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../piechart/">piechart</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../scatterchart/">scatterchart</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../table/">table</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../tile/">tile</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 current">
+        <a class="current" href="./">timechart</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+<li>
+          
+            <li>
+  
+<li>
+          
+            <li>
+  
+<li>
+          
+            <li>
+  
+<li>
+          
+            <li>
+  
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Juttle Visualization Library</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>timechart</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          
+            <a href="https://github.com/juttle/juttle-viz/blob/master/docs/charts/timechart.md" class="icon icon-github"> Edit on GitHub</a>
+          
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="timechart">timechart</h1>
+<p>Create a time series chart. Time charts support multiple series and can be combined with
+<a href="../events/"><code>view events</code></a>.</p>
+<p><img alt="" src="../../images/screenshots/view_timechart.png" /></p>
+<ul>
+<li><a href="../timechart_overlay/">Comparing data from different intervals</a></li>
+<li><a href="../timechart_overlay/">Overlaying events on time charts</a></li>
+<li><a href="../timechart_interactive/">Interacting with time charts</a></li>
+<li><a href="../timechart_zoom/">Zooming on historical data</a></li>
+<li><a href="../timechart_multi_series/">Multi-series time charts</a></li>
+<li><a href="../timechart_dual_axis/">Creating a dual-axis time chart</a></li>
+</ul>
+<pre><code>view timechart -o {
+  id: 'string',
+  title: 'string',
+  duration: duration,
+  markerSize: n,
+  overlayTime: boolean,
+  display: {
+   dataDensity: n
+  },
+  xScale: {
+   label: 'string',
+   tickFormat: 'd3FormatString'
+  },
+  yScales: {
+   primary: {
+    label: 'string',
+    tickFormat: 'd3FormatString',
+    minValue: n,
+    maxValue: n,
+    displayOnAxis: 'left'
+   },
+   secondary: {
+    label: 'string',
+    tickFormat: 'd3FormatString',
+    minValue: n,
+    maxValue: n,
+    displayOnAxis: 'right'
+   }
+  },
+  keyField: 'fieldname',
+  valueField: 'fieldname',
+  timeField: 'fieldname',
+  interval: 'n',
+  series: [
+   {
+    name: 'seriesname',
+    label: 'string',
+    yScale: 'primary|secondary',
+    color: 'color',
+    geom: 'line|bars'
+   }
+  ]
+}   
+</code></pre>
+
+<p><em>or</em></p>
+<pre><code>view timechart -id 'string' -title 'string' -duration duration -display.dataDensity n -markerSize n -overlayTime boolean
+   -xScale.label 'string' -xScale.tickFormat 'd3FormatString'
+  -yScales.primary.label 'string' -yScales.primary.tickFormat 'd3FormatString' -yScales.primary.minValue 'n' -yScales.primary.maxValue 'n' -yScales.primary.displayOnAxis 'left'
+   -yScales.secondary.label 'string' -yScales.secondary.tickFormat 'd3FormatString' -yScales.secondary.minValue 'n' -yScales.secondary.maxValue 'n' -yScales.secondary.displayOnAxis 'left'
+   -keyField 'fieldname' -valueField 'fieldname' -timeField 'fieldname'
+   -interval n -series [{name : 'seriesname', label : 'string', yScale : 'primary|secondary', color : 'color', geom : 'line|bars'}]
+</code></pre>
+
+<p>See <a href="../..#defining-view-parameters">Defining sink parameters</a>
+for an explanation of how sink parameters can be expressed as object literals.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th align="right">Required?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-id</code></td>
+<td>An identifier for this sink that serves as a handle for referencing the object in Juttle syntax; conceptually identical to a variable name</td>
+<td align="right">No</td>
+</tr>
+<tr>
+<td><code>-title</code></td>
+<td>The title for the user-visible output, if it has one; the value may be any valid Juttle expression that produces a string</td>
+<td align="right">No; defaults to the name field that is present in all metrics points</td>
+</tr>
+<tr>
+<td><code>-duration</code></td>
+<td><p>The span of time to display, either in seconds (&gt;=10) or as a Juttle moment literal. <br><br>This feature can also be used for comparing data from multiple intervals, such as this week's Web traffic versus last week's. This is done by setting the -overlayTime flag to true.</td>
+<td align="right">No</td>
+</tr>
+<tr>
+<td><code>-display.dataDensity</code></td>
+<td>The minimum number of pixels between points, for data downsampling</td>
+<td align="right">No; defaults to 5</td>
+</tr>
+<tr>
+<td><code>-markerSize</code></td>
+<td><p>he diameter of the circle representing each point, in pixels </p><p>When your data is not very dense, the chart renders distinctly separate circles connecting by a one-pixel line. For denser data, circles may be rendered close together, giving the appearance of a continuous line of the specified thickness.  </p></td>
+<td align="right">No; defaults to 0 (circle not shown)</td>
+</tr>
+<tr>
+<td><code>-overlayTime</code></td>
+<td>Whether the -duration value should be used to overlay time ranges. When true, the value of -duration drives the time-length of each overlayed range.</td>
+<td align="right">No; defaults to false</td>
+</tr>
+<tr>
+<td><code>-xScale.label</code></td>
+<td>The string that labels the X scale</td>
+<td align="right">No; defaults to the value of the <code>time</code> field</td>
+</tr>
+<tr>
+<td><code>-xScale.tickFormat</code></td>
+<td>Customize the unit display for this axis, using the <a href="https://github.com/mbostock/d3/wiki/Formatting">d3 number formatting syntax</a></td>
+<td align="right">No</td>
+</tr>
+<tr>
+<td><code>-yScales.primary.label</code></td>
+<td>A string to label the Y axis</td>
+<td align="right">No; default is the name of the <code>-valueField</code></td>
+</tr>
+<tr>
+<td><code>-yScales.primary.tickFormat</code></td>
+<td>Customize the unit display for the Y axis, using the <a href="https://github.com/mbostock/d3/wiki/Formatting">d3 number formatting syntax</a></td>
+<td align="right">No</td>
+</tr>
+<tr>
+<td><code>-yScales.primary.minValue</code></td>
+<td>The value at the bottom of the Y scale</td>
+<td align="right">No; the default is automatically derived from your data</td>
+</tr>
+<tr>
+<td><code>-yScales.primary.maxValue</code></td>
+<td>The value at the top of the Y scale</td>
+<td align="right">No; the default is automatically derived from your data</td>
+</tr>
+<tr>
+<td><code>-yScales.primary.displayOnAxis</code></td>
+<td>Where to display the Y axis; must be exactly one of the following depending on whether your bar chart is oriented vertically or horizontally: <ul><li>left</li><li>right</li></ul></td>
+<td align="right">No; the default is left</td>
+</tr>
+<tr>
+<td><code>-yScales.secondary.label</code></td>
+<td>The string that labels the secondary Y scale</td>
+<td align="right">No; by default no label is displayed</td>
+</tr>
+<tr>
+<td><code>-yScales.secondary.tickFormat</code></td>
+<td>Customize the unit display for this axis, using the <a href="https://github.com/mbostock/d3/wiki/Formatting">d3 number formatting syntax</a></td>
+<td align="right">No</td>
+</tr>
+<tr>
+<td><code>-yScales.secondary.minValue</code></td>
+<td>The value at the bottom of the Y scale</td>
+<td align="right">No; the default is automatically derived from your data</td>
+</tr>
+<tr>
+<td><code>-yScales.secondary.maxValue</code></td>
+<td>The value at the top of the Y scale</td>
+<td align="right">No; the default is automatically derived from your data</td>
+</tr>
+<tr>
+<td><code>-yScales.secondary.displayOnAxis</code></td>
+<td>The axis on which to display this scale, either 'left' or 'right'</td>
+<td align="right">No; defaults to 'left'</td>
+</tr>
+<tr>
+<td><code>-keyField</code></td>
+<td>The field containing the name of the series to which each point belongs</td>
+<td align="right"><p>Required when series is configured; otherwise Jut looks for unique streams and creates a series for each one </p><p>For simple metrics, the key field usually defaults to the <code>name</code> field that is present in all metrics points</p></td>
+</tr>
+<tr>
+<td><code>-valueField</code></td>
+<td>The name of the field to use as the source for the numeric values</td>
+<td align="right">No; defaults to the <code>value</code> field that is present in all metrics points. If no value field is present, the first numeric field in the stream is used.</td>
+</tr>
+<tr>
+<td><code>-timeField</code></td>
+<td>The field containing the time stamp</td>
+<td align="right">No; defaults to the time field</td>
+</tr>
+<tr>
+<td><code>-interval</code></td>
+<td>The duration threshold between two consecutive points, above which they will not be connected by a line</td>
+<td align="right">No; all points are connected by lines</td>
+</tr>
+<tr>
+<td><code>-series</code></td>
+<td>Configure one or more data series individually, using one or more items in an array with these parameters:</td>
+<td align="right">No</td>
+</tr>
+</tbody>
+</table>
+<pre><code>   -series [   
+   {   
+    name : 'seriesname',   
+    label : 'string',   
+    yScale : 'primary|secondary',   
+    color : 'color',   
+    geom : 'line|bars'   
+   },   
+   {   
+    name : 'someotherseries',   
+   ...   
+   }   
+  ]   
+</code></pre>
+
+<h4 id="series-parameters">Series Parameters</h4>
+<table>
+<thead>
+<tr>
+<th><code>-series</code> Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>A series name that can be found in the specified <code>-keyField</code>; omit this option to configure all series in the data set</td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td>An optional string to override the scale label for this series</td>
+</tr>
+<tr>
+<td><code>yScale</code></td>
+<td>The Y scale to use for this series, either "primary" or "secondary"; the default is "primary"</td>
+</tr>
+<tr>
+<td><code>color</code></td>
+<td>The color to use for this series, specified with any <a href="http://www.w3.org/TR/css3-color/">CSS3-supported hex or name value</a>; if not specified, a color is selected from the built-in palette</td>
+</tr>
+<tr>
+<td><code>geom</code></td>
+<td>Set this to <code>'bars'</code> to display this series as bars on the time chart; the width of each bar is the interval between the current point and the previous point. The default is <code>'line'</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Example: Timechart with default series selection</em></p>
+<pre><code>read stochastic -source 'cdn' -last :1 hour: -nhosts 3 -source_type 'metric' name='cpu'
+| view timechart 
+    -title '% CPU busy on all hosts' 
+    -yScales.primary.tickFormat '%'
+</code></pre>
+
+<p><img alt="" src="../../images/screenshots/view_timechart_default.png" /></p>
+<p><em>Example: Compare yesterday's CPU usage with usage today so far</em> </p>
+<pre><code>read stochastic -source 'cdn' -source_type 'metric' -last :2 days: -daily .5 name = 'cpu'
+| view timechart
+    -duration :1 day:
+    -overlayTime true
+</code></pre>
+
+<p><img alt="" src="../../images/screenshots/view_timechart_overlay_time_1.png" /></p>
+<p><em>Example: Compare CPU usage from today with the same day last week</em> </p>
+<pre><code>(
+read stochastic -source 'cdn' -from :7 days ago: -to :6 days ago: -daily .5  -source_type 'metrics' name = 'cpu';
+read stochastic -source 'cdn' -from :1 days ago: -to :now: -daily .5  -source_type 'metrics' name = 'cpu'
+)
+| view timechart
+    -duration :1 day:
+    -overlayTime true
+</code></pre>
+
+<p><img alt="" src="../../images/screenshots/view_timechart_overlay_time_2.png" /></p>
+<p><em>Example: Configure a multi-series time chart</em> </p>
+<pre><code>sub src(cate, coefficient) {
+  emit -limit 100 -hz 10 |
+  put category = cate       |
+  put value = Math.random() * coefficient
+}
+
+(
+src -cate &quot;smaug&quot;   -coefficient 10;
+src -cate &quot;sauron&quot;  -coefficient 20;
+src -cate &quot;saruman&quot; -coefficient 1;
+) |
+view timechart -o {
+  keyField: 'category',
+  yScales: {
+    secondary: {}
+  },
+  series: [
+  {
+    label  : 'smaug',
+    color  : 'red',
+    name   : 'smaug'
+  },
+  {
+    label  : 'sauron',
+    color  : '#228B22',
+    name   : 'sauron'
+  },
+  {
+    label  : 'saruman',
+    color  : 'burlywood',
+    name   : 'saruman',
+    yScale : 'secondary'
+  }
+  ]
+}
+</code></pre>
+
+<p><img alt="" src="../../images/screenshots/view_timechart_multi.png" /></p>
+<p><em>Example: Configure one series to be displayed as bars, while others are displayed as lines</em></p>
+<pre><code>read stochastic -source 'srch_cluster' -from :2 minutes ago:           // Get data from 2 minutes ago and ingest live data
+   name = 'response_ms'                                         // Filter our all metrics except response_ms
+| reduce -every :2s: p90 = percentile('value', .9) by service   // Calculate p90 response time
+| view timechart -valueField 'p90'                                  // Plot data on a chart
+  -title 'Response time (ms) by Service'
+  -series [{name : 'search', geom : 'bars'}]
+  -duration :2 minutes:
+</code></pre>
+
+<p><img alt="" src="../../images/screenshots/view_timechart_bars.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../timechart_overlay/" class="btn btn-neutral float-right" title="____ Timechart Overlalys">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../tile/" class="btn btn-neutral" title="tile"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/juttle/juttle-viz" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../tile/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../timechart_overlay/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
