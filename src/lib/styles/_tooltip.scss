@@ -1,0 +1,110 @@
+$bg-gray: rgb(102,102,102);
+$border-white: #EFEFEF;
+
+.jut-charts.tooltip {
+
+    position: absolute;
+    padding: 14px;
+    max-width: 450px;
+    pointer-events: none;
+    background-color: $gray-darker;
+    border: 1px $gray-light solid;
+    color: $gray-dark;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 13px;
+    box-shadow:  5px 5px 15px 0px rgba(0,0,0,0.75);
+
+    .title {
+        font-weight: 200;
+        font-size: 14px;
+        color: white;
+        margin: 0 0 5px 0;
+    }
+
+    .body {
+        color: white;
+    }
+
+    &.right {
+        @include vendor-prefix(border-top-left-radius, 0);
+    }
+
+    &.left {
+        @include vendor-prefix(border-top-right-radius, 0);
+    }
+
+    &.pinned {
+        pointer-events: auto;
+    }
+
+    .text-label {
+        display: inline-block;
+    }
+
+    .text {
+        display: inline-block;
+        margin-left: 2px;
+    }
+
+    &:after, &:before {
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    &.right:after, &.right:before {
+        right: 100%;
+    }
+
+    &.left:after, &.left:before {
+        transform:rotate(180deg);
+        left: 100%;
+    }
+
+    &.right:after {
+        border-width: 0 20px 20px 0;
+    }
+
+    &.right:before {
+        border-width: 0 22px 22px 0;
+    }
+
+    &.left:after {
+        border-width: 20px 20px 0 0;
+    }
+
+    &.left:before {
+        border-width: 22px 22px 0 0;
+    }
+
+
+    &:after {
+        top: 0px;
+        border-color: rgba(136, 183, 213, 0);
+        border-right-color: $gray-darker;
+    }
+
+    &:before {
+        top: -1px;
+        border-color: rgba(0, 0, 0, 0);
+        border-right-color: $gray-light;
+    }
+
+}
+
+.event-series, .line-series {
+    margin-left:8px;
+}
+
+.event-series {
+    margin-bottom:7px;
+}
+
+.line-series {
+    margin-bottom:3px;
+}

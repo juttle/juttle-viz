@@ -1,0 +1,12 @@
+.form-control {
+    width: 100%;
+    display: block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42;
+    color: $input-color;
+    background-color: $input-bg;
+    border: 1px solid $input-border;
+    border-radius: 4px;
+}

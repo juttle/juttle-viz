@@ -1,0 +1,41 @@
+.table-sink-container {
+    background-color: $table-bg-accent;
+    margin: 0 20px;
+    overflow: hidden;
+    padding-top: 28px;
+    position: relative;
+
+    .inner-container {
+        overflow: scroll;
+
+        &.hide-overflow {
+            overflow: hidden;
+        }
+
+        table {
+            border-spacing: 0;
+            font-family: monospace;
+            width: 100%;
+        }
+
+        th {
+            height: 0;
+            line-height: 0;
+            padding-bottom: 0;
+            padding-top: 0;
+            visibility: hidden;
+            white-space: nowrap;
+
+            div {
+                padding: 14px 0;
+                position: absolute;
+                top: 0;
+                visibility: visible;
+            }
+
+            &:first-child div {
+                border: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+sub src(cate, coefficient) {
+  emit -limit 100 -hz 10 |
+  put category = cate       |
+  put value = Math.random() * coefficient
+}
+ 
+(
+src -cate "smaug"   -coefficient 10;
+src -cate "sauron"  -coefficient 20;
+src -cate "saruman" -coefficient 1;
+) |
+view timechart -o {
+  keyField: 'category',
+  yScales: {
+    secondary: {}
+  },
+  series: [
+  {
+    label  : 'smaug',
+    color  : 'red',
+    name   : 'smaug'
+  },
+  {
+    label  : 'sauron',
+    color  : '#228B22',
+    name   : 'sauron'
+  },
+  {
+    label  : 'saruman',
+    color  : 'burlywood',
+    name   : 'saruman',
+    yScale : 'secondary'
+  }
+  ]
+}

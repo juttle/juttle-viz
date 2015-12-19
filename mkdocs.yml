@@ -1,0 +1,47 @@
+site_name: Juttle Visualization Library
+
+docs_dir: docs
+
+repo_url: https://github.com/juttle/juttle-viz
+repo_docs_dir: docs
+
+dev_addr: '0.0.0.0:8000'
+
+theme: readthedocs
+theme_dir: docs/custom_theme
+extra_css: [ custom_theme/extra.css ]
+
+markdown_extensions:
+    - markdown_include.include
+    - unimoji:
+        span_class: 'custom_emoji'
+        emoji: 
+         '<img alt="bulb" src="/images/emoji/bulb.png" width="30" height="30"/>': [ ':bulb:' ]
+         '<img alt="construction" src="/images/emoji/construction.png" width="30" height="30"/>': [ ':construction:' ]
+         '<img alt="warning" src="/images/emoji/warning.png" width="30" height="30"/>': [ ':warning:' ]
+         '<img alt="baby_symbol" src="/images/emoji/baby_symbol.png" width="30" height="30"/>': [ ':baby_symbol:' ]
+         '<img alt="information_source" src="/images/emoji/information_source.png" width="30" height="30"/>': [ ':information_source:' ]
+
+use_directory_urls: true
+
+pages:
+
+# Pages with ___Title are hidden from left sidebar menu.
+
+- 'About': 'index.md'
+- 'barchart': 'charts/barchart.md'
+- 'events': 'charts/events.md'
+- 'file': 'charts/file.md'
+- 'less': 'charts/less.md'
+- 'text': 'charts/text.md'
+- 'piechart': 'charts/piechart.md'
+- 'scatterchart': 'charts/scatterchart.md'
+- 'table': 'charts/table.md'
+- 'tile': 'charts/tile.md'
+- 'timechart': 'charts/timechart.md'
+- '____ Timechart Overlalys': 'charts/timechart_overlay.md'
+- '____ Interactive Timecharts': 'charts/timechart_interactive.md'
+- '____ Zoom on Timecharts': 'charts/timechart_zoom.md'
+- '____ Multi Series Timecharts': 'charts/timechart_multi_series.md'
+- '____ Dual Axis Timecharts': 'charts/timechart_dual_axis.md'
+

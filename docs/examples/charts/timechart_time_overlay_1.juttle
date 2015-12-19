@@ -1,0 +1,4 @@
+read stochastic -source 'cdn' -source_type 'metric' -last :2 days: -daily .5 name = 'cpu'
+| view timechart
+    -duration :1 day:
+    -overlayTime true

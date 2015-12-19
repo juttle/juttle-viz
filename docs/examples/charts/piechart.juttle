@@ -1,0 +1,5 @@
+read stochastic -source 'cdn' -last :1h: -source_type 'metric' name='disk'
+| reduce disk_full = last(value)
+| put disk_empty = 1 - disk_full
+| split
+| view piechart -title 'Disk Usage' -sliceLabels.valueFormat '%'

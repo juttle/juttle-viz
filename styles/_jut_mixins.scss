@@ -1,0 +1,24 @@
+$vendor-prefixes: ("-webkit-", "-moz-", "-ms-", "-o-", "");
+
+@mixin vendor-prefix($name, $argument) {
+    @each $prefix in $vendor-prefixes {
+        #{$prefix}#{$name}: #{$argument};
+    }
+    
+}
+
+@mixin linear-gradient($args...) {
+    @each $prefix in $vendor-prefixes {
+        background-image: #{$prefix}linear-gradient(#{$args});
+    } 
+}
+
+@mixin text-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@mixin no-select {
+    @include vendor-prefix(user-select, none);
+}

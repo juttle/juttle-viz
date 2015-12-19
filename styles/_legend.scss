@@ -1,0 +1,102 @@
+.jut-legend {
+    width: 100%;
+    padding-bottom: 5px;
+    padding-right: 8px;
+    padding-left: 40px;
+    position: relative;
+    min-height: 24px;
+    clear: both;
+
+    .legend-body {
+        max-height: 80px;
+        overflow: auto;
+        display: block;
+        padding-right: 12px;
+        padding-left: 2px;
+    }
+
+    .legend-toogle-btn {
+        font-size: 20px;
+        color: $gray;
+        margin-right: 6px;
+        position: absolute;
+        left: 22px;
+        bottom: 6px;
+        cursor: default;
+
+        &:hover {
+            color: $gray-icon;
+        }
+
+        .collapsed-title {
+            font-size: 13px;
+            padding-left: 8px;
+            vertical-align: middle;
+            display: none;
+        }
+
+    }
+
+    &.collapsed {
+
+        .legend-body {
+            display: none;
+        }
+
+        .collapsed-title {
+            display: inline-block;
+        }
+    }
+
+    .legend-item {
+        display: inline-block;
+        white-space: nowrap;
+        margin-right: 15px;
+        line-height: 14px;
+        color: $gray-lighter;
+
+
+        .color-chip {
+            margin-right: 5px;
+            vertical-align: top;
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+
+        .series-label {
+            display: inline-block;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .value {
+            display: inline-block;
+            text-align: right;
+            overflow: hidden;
+        }
+
+        .tooltip {
+            font-size: 13px;
+            opacity: 1;
+            white-space: normal; 
+
+            .tooltip-inner {
+                max-width: 250px;
+                word-wrap: break-word;
+            }
+        }
+
+
+    }
+
+    // a container that is used to determine the pixel width of the longest series label
+    .series-label-width-test {
+        position: absolute;
+        visibility: hidden;
+        height: 0;
+    }
+
+}

@@ -1,0 +1,18 @@
+.juttle-view {
+    @import 'mixins/mixins';
+    @import 'bootstrap_variable_overrides';
+    @import "jut_variables";
+    @import "jut_mixins";
+    @import 'bootstrap_style_overrides';
+
+    color: $gray-lighter;
+    background-color: $gray-darker;
+
+    @import 'chart-main';
+    @import 'table';
+    @import 'inputs';
+    @import 'log-explorer';
+    @import 'legend';
+    @import 'tooltip';
+    @import 'timestamp';
+}

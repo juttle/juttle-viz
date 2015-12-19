@@ -1,0 +1,464 @@
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-weight: 400;
+}
+
+h6 {
+    margin: 0;
+}
+
+textarea {
+    width: 100%;
+    border-color: $gray;
+    background-color: $gray-text-fields;
+    box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,.5);
+    border-radius: $border-radius-base;
+    padding: 10px;
+    color: $text-color;
+    font-family: monospace;
+    &[readonly="readonly"] {
+        outline: none;
+    }
+}
+
+td, th {
+    input[type="radio"], input[type="checkbox"] {
+        margin: 2px 0 0;
+    }
+}
+
+blockquote {
+    p {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 22px;
+        color: $blue-gray;
+    }
+    footer {
+        font-size: 100%;
+        font-weight: 500;
+    }
+    cite {
+        color: $gray-light;
+        font-size: 14px;
+    }
+}
+
+.btn {
+    font-weight: 500;
+    line-height: 14px;
+    padding: $padding-alternate-vertical $padding-alternate-horizontal;
+    color: $gray-pale;
+    background: transparent;
+    border-radius: $border-radius-large;
+    &[disabled], &.disabled {
+        border-color: $gray-medium;
+        background: transparent;
+        color: $gray-medium;
+    }
+    &:hover {
+        color: $gray-pale;
+    }
+    &:focus {
+        color: $gray-pale;
+        background-color: transparent;
+    }
+    &:active, &.active {
+        box-shadow: none;
+    }
+    &.btn-sm {
+        padding: $padding-small-vertical $padding-small-horizontal;
+    }
+    &.btn-lg {
+        line-height: 1.33;
+    }
+    .fa {
+        line-height: 13px; // fa bug?
+    }
+}
+.btn + .btn {
+    margin-left: 5px;
+}
+
+.btn-primary {
+    &.zeroclipboard-is-hover, &:hover, &.hover {
+        color: $gray-pale;
+        background-color: rgba($blue-light, 0.2);
+    }
+    &:active, &.active {
+        color: $gray-pale;
+        background-color: $blue-medium;
+        border-color: $blue-medium;
+    }
+}
+
+.btn-default {
+    &:hover, &.hover {
+        color: $gray-pale;
+        background-color: rgba($gray-medium, 0.2);
+    }
+    &:active, &.active{
+        color: $gray-pale;
+        background-color: $gray-medium;
+        border-color: $gray-medium;
+    }
+}
+
+.btn-danger {
+    &:hover, &.hover {
+        color: $gray-pale;
+        background-color: rgba($red, 0.2);
+    }
+    &:active, &.active{
+        color: $gray-pale;
+        background-color: $red-dark;
+        border-color: $red-dark;
+    }
+}
+
+.btn-success {
+    &:hover, &.hover {
+        color: $gray-pale;
+        background-color: rgba($green-light, 0.2);
+    }
+    &:active, &.active{
+        color: $gray-pale;
+        background-color: $green-medium;
+        border-color: $green-medium;
+    }
+}
+
+.btn.btn-sm, .btn-group-sm > .btn {
+    height: 30px;
+    font-size: $padding-alternate-vertical;
+    line-height: $padding-alternate-vertical;
+}
+
+.btn-lg {
+    font-size: 22px;
+    small {
+        font-size: 11px;
+    }
+}
+
+.input-group-btn:last-child {
+    .btn  {
+        padding: $padding-alternate-vertical;
+        margin-left: 0;
+    }
+}
+
+.btn-nav {
+    padding: 12px;
+    @include flexbox;
+    .btn-nav-prev, .btn-nav-next {
+        @include flex(0,0, 20px);
+        color: $blue-light;
+        font-size: 34px;
+        font-weight: 100;
+    }
+    &[disabled] .btn-nav-prev, &[disabled] .btn-nav-next {
+        color: $gray;
+    }
+    .btn-nav-label {
+        @include flex(1);
+        font-size: 15px;
+    }
+}
+
+.navbar-fixed-bottom {
+    min-height: $navbar-footer-height;
+    .navbar-brand {
+        padding: 0;
+        height: auto;
+        margin-right: 25px;
+        img {
+            height: 36px;
+        }
+    }
+    .navbar-nav {
+        li {
+            a {
+                padding: 9px 15px 7px;
+                i {
+                    color: $gray-medium;
+                }
+                img {
+                    height: 20px;
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+}
+
+.nav-pills {
+    .nav-stacked {
+        width: 100%;
+    }
+    li {
+        margin-bottom: 2px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    > li >a {
+        border-radius:0;
+    }
+    a {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #EBEBEB;
+        line-height: 18px;
+        &:hover {
+            background: #396FA0;
+        }
+    }
+}
+
+.well {
+    border-radius: $border-radius-large;
+    &.table-well {
+        &.user-table-well {
+            max-width: 1094px;
+            min-width: 542px;
+        }
+        padding: 5px 0 12px;
+    }
+}
+
+.well-dark {
+    background-color: $gray-darker;
+
+    .table-striped {
+        tr {
+            td:first-child, th:first-child {
+                padding-left: 12px;
+            }
+            td:last-child, th:last-child {
+                padding-right: 12px;
+            }
+        }
+        > tbody > tr:nth-child(odd) {
+            > td,
+            > th {
+                background-color: $gray-text-fields;
+            }
+        }
+    }
+}
+
+.dropdown-menu {
+    font-size: $font-size-base;
+    margin: -1px 0 0;
+    padding: 8px 0;
+    border-radius:5px;
+    li {
+        a {
+            padding: 5px 30px;
+        }
+
+        label {
+            padding: 5px 15px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: normal;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 6px;
+        }
+
+        label:hover {
+          background-color: $blue-medium;
+        }
+    }
+}
+
+.open > .btn-primary.dropdown-toggle {
+  color: $gray-pale;
+  background-color: $gray-medium;
+  border-color: $gray-medium;
+}
+
+// all buttons should go dark gradient when open
+.btn-group {
+    .dropdown-toggle:first-child {
+        font-size: $font-size-small;
+        background: $gray;
+        @include linear-gradient(top, $gray-medium, $gray);
+
+        &:hover, &.hover {
+            @include linear-gradient(top, $gray-hover-start, $gray-hover-end);
+        }
+
+        &:active {
+            @include linear-gradient(top, $gray-dark, $gray);
+        }
+
+        i {
+            font-size: 10px;
+        }
+    }
+    &.open .dropdown-toggle:first-child { // :/
+        @include linear-gradient(top, $gray-dark, $gray);
+    }
+    .dropdown-menu {
+        border-top-left-radius: 0;
+    }
+}
+
+.form-group {
+    label {
+        margin-left: 3px;
+    }
+    .help-block {
+        margin-top: 10px;
+    }
+}
+
+.form-horizontal {
+    .control-label {
+        text-align: left;
+        margin-left: 0;
+    }
+}
+
+label {
+    color: $gray-lighter;
+    font-weight: normal;
+    font-size: $font-size-small;
+}
+
+// make inner shadows on form-controls
+.form-control {
+    box-shadow: inset 4px 4px 5px 0px rgba(0, 0, 0, 0.2);
+    overflow: scroll;
+    height:40px;
+    &.with-icon {
+        padding-left: 35px;
+    }
+    &[readonly] {
+        cursor: text;
+        background: $input-bg;
+    }
+}
+
+.input-addon {
+    position: absolute;
+    top: $padding-alternate-vertical;
+    left: 30px;
+}
+
+.modal-content {
+    border-radius: 0;
+}
+
+.modal-header {
+    background-color: $gray-dark;
+    border-bottom: none;
+    .close {
+        margin-top: 0px;
+        padding: 11px 20px;
+    }
+    .modal-header-background {
+        display: inline-block;
+        position: relative;
+        background: $almost-black;
+        min-width: 280px;
+        width: 280px;
+        padding: 15px 20px;
+        &::after {
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: (43px) (43px) 0 0;
+            border-color: $almost-black transparent transparent transparent;
+            content: " ";
+            right: -(43px);
+            position: absolute;
+            top: 0;
+        }
+        .modal-title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+.modal-footer {
+    background: $gray-darker;
+    margin-top: 0;
+    padding: 15px 20px;
+    border-top: none;
+    .btn + .btn {
+        margin-left: 15px;
+    }
+}
+
+// remove border on the wells
+
+.well {
+    border: none;
+}
+
+// alert overrides
+.alert {
+    border-radius: $border-radius-large;
+    background-color: $gray-darker;
+    color: white;
+
+    &.alert-warning {
+        border-color: $brand-warning;
+    }
+
+    &.alert-danger {
+        border-color: $brand-danger;
+    }
+}
+
+.nav-tabs {
+    li {
+        a {
+            background-color: $gray-dark;
+            border-bottom: 1px;
+            border-radius: 0;
+            margin-right: 10px;
+            &:hover {
+                background-color: $nav-tabs-link-hover-border-color;
+            }
+        }
+    }
+}
+
+.table {
+    thead {
+        th {
+            color: $gray-lighter;
+            font-weight: normal;
+            font-size: $font-size-small;
+        }
+    }
+    th, td {
+        &:first-child {
+            padding-left: 12px;
+        }
+        &:last-child {
+            padding-right: 12px;
+        }
+    }
+    tbody {
+        border-bottom: 2px solid $table-bg-accent;
+    }
+}
+
+.hidden {
+    display: none !important;
+}

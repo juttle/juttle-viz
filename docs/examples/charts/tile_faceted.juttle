@@ -1,0 +1,5 @@
+// This Juttle program draws a tile visualization showing current, live updating CPU utilization per host.
+// It uses a synthetic data source, but similar code can be used to view real reported CPU usage.
+
+read stochastic -source 'cdn' -from :1 minute ago: -nhosts 3 -every :2s: -source_type 'metrics' name='cpu'
+| view tile -facetFields ['host'] -title 'CPU usage' -valueField 'value' -valueFormat '.2%'

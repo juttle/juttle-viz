@@ -1,0 +1,7 @@
+read stochastic -source 'srch_cluster' -from :2 minutes ago:           // Get data from 2 minutes ago and ingest live data
+   name = 'response_ms'                                         // Filter our all metrics except response_ms
+| reduce -every :2s: p90 = percentile('value', .9) by service   // Calculate p90 response time
+| view timechart -valueField 'p90'                                  // Plot data on a chart
+  -title 'Response time (ms) by Service'
+  -series [{name : 'search', geom : 'bars'}]
+  -duration :2 minutes:

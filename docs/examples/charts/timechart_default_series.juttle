@@ -1,0 +1,4 @@
+read stochastic -source 'cdn' -last :1 hour: -nhosts 3 -source_type 'metric' name='cpu'
+| view timechart 
+    -title '% CPU busy on all hosts' 
+    -yScales.primary.tickFormat '%'

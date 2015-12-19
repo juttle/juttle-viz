@@ -1,0 +1,549 @@
+svg.jut-chart {
+    shape-rendering: optimizeSpeed;
+    -webkit-transform: translate3D(0, 0, 0);
+
+    path.line {
+        fill : none;
+        stroke-width: 1;
+    }
+
+    path.area {
+        stroke: none;
+        fill-opacity: 0.5;
+    }
+
+    rect.bar, rect.cell {
+
+        shape-rendering: crispEdges;
+
+        &:hover {
+            stroke-width: 1px;
+            stroke: white;
+        }
+
+        &.hover {
+            stroke-width: 1px;
+            stroke: white;
+        }
+
+        stroke: none;
+    }
+    .series {
+        circle.hover {
+            stroke : $yellow;
+            stroke-width : 1;
+        }
+
+        rect.time-bar {
+            stroke : white;
+            stroke-wdith : 1;
+
+            &.hover {
+                stroke-width : 2;
+            }
+        }
+    }
+
+    .grid {
+        stroke-width: 1;
+        path, line {
+            shape-rendering: crispEdges;
+            fill: none;
+        }
+
+        .tick {
+            line {
+                stroke: $gray-lighter;
+                stroke-width: 2;
+            }
+
+            text {
+                fill : none;
+            }
+
+            text.hidden {
+                display: none;
+            }
+        }
+    }
+
+    .axis {
+
+        stroke-width: 1;
+
+        path, line {
+            shape-rendering: crispEdges;
+            fill: none;
+        }
+
+        text {
+            fill: $gray-lighter;
+        }
+
+        .title {
+            fill: $gray-lighter;
+            font-size: 14pt;
+
+            .window, .time {
+                font-size: 18px;
+                fill: #EBEBEB;
+            }
+
+            .date {
+                font-size: 17px;
+                fill: #EBEBEB;
+            }
+
+            .window, .date {
+                font-weight: 'medium'
+            }
+
+            .preposition {
+                font-size: 14px;
+                font-style: italic;
+                fill: #999999;
+            }
+        }
+
+        &.x {
+            path {
+                fill: none;
+                stroke: $gray-lighter;
+                stroke-width: 2;
+            }
+            .tick {
+                line {
+                    stroke: $gray-lighter;
+
+                }
+            }
+        }
+
+        &.y {
+            path {
+                fill: none;
+                stroke: $gray-lighter;
+                stroke-width: 2;
+            }
+            .tick {
+                line {
+                    stroke: $gray-lighter;
+                    /* stroke: blue; */
+                }
+            }
+        }
+    }
+
+    .axis-label {
+        text {
+            fill: $gray-lighter;
+            font-size: 12pt;
+        }
+    }
+
+    .event-marker {
+        stroke: $gray-medium;
+
+        .icon {
+            fill: transparent;
+            text {
+                fill: $blue-light;
+                stroke-width: 0;
+                font-size: 13px;
+            }
+            path.iconMarker {
+                stroke-width: 6;
+            }
+        }
+
+        line.vertical-line {
+            stroke: $gray-medium;
+        }
+
+        &.hover {
+            stroke: $blue-light;
+            line.vertical-line {
+                stroke: $blue-light;
+            }
+        }
+    }
+
+    line.vertical-line {
+        stroke-width: 1;
+        stroke: $yellow;
+    }
+
+    .points {
+
+        rect.overlay {
+            pointer-events: all;
+            fill: none;
+        }
+
+        .focus {
+            pointer-events: none;
+        }
+    }
+
+    text.placeholder {
+        font-size: $font-size-h3;
+    }
+
+    &.pie-chart {
+        polyline.label-line {
+            fill: none;
+            stroke-width: 1;
+            stroke: $gray-lighter;
+        }
+
+        text.label {
+            font-size: inherit;
+            font-weight: normal;
+            fill: $gray-lighter;
+        }
+    }
+
+    &.bar-chart {
+
+        &.vertical {
+            .x.axis path {
+                stroke-width: 1;
+            }
+        }
+
+        &.horizontal {
+            .y.axis path {
+                stroke-width: 1;
+            }
+        }
+    }
+
+    &.time-chart {
+        .x.axis path {
+            stroke-width: 1;
+        }
+    }
+
+    .brush .extent {
+      stroke: #fff;
+      fill-opacity: .125;
+      shape-rendering: crispEdges;
+    }
+}
+
+svg.facet-layout {
+
+    .axes {
+        .left {
+            visibility: hidden;
+        }
+        .right {
+            visibility: hidden;
+        }
+        .x {
+            visibility: hidden;
+        }
+    }
+
+    .left {
+        .axes {
+            .left {
+                visibility: visible;
+            }
+        }
+    }
+
+    .right {
+        .axes {
+            .right {
+                visibility: visible;
+            }
+        }
+    }
+
+    .bottom {
+        .axes {
+            .x {
+                visibility: visible;
+            }
+        }
+    }
+}
+
+
+div.jut-chart-header {
+     background-color: $gray-darker;
+    .chart-alert {
+        float: right;
+	span {
+	    font-size: 2em;
+	    top: 5px;
+	}
+    }
+}
+
+.chart.metric {
+  text-align: center;
+  padding: 0 15px 0 15px;
+
+  .value {
+    font-size: 80px;
+    line-height: 85px;
+    overflow: hidden;
+
+    .data {
+      white-space: nowrap;
+    }
+  }
+
+  .icon {
+    font-size: 17px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .metric-unit {
+    color: $gray-medium;
+    font-size: 40px;
+    vertical-align: text-top;
+  }
+
+  .title {
+    font-size: 14px;
+    font-weight: bold;
+    color: $gray-pale;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &.ok {
+    color: white;
+
+    .icon {
+      display: none;
+    }
+  }
+
+  &.success {
+    color: $green;
+  }
+
+  &.warning {
+    color: $yellow;
+  }
+
+  &.error {
+    color: $red;
+  }
+}
+
+.juttle-view-runtime-messages {
+    margin-left: 20px;
+    margin-bottom: 10px;
+
+    .message-contents {
+        margin-left: 6px;
+    }
+
+    .message-icon {
+        margin-left: 3px;
+        color: $yellow;
+    }
+
+}
+
+&.timechart {
+    .tooltip {
+        ul.series {
+            margin: 0px 0px 0px 8px;
+            padding: 0px;
+            list-style: none;
+
+            .series {
+                padding-bottom: 3px;
+            }
+
+            .event {
+                padding-bottom: 7px;
+
+                &.first {
+                    margin-top: 15px;
+                }
+            }
+
+            .metric {
+                //margin-bottom: 5px;
+            }
+
+            .event-name, .series-name {
+                font-weight: 200;
+            }
+
+            .event-name {
+                color: $blue-light;
+            }
+        }
+    }
+}
+
+&.scatterchart {
+    .tooltip {
+        ul.attribute-list {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+
+            li {
+                padding-bottom: 3px;
+
+                .label{
+                    font-weight: 100;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+.facet-layout {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+&.table {
+  background-color: inherit;
+}
+
+&.tile {
+    margin: 0px;
+    text-align: left;
+    .faceted-panel {
+        width: 360px;
+        height: 200px;
+    }
+
+    &.not-faceted {
+        text-align: middle;
+
+        .facet-layout {
+            justify-content: center;
+        }
+
+        .faceted-panel {
+            background-color: inherit;
+            border-width: 0px;
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.faceted-panel {
+    flex-grow: 0;
+    border: 1px solid black;
+    background-color: black;
+    position: relative;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    .header {
+        ul.title {
+            padding-left: 0px;
+            font-size: 14px;
+            margin: 0px;
+            font-weight: 500;
+            line-height: 1;
+            margin-top: 0px;
+            list-style-type: none;
+        }
+    }
+
+    .footer {
+        padding: 0;
+    }
+}
+
+.facet-layout-panel-wrapper {
+
+    .header text{
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1;
+    }
+
+    rect {
+       fill-opacity: 0;
+       stroke-width: 2;
+       stroke: $gray-lighter;
+    }
+
+}
+
+.jut-chart-header {
+    padding: 10px 15px 0px 15px;
+}
+
+.jut-chart-drag-wrapper {
+    padding: 0px 5px;
+    border: 1px solid transparent;
+
+    &.hover {
+        background-color: $gray-darker;
+    }
+
+    .chart-drag-icon {
+        font-size: 16px;
+        float: left;
+        position: relative;
+        color: $gray-background;
+        padding: 0;
+        padding-top: 3px;
+        margin-right: 6px;
+
+        &.hover {
+            background-color: $gray-darker;
+            color: $gray-icon;
+        }
+    }
+
+    .jut-chart-title {
+        margin-left: 11px;
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+}
+
+.series-filter {
+    float: right;
+    margin-bottom: 5px;
+    display: inline-block;
+    margin-top: -2px;
+
+    input {
+        width: 200px;
+        height: 28px;
+        background-color: transparent;
+        border-radius: 4px;
+        box-shadow: none;
+    }
+
+    .clear-btn {
+        line-height: 28px;
+        width: 28px;
+        height: 28px;
+        color: $gray-background;
+        cursor: pointer;
+        pointer-events: all;
+
+        &.hover {
+            color: $gray-icon;
+        }
+    }
+
+}
