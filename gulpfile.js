@@ -5,18 +5,34 @@ var sass = require('gulp-sass');
 var connect = require('gulp-connect');
 var babelify = require('babelify');
 var mochaPhantomJS = require('gulp-mocha-phantomjs');
+var babel = require('gulp-babel');
+var gulpif = require('gulp-if');
+var del = require('del');
 
+gulp.task('clean', function(cb) {
+    del(['lib', 'build', 'test/build'])
+});
+
+gulp.task('lib', function() {
+    return gulp.src('src/**')
+        .pipe(gulpif(/[.]js$/, babel({
+            presets: ["react"]
+        })))
+        .pipe(gulp.dest('lib'));
+});
+
+// XXX lib and browserify should use the same babel procedure
+// consider using webpack here instead?
 gulp.task('browserify', function() {
-    return browserify('./index.js', {
-        standalone: 'JuttleViz',
-        extensions: '.jsx'
+    return browserify('src/index.js', {
+        standalone: 'JuttleViz'
     })
-    .transform(babelify, { presets: ["react"] })
-    .bundle()
-    //Pass desired output filename to vinyl-source-stream
-    .pipe(source('juttle-viz.js'))
-    // Start piping stream to tasks!
-    .pipe(gulp.dest('./build/'));
+        .transform(babelify, { presets: ["react"] })
+        .bundle()
+        //Pass desired output filename to vinyl-source-stream
+        .pipe(source('juttle-viz.js'))
+        // Start piping stream to tasks!
+        .pipe(gulp.dest('./build/'));
 });
 
 gulp.task('styles', function() {
@@ -53,4 +69,4 @@ gulp.task("test", ['tests-browserify'], function () {
         .pipe(mochaPhantomJS());
 });
 
-gulp.task('default', ['browserify', 'styles']);
+gulp.task('default', ['browserify', 'styles', 'lib']);
