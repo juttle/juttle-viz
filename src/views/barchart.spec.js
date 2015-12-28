@@ -23,31 +23,13 @@ describe('Bar Chart Sink View', function () {
             });
         });
 
-        it('unknown display field', function() {
-            viewTestUtils.verifyValidationError({
-                viewConstructor : BarChartView,
-                params : {
-                    display : {
-                        columnOrder : 'asdf'
-                    }
-                },
-                errorPath : 'display.columnOrder',
-                error : {
-                    'code' : 'UNKNOWN',
-                    'info' : {}
-                }
-            });
-        });
-
         it('non-numeric resetCategories', function() {
             viewTestUtils.verifyValidationError({
                 viewConstructor : BarChartView,
                 params : {
-                    display : {
-                        resetCategories : 'asdf'
-                    }
+                    resetCategories : 'asdf'
                 },
-                errorPath : 'display.resetCategories',
+                errorPath : 'resetCategories',
                 error : {
                     'code' : 'INVALID_TYPE',
                     'info' : {
@@ -93,11 +75,9 @@ describe('Bar Chart Sink View', function () {
             viewTestUtils.verifyValidationError({
                 viewConstructor : BarChartView,
                 params : {
-                    display : {
-                        orientation : 'diagonal'
-                    }
+                    orientation : 'diagonal'
                 },
-                errorPath : 'display.orientation',
+                errorPath : 'orientation',
                 error : {
                     'code' : 'ENUM',
                     'info' : {

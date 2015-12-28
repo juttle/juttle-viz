@@ -24,36 +24,30 @@ var optionValidationConfig = {
         'valueField',
         'xScale',
         'yScales',
-        'display',
-        'tooltip'
+        'tooltip',
+        'orientation',
+        'resetCategories',
+        'color',
+        'negativeColor',
+        'colorful'
     ],
     properties : {
         valueField : [v.validators.string],
         categoryField : [v.validators.string],
-        display : [
+        orientation : [
             {
-                validator : v.validators.object,
+                validator : v.validators.enum,
                 options : {
-                    allowedProperties : ['orientation', 'resetCategories', 'color', 'negativeColor', 'colorful'],
-                    properties : {
-                        orientation : [
-                            {
-                                validator : v.validators.enum,
-                                options : {
-                                    allowedValues : ['vertical', 'horizontal']
-                                }
-                            }
-                        ],
-                        resetCategories : [
-                            v.validators.integer,
-                            {
-                                validator : v.validators.greaterThanOrEqual,
-                                options : {
-                                    threshold : 0
-                                }
-                            }
-                        ]
-                    }
+                    allowedValues : ['vertical', 'horizontal']
+                }
+            }
+        ],
+        resetCategories : [
+            v.validators.integer,
+            {
+                validator : v.validators.greaterThanOrEqual,
+                options : {
+                    threshold : 0
                 }
             }
         ],
@@ -230,19 +224,13 @@ var BarChartView = JuttleView.extend({
     _applyOptionDefaults : function(options) {
         options = options || {};
         _.defaults(options, {
-            display : {},
             title : '',
             tooltip : {},
             xScale : {},
-            yScales : {}
-        });
-
-        _.defaults(options.display, {
+            yScales : {},
             orientation : 'vertical',
             resetCategories : 0
-        });
-
-        _.extend(options.display, this._applyColorDefaultOptions(options.display));
+        }, this._applyColorDefaultOptions(_.pick(options, "color", "negativeColor", "colorful")));
 
         _.defaults(options.yScales, {
             primary : {}
@@ -270,16 +258,16 @@ var BarChartView = JuttleView.extend({
         return options;
     },
 
-    _applyColorDefaultOptions : function(displayOptions) {
+    _applyColorDefaultOptions : function(colorOptions) {
         var color;
         var negativeColor;
-        if (displayOptions.colorful) {
+        if (colorOptions.colorful) {
             color = chartColors.getColorScale();
             negativeColor = chartColors.getColorScale();
         }
         else {
-            color = displayOptions.color || DEFAULT_COLOR;
-            negativeColor = displayOptions.negativeColor || DEFAULT_NEGATIVE_COLOR;
+            color = colorOptions.color || DEFAULT_COLOR;
+            negativeColor = colorOptions.negativeColor || DEFAULT_NEGATIVE_COLOR;
         }
 
         return {

@@ -263,6 +263,10 @@
       var barchart = new Barchart({
         juttleEnv: {
           now: new Date()
+        },
+        params: {
+            color: "green",
+            negativeColor: "pink"
         }
       });
 
@@ -272,7 +276,7 @@
 
       var barchartData = [
           {time: new Date(1000), host: "HOST A", value: 1},
-          {time: new Date(1000), host: "HOST B", value: 2},
+          {time: new Date(1000), host: "HOST B", value: -2},
       ];
 
       barchart.consume(barchartData);
