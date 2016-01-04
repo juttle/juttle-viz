@@ -2,14 +2,14 @@
 title: scatterchart | Juttle Language Reference
 ---
 
-scatterchart 
+scatterchart
 ============
 
 Plot data points as individual dots across two axes sourced from the data fields; can be faceted.
 
 ![](../images/screenshots/view_scatterchart.png)
 
-``` 
+```
 view scatterchart -o {
    title: string,
    markerSize: n,
@@ -121,10 +121,10 @@ Parameter  |  Description  |  Required?
 ```
 Parameter |  Description
 --------- | -------------    
-`name`    |  A series name that can be found in the specified `-keyField`; this parameter is required for any configured series. 
+`name`    |  A series name that can be found in the specified `-keyField`; this parameter is required for any configured series.
 `label`   |  An optional string to override the scale label for this series   
 `color`   |  The color to use for this series, specified with any [CSS3-supported hex or name value](http://www.w3.org/TR/css3-color/); if not specified, a color is selected from the built-in palette   
-   
+
 _Example: Display a scatterchart showing CPU usage versus response time_
 
 ```
@@ -133,12 +133,10 @@ _Example: Display a scatterchart showing CPU usage versus response time_
 
 ![](../images/screenshots/view_scatterchart_plain.png)
 
-_Example: Display a faceted scatterchart_ 
+_Example: Display a faceted scatterchart_
 
 ```
 {!docs/examples/charts/scatterchart_faceted.juttle!}
 ```
 
 ![](../images/screenshots/view_scatterchart_faceted.png)
-
-

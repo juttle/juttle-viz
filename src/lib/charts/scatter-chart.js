@@ -101,7 +101,7 @@ ScatterChart.prototype._addAxes = function() {
 };
 
 ScatterChart.prototype._addGrids = function() {
-    
+
     // this will draw a line at 0 when x minValues < 0
     this._xGrid = new Grid(this._chartCont, {
         orientation : 'vertical' // vs 'vertical'
@@ -148,7 +148,7 @@ ScatterChart.prototype._getTimeRange = function(data) {
 };
 
 ScatterChart.prototype.calibrate = function(xTickValues, yTickValues) {
-    
+
     this._xAxis.axis.tickValues(xTickValues);
     this._yAxis.axis.tickValues(yTickValues);
 
@@ -176,7 +176,7 @@ ScatterChart.prototype.draw = function() {
     var data = this._currentData || [];
 
     this._points.draw(data);
-    
+
     // if data has 'time' update time range
     if (data[0] && data[0][this._attributes.timeField]) {
         this.trigger('updatetime', this._getTimeRange(data));
@@ -214,15 +214,15 @@ ScatterChart.prototype.resize = function(w, h) {
 };
 
 ScatterChart.prototype.getChartContainer = function() {
-    return this._chartCont;  
+    return this._chartCont;
 };
 
 ScatterChart.prototype.getDataTarget = function() {
-    return this._dataTarget;  
+    return this._dataTarget;
 };
 
 ScatterChart.prototype.getMargin = function() {
-    return this._attributes.margin;  
+    return this._attributes.margin;
 };
 
 ScatterChart.prototype.registerComponent = function(component) {
