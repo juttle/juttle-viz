@@ -14,7 +14,5 @@ emit -limit 10 | put  response_ms = count()*5, cpu = count()*5, service = 'tim',
     width: '1/3',
     height: 150
   },
-  display: {
-    duration: :10s:
-  }
+  duration: :10s:
 }

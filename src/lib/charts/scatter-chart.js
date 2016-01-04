@@ -50,8 +50,8 @@ ScatterChart.prototype._addPoints = function() {
         .attr('class', 'data');
 
     this._points = new Points(dataGrp, {
-        radius: this._attributes.display.markerSize,
-        opacity: this._attributes.display.markerOpacity,
+        radius: this._attributes.markerSize,
+        opacity: this._attributes.markerOpacity,
         margin: this._attributes.margin,
         timeField: this._attributes.timeField,
         controlField: this._attributes.controlField,
