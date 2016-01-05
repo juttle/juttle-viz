@@ -30,7 +30,6 @@ var optionValidationConfig = {
         'title',
         'col',
         'row',
-        'display',
         'valueField',
         'controlField',
         'keyField',
@@ -39,41 +38,35 @@ var optionValidationConfig = {
         'yScales',
         'tooltip',
         'series',
-        'facet'
+        'facet',
+        'markerSize',
+        'markerOpacity',
+        'duration',
+        'limit'
     ],
     properties : {
-        display : [
+        markerSize: [
+            v.validators.number,
             {
-                validator : v.validators.object,
+                validator : v.validators.greaterThan,
                 options : {
-                    allowedProperties : ['markerSize', 'markerOpacity', 'duration', 'limit'],
-                    properties : {
-                        markerSize: [
-                            v.validators.number,
-                            {
-                                validator : v.validators.greaterThan,
-                                options : {
-                                    threshold : 1
-                                }
-                            }
-                        ],
-                        duration : [v.validators.duration],
-                        limit : [v.validators.number],
-                        markerOpacity: [
-                            v.validators.number,
-                            {
-                                validator : v.validators.greaterThan,
-                                options : {
-                                    threshold : 0.1
-                                }
-                            },{
-                                validator : v.validators.lessThanOrEqual,
-                                options : {
-                                    threshold : 1
-                                }
-                            }
-                        ]
-                    }
+                    threshold : 1
+                }
+            }
+        ],
+        duration : [v.validators.duration],
+        limit : [v.validators.number],
+        markerOpacity: [
+            v.validators.number,
+            {
+                validator : v.validators.greaterThan,
+                options : {
+                    threshold : 0.1
+                }
+            },{
+                validator : v.validators.lessThanOrEqual,
+                options : {
+                    threshold : 1
                 }
             }
         ],
@@ -295,8 +288,8 @@ var ScatterChartView = JuttleView.extend({
 
         options = this._applyOptionDefaults(options.params);
 
-        if (options.display.duration !== undefined) {
-            options.display.duration = paramUtils.convertToDuration(options.display.duration);
+        if (options.duration !== undefined) {
+            options.duration = paramUtils.convertToDuration(options.duration);
         }
 
         this._verifyOptionsAreValid(options);
@@ -326,7 +319,7 @@ var ScatterChartView = JuttleView.extend({
             this._attributes.title = options.title;
         }
 
-        this._attributes.display.duration = options.display.duration.asSeconds()*1000;
+        this._attributes.duration = options.duration.asSeconds()*1000;
 
         this._legend = new Legend(this.sinkBodyEl);
 
@@ -455,7 +448,10 @@ var ScatterChartView = JuttleView.extend({
 
         var chart = new ScatterChart(spec.el, {
             timeField: this._attributes.timeField,
-            display: this._attributes.display,
+            markerSize: this._attributes.markerSize,
+            markerOpacity: this._attributes.markerOpacity,
+            duration: this._attributes.duration,
+            limit: this._attributes.limit,
             series: this._attributes.series,
             tooltip: this._attributes.tooltip,
             xScalesOptions: this._attributes.xScales,
@@ -563,14 +559,14 @@ var ScatterChartView = JuttleView.extend({
 
         }
 
-        // if we have time and display.duration is configured
+        // if we have time and duration is configured
         // clip points that fall outside of duration
-        if (this._data.length > 0 && this._data[0][this._attributes.timeField] && this._attributes.display.duration > 0) {
+        if (this._data.length > 0 && this._data[0][this._attributes.timeField] && this._attributes.duration > 0) {
             this._clipDataOutsideOfDuration();
         }
 
-        // clip data that falls outside the onfigured display.limit
-        if (this._data.length > this._attributes.display.limit) {
+        // clip data that falls outside the onfigured limit
+        if (this._data.length > this._attributes.limit) {
             this._clipDataOutsideOfLimit();
         }
 
@@ -626,7 +622,7 @@ var ScatterChartView = JuttleView.extend({
     },
 
     /**
-     * clips data outside of the configured display.duration
+     * clips data outside of the configured duration
      */
     _clipDataOutsideOfDuration: function() {
         var newestDate;
@@ -634,7 +630,7 @@ var ScatterChartView = JuttleView.extend({
         var self = this;
 
         newestDate = _.sortBy(this._data, this._attributes.timeField).pop()[this._attributes.timeField];
-        oldestDate = new Date(newestDate - this._attributes.display.duration);
+        oldestDate = new Date(newestDate - this._attributes.duration);
 
         this._data = _.filter(this._data, function(d) {
             return d[self._attributes.timeField] >= oldestDate;
@@ -648,18 +644,18 @@ var ScatterChartView = JuttleView.extend({
     },
 
     /**
-     * clips data that is outside the configured display.limit
+     * clips data that is outside the configured limit
      */
     _clipDataOutsideOfLimit: function() {
         var lastPointIdx;
         var lastIdxKey;
 
-        lastPointIdx = this._data.length - this._attributes.display.limit;
+        lastPointIdx = this._data.length - this._attributes.limit;
         lastIdxKey = this._data[lastPointIdx].key;
 
         this._data = _.sortBy(this._data, this._attributes.timeField).splice(lastPointIdx, this._data.length);
 
-         // for each data target clip data that is outside of configured display.limit
+         // for each data target clip data that is outside of configured limit
         _.each(this._charts, function(ch) {
             ch.getDataTarget().clipOutsideOfLimit(lastIdxKey);
         });
@@ -668,7 +664,7 @@ var ScatterChartView = JuttleView.extend({
             this._limitReachedMessage = new Backbone.Model({
                 code : 'DATA_LIMIT_REACHED',
                 info : {
-                    limit : this._attributes.display.limit
+                    limit : this._attributes.limit
                 }
             });
             this.runtimeMessages.add(this._limitReachedMessage);
@@ -823,7 +819,7 @@ var ScatterChartView = JuttleView.extend({
         return {
             left: pos[0],
             top: pos[1],
-            pointWidth: this._attributes.display.markerSize
+            pointWidth: this._attributes.markerSize
         };
     },
 
@@ -977,12 +973,8 @@ var ScatterChartView = JuttleView.extend({
     _applyOptionDefaults: function(options) {
         options = options || {};
         _.defaults(options, {
-            display : {},
             tooltip : {},
-            timeField : 'time'
-        });
-
-        _.defaults(options.display, {
+            timeField : 'time',
             markerSize : 6,
             markerOpacity: 1,
             limit: 1000,

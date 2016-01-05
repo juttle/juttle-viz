@@ -20,7 +20,5 @@
             label: 'Response Time (ms)'
         }
     },
-    display: {
-        duration: :5m:
-    }
+    duration: :5m:
 }

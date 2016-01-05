@@ -2,22 +2,20 @@
 title: scatterchart | Juttle Language Reference
 ---
 
-scatterchart 
+scatterchart
 ============
 
 Plot data points as individual dots across two axes sourced from the data fields; can be faceted.
 
 ![](../images/screenshots/view_scatterchart.png)
 
-``` 
+```
 view scatterchart -o {
    title: string,
-   display: {
-     markerSize: n,
-     markerOpacity: n,
-     duration: duration,
-     limit: n
-   },
+   markerSize: n,
+   markerOpacity: n,
+   duration: duration,
+   limit: n,
    valueField: fieldname,
    controlField: fieldname,
    keyField: fieldname,
@@ -66,12 +64,12 @@ view scatterchart -o {
 
 *or*
 ```
-view scatterchart -title string 
--display.markerSize n -display.markerOpacity n -display.duration duration -display.limit n 
--valueField fieldname -controlField fieldname -keyField fieldname -timeField fieldname 
--xScales.primary.label string -xScales.primary.tickFormat d3FormatString -xScales.primary.minValue value -xScales.primary.maxValue value 
--yScales.primary.label string -yScales.primary.tickFormat d3FormatString -yScales.primary.minValue value -yScales.primary.maxValue value -yScales.primary.displayOnAxis 'left|right' 
--tooltip.titleField fieldname -tooltip.controlLabel string -tooltip.controlFormat d3FormatString -tooltip.valueLabel string -tooltip.valueFormat d3FormatString 
+view scatterchart -title string
+-markerSize n -markerOpacity n -duration duration -limit n
+-valueField fieldname -controlField fieldname -keyField fieldname -timeField fieldname
+-xScales.primary.label string -xScales.primary.tickFormat d3FormatString -xScales.primary.minValue value -xScales.primary.maxValue value
+-yScales.primary.label string -yScales.primary.tickFormat d3FormatString -yScales.primary.minValue value -yScales.primary.maxValue value -yScales.primary.displayOnAxis 'left|right'
+-tooltip.titleField fieldname -tooltip.controlLabel string -tooltip.controlFormat d3FormatString -tooltip.valueLabel string -tooltip.valueFormat d3FormatString
 -series [{name: 'string', label: 'string', color: 'color'},{name: 'anotherseries', ...}]
   -facet.fields field1, ...fieldN -facet.width n -face.height n
 ```
@@ -79,10 +77,10 @@ view scatterchart -title string
 Parameter  |  Description  |  Required?
 ---------- | ------------- | ---------:
 `-title`  |  The title for the user-visible output, if it has one; the value may be any valid Juttle expression that produces a string  |  No; defaults to the name field that is present in all metrics points
-`-display.markerSize`  |  The pixel size of the circle for each point  |  No; defaults to 6
-`-display.markerOpacity`  |  The opacity level of the datapoint marker, a number between 0.1 (10%) and 1 (100%)  |  No; defaults to 1
-`-display.duration`   |  The span of time to display, either in seconds (&gt;=10) or as a Juttle moment literal  | No; defaults to 5 minutes when querying live data
-`-display.limit`  |  The maximum number of total data points to display  |  No; defaults to the first 1000 to avoid consuming unbounded memory
+`-markerSize`  |  The pixel size of the circle for each point  |  No; defaults to 6
+`-markerOpacity`  |  The opacity level of the datapoint marker, a number between 0.1 (10%) and 1 (100%)  |  No; defaults to 1
+`-duration`   |  The span of time to display, either in seconds (&gt;=10) or as a Juttle moment literal  | No; defaults to 5 minutes when querying live data
+`-limit`  |  The maximum number of total data points to display  |  No; defaults to the first 1000 to avoid consuming unbounded memory
 `-valueField`  |  The name of the field to use as the source for the numeric values  |  No; defaults to the `value` field that is present in all metrics points. If no value field is present, the first numeric field in the stream is used.
 `-controlField`   |  The name of the field to use as the source for the X-axis values  |  No; defaults to a field called control, if present, otherwise the second numerical field in the stream
 `-keyField`  |  The field containing the name of the series to which each point belongs  |  Required when series is configured; otherwise Jut looks for unique streams and creates a series for each one. For simple metrics, the key field defaults to the `name` field that is present in all metrics points
@@ -123,10 +121,10 @@ Parameter  |  Description  |  Required?
 ```
 Parameter |  Description
 --------- | -------------    
-`name`    |  A series name that can be found in the specified `-keyField`; this parameter is required for any configured series. 
+`name`    |  A series name that can be found in the specified `-keyField`; this parameter is required for any configured series.
 `label`   |  An optional string to override the scale label for this series   
 `color`   |  The color to use for this series, specified with any [CSS3-supported hex or name value](http://www.w3.org/TR/css3-color/); if not specified, a color is selected from the built-in palette   
-   
+
 _Example: Display a scatterchart showing CPU usage versus response time_
 
 ```
@@ -135,12 +133,10 @@ _Example: Display a scatterchart showing CPU usage versus response time_
 
 ![](../images/screenshots/view_scatterchart_plain.png)
 
-_Example: Display a faceted scatterchart_ 
+_Example: Display a faceted scatterchart_
 
 ```
 {!docs/examples/charts/scatterchart_faceted.juttle!}
 ```
 
 ![](../images/screenshots/view_scatterchart_faceted.png)
-
-
