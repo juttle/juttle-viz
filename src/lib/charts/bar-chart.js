@@ -38,7 +38,7 @@ var BarChart = function (container, options) {
     });
 
     this.svg = d3.select(container).append('svg')
-        .attr('class', 'jut-chart bar-chart ' + this.options.display.orientation)
+        .attr('class', 'jut-chart bar-chart ' + this.options.orientation)
         .attr('width', options.width)
         .attr('height', options.height);
 
@@ -64,7 +64,7 @@ var BarChart = function (container, options) {
         category : this.category,
         value : this.value,
         categoryCountLimit : BAR_COUNT_LIMIT,
-        resetCategories : this.options.display.resetCategories
+        resetCategories : this.options.resetCategories
     });
 
     this.dataTarget.on('update', this._onUpdate, this);
@@ -102,7 +102,7 @@ BarChart.prototype._addAxes = function() {
     var axesArea = this.el.append('g')
             .attr('class', 'axes');
 
-    if (this.options.display.orientation === 'vertical') {
+    if (this.options.orientation === 'vertical') {
         this.category_axis = new xAxisGenerator(axesArea.node(), _.extend(_.clone(this.options), {
             avoidLabelCollisions : true,
             isCategorical: true
@@ -133,7 +133,7 @@ BarChart.prototype._addAxesLabels = function() {
     // value axis label
     this._valueAxisLabel = new AxisLabelGenerator(g.node(), {
         labelText: this.options.yScales.primary.label,
-        orientation: this.options.display.orientation === 'vertical' ? this.options.yScales.primary.displayOnAxis : 'bottom',
+        orientation: this.options.orientation === 'vertical' ? this.options.yScales.primary.displayOnAxis : 'bottom',
         margin: this.options.margin
     });
     this.registerComponent(this._valueAxisLabel);
@@ -142,7 +142,7 @@ BarChart.prototype._addAxesLabels = function() {
     // category axis label
     this._categoryAxisLabel = new AxisLabelGenerator(g.node(), {
         labelText: this.options.xScale.label,
-        orientation: this.options.display.orientation === 'vertical' ? 'bottom' : 'left',
+        orientation: this.options.orientation === 'vertical' ? 'bottom' : 'left',
         margin: this.options.margin
     });
     this.registerComponent(this._categoryAxisLabel);
@@ -152,7 +152,7 @@ BarChart.prototype._addAxesLabels = function() {
 
 BarChart.prototype._addGrid = function() {
     this._grid = new Grid(this.el, {
-        orientation : this.options.display.orientation === 'vertical' ? 'horizontal' : 'vertical'
+        orientation : this.options.orientation === 'vertical' ? 'horizontal' : 'vertical'
     });
 
     this._grid.setScale(this.value_scale);
@@ -166,13 +166,13 @@ BarChart.prototype._addBars = function() {
         .attr('class', 'bars');
     // XXX
     var baropts = {
-        orientation : this.options.display.orientation,
+        orientation : this.options.orientation,
         category : this.category,
         value : this.value,
         tooltip : this.options.tooltip,
         margin : this.options.margin,
-        color : this.options.display.color,
-        negativeColor : this.options.display.negativeColor
+        color : this.options.color,
+        negativeColor : this.options.negativeColor
     };
 
     this.bars = new Bars(barsArea.node(), baropts);
@@ -181,7 +181,7 @@ BarChart.prototype._addBars = function() {
 
 BarChart.prototype._applyMarginDefaults = function(options) {
     options.margin = options.margin || {};
-    if (options.display.orientation === 'vertical') {
+    if (options.orientation === 'vertical') {
         _.defaults(options.margin, {
             top: 20,
             bottom: 75,
@@ -311,7 +311,7 @@ BarChart.prototype.resize = function(w, h) {
     this.hover_rect.resize(w - (margin.left + margin.right), h - (margin.top + margin.bottom));
 
     // update the scales
-    if (this.options.display.orientation === 'vertical') {
+    if (this.options.orientation === 'vertical') {
         this.category_scale.rangeBands(xRange, this.padding);
         this.value_scale.range(yRange);
     } else {
