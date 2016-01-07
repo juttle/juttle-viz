@@ -1,13 +1,11 @@
 /*jslint browser: true */
 
 require('chai').should();
-var testutils = require('testutils');
 var Backbone = require('backbone');
 var $ = require('jquery');
-testutils.mode.browser();
 
 describe('Runtime Messages', function() {
-    var RuntimeMessages = require('./runtimeMessages');
+    var RuntimeMessages = require('../../../src/lib/components/runtimeMessages');
 
     it('adding a message', function() {
         var messages = new RuntimeMessages();

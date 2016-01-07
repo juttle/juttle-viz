@@ -1,11 +1,9 @@
 /*jslint browser: true */
 require('chai').should();
-var testutils = require('testutils');
-testutils.mode.browser();
 
 describe('Legend', function () {
 
-    var LegendGenerator = require('./legend');
+    var LegendGenerator = require('../../../src/lib/generators/legend');
 
     describe('drawing', function () {
         beforeEach(function (done) {

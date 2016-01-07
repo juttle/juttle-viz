@@ -11,7 +11,7 @@ var juttleEnv = {
 };
 
 describe('Time Chart Sink View', function () {
-    var TimeChartView = require('./timechart');
+    var TimeChartView = require('../../src/views/timechart');
 
 
     describe('Series Labels', function () {

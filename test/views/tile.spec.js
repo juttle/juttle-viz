@@ -6,7 +6,7 @@ var viewTestUtils = require('./utils/view-test-utils');
 var test_date = new Date();
 
 describe('Tile Sink View', function () {
-    var TileView = require('./tile');
+    var TileView = require('../../src/views/tile');
 
     describe('invalid params', function() {
         it('unknown top level field', function() {

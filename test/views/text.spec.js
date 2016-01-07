@@ -71,7 +71,7 @@ function verifyTextViewContents(textView, data, format) {
 }
 
 describe('TextView Sink View', function () {
-    var TextView = require('./text');
+    var TextView = require('../../src/views/text');
 
     describe('format', function() {
         it('raw', function() {

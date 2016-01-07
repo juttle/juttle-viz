@@ -1,10 +1,7 @@
 /*jslint browser: true */
 
 require('chai').should();
-var testutils = require('testutils');
-var juttleViewUtils = require('applib/juttle-views/utils/juttle-view-utils');
-
-testutils.mode.browser();
+var juttleViewUtils = require('../../../src/views/utils/juttle-view-utils');
 
 describe('juttle-view-utils', function () {
     describe('getExtremeTimeBound', function() {

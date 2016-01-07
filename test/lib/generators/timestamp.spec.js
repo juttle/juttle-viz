@@ -1,12 +1,10 @@
 /*jslint browser: true */
 require('chai').should();
-var testutils = require('testutils');
-testutils.mode.browser();
 
 describe('Timestamp', function () {
 
-    var TimestampGenerator = require('./timestamp');
-    var d3Formatters = require('applib/components/jut-charts/utils/d3-formatters');
+    var TimestampGenerator = require('../../../src/lib/generators/timestamp');
+    var d3Formatters = require('../../../src/lib/utils/d3-formatters');
     var datefmt = d3Formatters.date;
     var timefmt = d3Formatters.time;
     var moment = require('moment');

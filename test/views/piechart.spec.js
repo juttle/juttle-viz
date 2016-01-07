@@ -6,7 +6,7 @@ var viewTestUtils = require('./utils/view-test-utils');
 var test_date = new Date();
 
 describe('Pie Sink View', function () {
-    var PieView = require('./piechart');
+    var PieView = require('../../src/views/piechart');
 
     describe('invalid params', function() {
         it('unknown top level field', function() {

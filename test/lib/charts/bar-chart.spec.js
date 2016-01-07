@@ -1,11 +1,9 @@
 /*jslint browser: true */
 
 require('chai').should();
-var testutils = require('testutils');
-testutils.mode.browser();
 
 describe('Bar Chart', function () {
-    var BarChart = require('./bar-chart');
+    var BarChart = require('../../../src/lib/charts/bar-chart');
 
     describe('Constructor', function () {
         beforeEach(function (done) {

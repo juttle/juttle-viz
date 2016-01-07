@@ -4,7 +4,7 @@ require('chai').should();
 var viewTestUtils = require('./utils/view-test-utils');
 
 describe('Table Sink View', function () {
-    var TableView = require('./table');
+    var TableView = require('../../src/views/table');
 
     describe('invalid params', function() {
         describe('columnOrder', function() {

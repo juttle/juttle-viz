@@ -1,8 +1,6 @@
 /*jslint browser: true */
 
 require('chai').should();
-var testutils = require('testutils');
-testutils.mode.browser();
 
 describe("Bars generator", function() {
     function createBarElement() {
@@ -18,7 +16,7 @@ describe("Bars generator", function() {
     }
 
 
-    var Bars = require('./bars');
+    var Bars = require('../../../src/lib/generators/bars');
     var d3 = require('d3');
 
     describe("initialisation", function() {

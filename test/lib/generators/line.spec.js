@@ -1,11 +1,9 @@
 /*jslint browser: true */
 
 require('chai').should();
-var testutils = require('testutils');
-testutils.mode.browser();
 
 describe("Line generator", function() {
-    var Line = require('./line');
+    var Line = require('../../../src/lib/generators/line');
     var d3 = require('d3');
 
     describe("initialisation", function() {
