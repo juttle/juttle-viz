@@ -1,22 +1,24 @@
-var browserify = require('browserify');
-var gulp = require('gulp');
-var source = require('vinyl-source-stream');
-var sass = require('gulp-sass');
-var connect = require('gulp-connect');
-var babelify = require('babelify');
-var mochaPhantomJS = require('gulp-mocha-phantomjs');
 var babel = require('gulp-babel');
-var gulpif = require('gulp-if');
+var babelify = require('babelify');
+var browserify = require('browserify');
+var connect = require('gulp-connect');
 var del = require('del');
+var gulp = require('gulp');
+var gulpif = require('gulp-if');
+var merge = require('merge-stream');
+var mocha = require('gulp-mocha');
+var mochaPhantomJS = require('gulp-mocha-phantomjs');
+var sass = require('gulp-sass');
+var source = require('vinyl-source-stream');
 
 gulp.task('clean', function(cb) {
-    del(['lib', 'build', 'test/build'])
+    del(['lib', 'build', 'test/build']);
 });
 
 gulp.task('lib', function() {
     return gulp.src('src/**')
         .pipe(gulpif(/[.]js$/, babel({
-            presets: ["react"]
+            presets: ['react']
         })))
         .pipe(gulp.dest('lib'));
 });
@@ -27,7 +29,7 @@ gulp.task('browserify', function() {
     return browserify('src/index.js', {
         standalone: 'JuttleViz'
     })
-        .transform(babelify, { presets: ["react"] })
+        .transform(babelify, { presets: ['react'] })
         .bundle()
         //Pass desired output filename to vinyl-source-stream
         .pipe(source('juttle-viz.js'))
@@ -53,20 +55,46 @@ gulp.task('example-serve', ['browserify', 'styles', 'watch'], function() {
     });
 });
 
-gulp.task("tests-browserify", function() {
-    return browserify("./test/tests")
+gulp.task('tests-browserify', function() {
+    return browserify('./test/tests')
         .bundle()
-        .on("error", function (err) {
+        .on('error', function (err) {
             console.log(err.toString());
-            this.emit("end");
+            this.emit('end');
         })
-        .pipe(source("tests.js"))
-        .pipe(gulp.dest("test/build/"));
+        .pipe(source('tests.js'))
+        .pipe(gulp.dest('test/build/'));
 });
 
-gulp.task("test", ['tests-browserify'], function () {
-    return gulp.src("./test/test-runner.html")
-        .pipe(mochaPhantomJS());
+gulp.task('test', ['tests-browserify'], function () {
+    var browserTests = gulp
+    .src('./test/test-runner.html')
+    .pipe(mochaPhantomJS({
+        log: true,
+        timeout: 10000,
+        slow: 3000,
+        reporter: 'spec',
+        ui: 'bdd'
+    }));
+
+    var nodeTests = gulp
+    .src([
+        'test/lib/**/*.spec.js',
+
+        // exclude lib browser tests
+        '!test/lib/charts/*.spec.js',
+        '!test/lib/generators/*.spec.js',
+        '!test/lib/components/*.spec.js'
+    ])
+    .pipe(mocha({
+        log: true,
+        timeout: 10000,
+        slow: 3000,
+        reporter: 'spec',
+        ui: 'bdd'
+    }));
+
+    return merge(browserTests, nodeTests);
 });
 
 gulp.task('default', ['browserify', 'styles', 'lib']);

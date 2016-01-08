@@ -1,9 +1,7 @@
 require('chai').should();
-var testutils = require('testutils');
-testutils.mode.browser();
 
 describe('Base Data Target', function () {
-    var DataTarget = require('./base-data-target');
+    var DataTarget = require('../../../src/lib/data-targets/base-data-target');
 
     describe('Pub/Sub', function () {
         describe('on', function () {

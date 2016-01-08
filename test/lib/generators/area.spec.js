@@ -1,11 +1,9 @@
 /*jslint browser: true */
 
 require('chai').should();
-var testutils = require('testutils');
-testutils.mode.browser();
 
 describe('Area generator', function() {
-    var Area = require('./area');
+    var Area = require('../../../src/lib/generators/area');
     var d3 = require('d3');
 
     describe('initialisation', function() {

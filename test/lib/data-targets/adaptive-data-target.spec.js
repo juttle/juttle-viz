@@ -1,11 +1,9 @@
 var expect = require('chai').expect;
 var assert = require('chai').assert;
-var testutils = require('testutils');
-var SharedRange = require('./shared-range');
-testutils.mode.browser();
+var SharedRange = require('../../../src/lib/data-targets/shared-range');
 
 describe('Adaptive Data Target', function () {
-    var DataTarget = require('./adaptive-data-target');
+    var DataTarget = require('../../../src/lib/data-targets/adaptive-data-target');
     var target, event, dsevent, next_value, next_time;
     // var next_value = 1;
 

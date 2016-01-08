@@ -1,9 +1,7 @@
 require('chai').should();
-var testutils = require('testutils');
-testutils.mode.browser();
 
-describe('Windowed Data Target', function () {
-    var DataTarget = require('./windowed-data-target');
+describe('Simple Data Target', function () {
+    var DataTarget = require('../../../src/lib/data-targets/simple-data-target');
 
     describe('Pub/Sub', function () {
         describe('on', function () {
@@ -64,15 +62,15 @@ describe('Windowed Data Target', function () {
 
             it('should add the data passed to it to the data array', function () {
                 this.dt.update([1,2]);
-                this.dt._data.should.deep.equal([3,1,2]);
+                this.dt._data.should.deep.equal([1,2,3,1,2]);
             });
 
             it('should trigger an update event with the new data and the length of the data appended', function (done) {
                 this.dt.on('update', function(eventName, data) {
                     eventName.should.equal('update');
                     data.should.deep.equal({
-                        data: [3,1,2],
-                        newData: [1,2,3,1,2],
+                        data: [1,2,3,1,2],
+                        newData: [1,2],
                         id: 1
                     });
                     done();

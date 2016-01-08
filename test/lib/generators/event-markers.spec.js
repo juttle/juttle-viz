@@ -1,10 +1,8 @@
 /*jslint browser: true */
 
 require('chai').should();
-var testutils = require('testutils');
-testutils.mode.browser();
 
-var EventMarkers = require('./event-markers');
+var EventMarkers = require('../../../src/lib/generators/event-markers');
 var d3 = require('d3');
 var $ = require('jquery');
 

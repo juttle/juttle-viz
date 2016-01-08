@@ -1,7 +1,7 @@
 /*jslint browser: true */
 
 var assert = require('chai').assert;
-var v = require('../../lib/object-validation');
+var v = require('../../../src/lib/object-validation');
 var _ = require('underscore');
 
 function verifyValueValidationError(err, obj) {

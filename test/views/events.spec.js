@@ -4,7 +4,7 @@ require('chai').should();
 var viewTestUtils = require('./utils/view-test-utils');
 
 describe('Table Sink View', function () {
-    var EventsView = require('./events');
+    var EventsView = require('../../src/views/events');
 
     describe('invalid params', function() {
         it('unknown top level field', function() {

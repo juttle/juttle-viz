@@ -1,13 +1,9 @@
 /*jslint browser: true */
 
 require('chai').should();
-var testutils = require('testutils');
 var _ = require('underscore');
-var d3Formatters = require('../utils/d3-formatters');
-
+var d3Formatters = require('../../../src/lib/utils/d3-formatters');
 var timeFormatter = d3Formatters.timeUTC;
-
-testutils.mode.browser();
 
 function verifyHeaders(tableEl, headers) {
     var ths = tableEl.querySelectorAll('thead th');
@@ -50,7 +46,7 @@ function verifyTable(tableEl,headers,data) {
 }
 
 describe('Table', function () {
-    var Table = require('./table');
+    var Table = require('../../../src/lib/charts/table');
 
     beforeEach(function (done) {
         this.el = document.createElement('div');
@@ -165,9 +161,7 @@ describe('Table', function () {
             describe('replace', function() {
                 beforeEach(function () {
                     this.table = new Table(this.el,{
-                        display : {
-                            update : 'replace'
-                        }
+                        update : 'replace'
                     });
                 });
                 it('data is replaced', function() {

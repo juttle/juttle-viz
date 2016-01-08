@@ -1,7 +1,5 @@
 require('chai').should();
-var testutils = require('testutils');
-testutils.mode.browser();
-var v = require('./index');
+var v = require('../../../src/lib/object-validation');
 
 
 describe('Object Validation', function () {

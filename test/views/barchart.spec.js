@@ -6,7 +6,7 @@ var viewTestUtils = require('./utils/view-test-utils');
 var test_date = new Date();
 
 describe('Bar Chart Sink View', function () {
-    var BarChartView = require('./barchart');
+    var BarChartView = require('../../src/views/barchart');
 
     describe('invalid params', function() {
         it('unknown top level field', function() {

@@ -1,9 +1,7 @@
 require('chai').should();
-var testutils = require('testutils');
-testutils.mode.browser();
 
 describe('Time Windowed Data Target', function () {
-    var DataTarget = require('./time-windowed-data-target');
+    var DataTarget = require('../../../src/lib/data-targets/time-windowed-data-target');
 
     describe('Pub/Sub', function () {
         describe('on', function () {
