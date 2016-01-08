@@ -216,8 +216,8 @@ BarChart.prototype._onCategoryLimitReachedUpdate = function(eventName, limitReac
  */
 BarChart.prototype._calculateNiceMinValue = function(data, field, threshold) {
     var minValue = d3.min(data, function(d) {
-            return d[field];
-        } );
+        return d[field];
+    } );
     return minValue === undefined || minValue > threshold ? threshold : minValue;
 };
 

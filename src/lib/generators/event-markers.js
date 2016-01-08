@@ -186,7 +186,7 @@ EventMarkers.prototype.draw = function() {
 
                 var fullClass = (d[self.type].indexOf('fa-') === 0) ? d[self.type] : 'fa-' + d[self.type];
                 return EventIcons[fullClass] ? String.fromCharCode(parseInt(EventIcons[fullClass],16)) : '';
-             });
+            });
 
         // update the transform on the markerGroup
         markerGroup

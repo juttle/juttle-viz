@@ -91,15 +91,15 @@ SimpleLayout.prototype._getChartSize = function() {
  */
 SimpleLayout.prototype.addAxisLabelContainers = function() {
 
-     var g = this._svg.append('g')
+    var g = this._svg.append('g')
         .attr('class', 'axis-labels');
 
-     this._xAxisLabelContainer = g.append('g');
-     this._yAxisLabelContainer = g.append('g');
+    this._xAxisLabelContainer = g.append('g');
+    this._yAxisLabelContainer = g.append('g');
      
-     return {
-        xEl: this._xAxisLabelContainer,
-        yEl: this._yAxisLabelContainer
+    return {
+         xEl: this._xAxisLabelContainer,
+         yEl: this._yAxisLabelContainer
      };
 
 };

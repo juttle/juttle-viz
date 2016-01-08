@@ -147,7 +147,7 @@ Line.prototype.update = function(payload, range) {
         this.data = noLongerExistingPointsFromPreviousRange.concat(payloadData);
     }
     else {
-         this.data = payloadData;
+        this.data = payloadData;
     }
     
     this.draw();

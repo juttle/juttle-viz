@@ -42,8 +42,8 @@ var FileSink = JuttleView.extend({
     },
 },
 // static
-{
-    optionValidationConfig: optionValidationConfig
-});
+    {
+        optionValidationConfig: optionValidationConfig
+    });
 
 module.exports = FileSink;

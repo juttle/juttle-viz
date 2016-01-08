@@ -285,8 +285,8 @@ var BarChartView = JuttleView.extend({
     }
 },
 // static
-{
-    optionValidationConfig: optionValidationConfig
-});
+    {
+        optionValidationConfig: optionValidationConfig
+    });
 
 module.exports = BarChartView;

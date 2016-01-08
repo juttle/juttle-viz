@@ -120,8 +120,8 @@ var TileView = JuttleView.extend({
     }
 },
 // static
-{
-    optionValidationConfig: optionValidationConfig
-});
+    {
+        optionValidationConfig: optionValidationConfig
+    });
 
 module.exports = TileView;

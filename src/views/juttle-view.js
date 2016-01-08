@@ -397,8 +397,8 @@ var JuttleView = Base.extend({
         );
     }
 },
-{
-    getValidOptionsFlattened: function() {
+    {
+        getValidOptionsFlattened: function() {
         var optionValidationConfig = this.optionValidationConfig;
         if (!optionValidationConfig) {
             return [];
@@ -424,7 +424,7 @@ var JuttleView = Base.extend({
 
         return validFlattenedOptions;
     }
-}
+    }
 );
 
 

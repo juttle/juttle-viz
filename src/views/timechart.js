@@ -617,7 +617,7 @@ var TimeChartView = JuttleView.extend({
             // if keyfield = auto, the displayed as 'value ' + 'value ' + ...
             timeField: legendOptions.timeField || timeField, // optional, auto defaults to timeField, can provide a different field name
             valueField: legendOptions.valueField || valueField // optional, auto defaults to valueField
-         };
+        };
     },
 
     _verifyOptionsAreValid : function(options) {
@@ -1224,8 +1224,8 @@ var TimeChartView = JuttleView.extend({
     }
 },
 // static
-{
-    optionValidationConfig: optionValidationConfig
-});
+    {
+        optionValidationConfig: optionValidationConfig
+    });
 
 module.exports = TimeChartView;

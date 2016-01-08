@@ -105,14 +105,14 @@ var optionValidationConfig = {
                                                 }
                                             }
                                         ],
-                                         displayOnAxis : [
-                                            {
-                                                validator : v.validators.enum,
-                                                options : {
+                                        displayOnAxis : [
+                                             {
+                                                 validator : v.validators.enum,
+                                                 options : {
                                                     allowedValues : ['bottom']
                                                 }
-                                            }
-                                        ],
+                                             }
+                                         ],
                                         scaling : [
                                             {
                                                 validator : v.validators.enum,
@@ -230,8 +230,8 @@ var optionValidationConfig = {
                 options : {
                     allowedProperties : ['fields', 'width', 'height'],
                     properties : {
-                       fields: [
-                            function(value, options) {
+                        fields: [
+                           function(value, options) {
                                 if (!_.isArray(value)) {
                                     value = [value];
                                 }
@@ -245,7 +245,7 @@ var optionValidationConfig = {
                                     });
                                 }
                             }
-                        ],
+                       ],
                         height: [
                             v.validators.number,
                             {
@@ -584,9 +584,9 @@ var ScatterChartView = JuttleView.extend({
     },
 
     _consume_eof: function() {
-         _.each(this._charts, function(ch) {
-            ch.getDataTarget().stream_end();
-        });
+        _.each(this._charts, function(ch) {
+             ch.getDataTarget().stream_end();
+         });
         this._doUpdate();
         this._stopUpdates();
     },
@@ -936,15 +936,15 @@ var ScatterChartView = JuttleView.extend({
 
     _calculateNiceMinValue: function(data, field, threshold) {
         var minValue = d3.min(data, function(d) {
-                return d[field];
-            } );
+            return d[field];
+        } );
         return minValue === undefined || minValue > threshold ? threshold : minValue;
     },
 
     _calculateNiceMaxValue: function(data, field, threshold) {
         var maxValue = d3.max(data, function(d) {
-                return d[field];
-            });
+            return d[field];
+        });
         return maxValue === undefined || maxValue < threshold ? threshold : maxValue;
     },
 
@@ -1046,8 +1046,8 @@ var ScatterChartView = JuttleView.extend({
 
 },
 // static
-{
-    optionValidationConfig: optionValidationConfig
-});
+    {
+        optionValidationConfig: optionValidationConfig
+    });
 
 module.exports = ScatterChartView;
