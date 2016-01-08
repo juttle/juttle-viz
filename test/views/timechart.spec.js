@@ -276,7 +276,7 @@ describe('Time Chart Sink View', function () {
             viewTestUtils.verifyValidationError({
                 viewConstructor : TimeChartView,
                 params : {
-                    interval : "someString",
+                    interval : "someString"
                 },
                 errorPath : 'interval',
                 error : {
@@ -299,7 +299,7 @@ describe('Time Chart Sink View', function () {
             viewTestUtils.verifyRuntimeMessage(chart, 'WAITING_FOR_DATA');
 
             chart.consume([
-                { time : test_date, host : 'host1', pop : 'pop1', value : 1 },
+                { time : test_date, host : 'host1', pop : 'pop1', value : 1 }
             ]);
 
             viewTestUtils.verifyNoRuntimeMessages(chart);
@@ -369,7 +369,7 @@ describe('Time Chart Sink View', function () {
             chart.setDimensions(null, 100, 100);
 
             chart.consume([
-                { time: test_date, host: 'host1', value: 'A' },
+                { time: test_date, host: 'host1', value: 'A' }
             ]);
 
             viewTestUtils.verifyRuntimeMessage(chart, 'COULD_NOT_DETERMINE_VALUE_FIELD');

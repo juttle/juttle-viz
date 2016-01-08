@@ -224,7 +224,7 @@ describe('Bar Chart Sink View', function () {
             viewTestUtils.verifyRuntimeMessage(chart, 'WAITING_FOR_DATA');
 
             chart.consume([
-                { time : test_date, value : 1, pop : 'pop1' },
+                { time : test_date, value : 1, pop : 'pop1' }
             ]);
 
             viewTestUtils.verifyNoRuntimeMessages(chart);

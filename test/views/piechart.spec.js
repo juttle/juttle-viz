@@ -116,7 +116,7 @@ describe('Pie Sink View', function () {
             viewTestUtils.verifyRuntimeMessage(chart, 'WAITING_FOR_DATA');
 
             chart.consume([
-                { time : test_date, value : 1, pop : 'pop1' },
+                { time : test_date, value : 1, pop : 'pop1' }
             ]);
 
             viewTestUtils.verifyNoRuntimeMessages(chart);
@@ -127,19 +127,19 @@ describe('Pie Sink View', function () {
             chart.setDimensions(null, 100, 100);
 
             chart.consume([
-                { time : test_date, value : 0, pop : 'pop1' },
+                { time : test_date, value : 0, pop : 'pop1' }
             ]);
 
             viewTestUtils.verifyRuntimeMessage(chart, 'ALL_CATEGORIES_ARE_ZERO');
 
             chart.consume([
-                { time : test_date, value : 1, pop : 'pop2' },
+                { time : test_date, value : 1, pop : 'pop2' }
             ]);
 
             viewTestUtils.verifyNoRuntimeMessages(chart);
 
             chart.consume([
-                { time : test_date, value : 0, pop : 'pop3' },
+                { time : test_date, value : 0, pop : 'pop3' }
             ]);
 
             viewTestUtils.verifyNoRuntimeMessages(chart);

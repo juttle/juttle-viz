@@ -84,10 +84,10 @@ describe('Adaptive Data Target', function () {
     });
 
     describe('Downsampling', function() {
-       it('should not downsample with 10 total points', function() {
+        it('should not downsample with 10 total points', function() {
             target.push(make_points(10));
             expect(dsevent).equal(null);
-        } );
+        });
 
         it('should downsample 2:1 on the 11th point', function() {
             target.push(make_points(10));
