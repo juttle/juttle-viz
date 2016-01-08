@@ -39,7 +39,7 @@ var FileSink = JuttleView.extend({
         if (errs !== undefined) {
             this.throwParamValidationError(errs);
         }
-    },
+    }
 },
 // static
     {

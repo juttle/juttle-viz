@@ -1,5 +1,4 @@
 var Base = require('extendable-base');
-var _ = require('underscore');
 var vis = require('vis');
 var SeriesDetector = require('../lib/series-detector');
 

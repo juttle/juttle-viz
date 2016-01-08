@@ -1,6 +1,5 @@
 // var $ = require('jquery');
 var _ = require('underscore');
-var d3 = require('d3');
 var JuttleView = require('./juttle-view');
 
 var d3Formatters = require('../lib/utils/d3-formatters');
@@ -157,7 +156,7 @@ var EventsView = JuttleView.extend({
         if (this._targetView) {
             this._targetView._handleInvalidTimeField(); // if in timechart overlay, timechart should display error
         }
-    },
+    }
 },
 optionValidationConfig
 );

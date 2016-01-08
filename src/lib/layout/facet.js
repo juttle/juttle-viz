@@ -175,9 +175,9 @@ FacetLayout.prototype.addAxisLabelContainers = function() {
     this._yAxisLabelContainer = g.append('g');
 
     return {
-         xEl: this._xAxisLabelContainer,
-         yEl: this._yAxisLabelContainer
-     };
+        xEl: this._xAxisLabelContainer,
+        yEl: this._yAxisLabelContainer
+    };
 
 };
 

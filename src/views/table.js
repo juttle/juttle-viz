@@ -14,7 +14,7 @@ var optionValidationConfig = {
         'markdownFields',
         'limit',
         'update',
-        'height',
+        'height'
     ],
     properties : {
         limit : [

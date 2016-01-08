@@ -1,5 +1,5 @@
-/* seriously jshint? */
-/*jshint bitwise: false*/
+/*eslint-disable no-console */
+
 
 // A data target that automatically adapts and figures out
 // whether to buffer incoming data or to maintain a fixed

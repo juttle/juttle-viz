@@ -76,7 +76,7 @@ var optionValidationConfig = {
                 options : {
                     allowedProperties : ['dataDensity'],
                     properties : {
-                        dataDensity : [v.validators.number],
+                        dataDensity : [v.validators.number]
                     }
                 }
             }

@@ -106,13 +106,13 @@ var optionValidationConfig = {
                                             }
                                         ],
                                         displayOnAxis : [
-                                             {
-                                                 validator : v.validators.enum,
-                                                 options : {
+                                            {
+                                                validator : v.validators.enum,
+                                                options : {
                                                     allowedValues : ['bottom']
                                                 }
-                                             }
-                                         ],
+                                            }
+                                        ],
                                         scaling : [
                                             {
                                                 validator : v.validators.enum,
@@ -205,7 +205,7 @@ var optionValidationConfig = {
                                             {
                                                 scale : value
                                             }
-                                        );
+                                                );
                                     }
                                     return undefined;
                                 }
@@ -231,7 +231,7 @@ var optionValidationConfig = {
                     allowedProperties : ['fields', 'width', 'height'],
                     properties : {
                         fields: [
-                           function(value, options) {
+                            function(value, options) {
                                 if (!_.isArray(value)) {
                                     value = [value];
                                 }
@@ -245,7 +245,7 @@ var optionValidationConfig = {
                                     });
                                 }
                             }
-                       ],
+                        ],
                         height: [
                             v.validators.number,
                             {
@@ -585,8 +585,8 @@ var ScatterChartView = JuttleView.extend({
 
     _consume_eof: function() {
         _.each(this._charts, function(ch) {
-             ch.getDataTarget().stream_end();
-         });
+            ch.getDataTarget().stream_end();
+        });
         this._doUpdate();
         this._stopUpdates();
     },
@@ -655,7 +655,7 @@ var ScatterChartView = JuttleView.extend({
 
         this._data = _.sortBy(this._data, this._attributes.timeField).splice(lastPointIdx, this._data.length);
 
-         // for each data target clip data that is outside of configured limit
+        // for each data target clip data that is outside of configured limit
         _.each(this._charts, function(ch) {
             ch.getDataTarget().clipOutsideOfLimit(lastIdxKey);
         });
@@ -689,9 +689,9 @@ var ScatterChartView = JuttleView.extend({
             if (xMin !== 'auto' || xMax !== 'auto' || yMin !== 'auto' || yMax !== 'auto') {
                 data = _.filter(data, function(d) {
                     return  ( xMin === 'auto' || d[self._attributes.controlField] >= xMin ) &&
-                            ( xMax === 'auto' || d[self._attributes.controlField] <= xMax ) &&
-                            ( yMin === 'auto' || d[self._attributes.valueField] >= yMin ) &&
-                            ( yMax === 'auto' || d[self._attributes.valueField] <= yMax );
+                        ( xMax === 'auto' || d[self._attributes.controlField] <= xMax ) &&
+                        ( yMin === 'auto' || d[self._attributes.valueField] >= yMin ) &&
+                        ( yMax === 'auto' || d[self._attributes.valueField] <= yMax );
                 });
             }
         }
@@ -1045,7 +1045,7 @@ var ScatterChartView = JuttleView.extend({
     }
 
 },
-// static
+    // static
     {
         optionValidationConfig: optionValidationConfig
     });
