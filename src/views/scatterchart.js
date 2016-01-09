@@ -105,7 +105,7 @@ var optionValidationConfig = {
                                                 }
                                             }
                                         ],
-                                         displayOnAxis : [
+                                        displayOnAxis : [
                                             {
                                                 validator : v.validators.enum,
                                                 options : {
@@ -205,7 +205,7 @@ var optionValidationConfig = {
                                             {
                                                 scale : value
                                             }
-                                        );
+                                                );
                                     }
                                     return undefined;
                                 }
@@ -230,7 +230,7 @@ var optionValidationConfig = {
                 options : {
                     allowedProperties : ['fields', 'width', 'height'],
                     properties : {
-                       fields: [
+                        fields: [
                             function(value, options) {
                                 if (!_.isArray(value)) {
                                     value = [value];
@@ -584,7 +584,7 @@ var ScatterChartView = JuttleView.extend({
     },
 
     _consume_eof: function() {
-         _.each(this._charts, function(ch) {
+        _.each(this._charts, function(ch) {
             ch.getDataTarget().stream_end();
         });
         this._doUpdate();
@@ -655,7 +655,7 @@ var ScatterChartView = JuttleView.extend({
 
         this._data = _.sortBy(this._data, this._attributes.timeField).splice(lastPointIdx, this._data.length);
 
-         // for each data target clip data that is outside of configured limit
+        // for each data target clip data that is outside of configured limit
         _.each(this._charts, function(ch) {
             ch.getDataTarget().clipOutsideOfLimit(lastIdxKey);
         });
@@ -689,9 +689,9 @@ var ScatterChartView = JuttleView.extend({
             if (xMin !== 'auto' || xMax !== 'auto' || yMin !== 'auto' || yMax !== 'auto') {
                 data = _.filter(data, function(d) {
                     return  ( xMin === 'auto' || d[self._attributes.controlField] >= xMin ) &&
-                            ( xMax === 'auto' || d[self._attributes.controlField] <= xMax ) &&
-                            ( yMin === 'auto' || d[self._attributes.valueField] >= yMin ) &&
-                            ( yMax === 'auto' || d[self._attributes.valueField] <= yMax );
+                        ( xMax === 'auto' || d[self._attributes.controlField] <= xMax ) &&
+                        ( yMin === 'auto' || d[self._attributes.valueField] >= yMin ) &&
+                        ( yMax === 'auto' || d[self._attributes.valueField] <= yMax );
                 });
             }
         }
@@ -936,15 +936,15 @@ var ScatterChartView = JuttleView.extend({
 
     _calculateNiceMinValue: function(data, field, threshold) {
         var minValue = d3.min(data, function(d) {
-                return d[field];
-            } );
+            return d[field];
+        } );
         return minValue === undefined || minValue > threshold ? threshold : minValue;
     },
 
     _calculateNiceMaxValue: function(data, field, threshold) {
         var maxValue = d3.max(data, function(d) {
-                return d[field];
-            });
+            return d[field];
+        });
         return maxValue === undefined || maxValue < threshold ? threshold : maxValue;
     },
 
@@ -1045,9 +1045,9 @@ var ScatterChartView = JuttleView.extend({
     }
 
 },
-// static
-{
-    optionValidationConfig: optionValidationConfig
-});
+    // static
+    {
+        optionValidationConfig: optionValidationConfig
+    });
 
 module.exports = ScatterChartView;

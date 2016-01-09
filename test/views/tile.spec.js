@@ -86,7 +86,7 @@ describe('Tile Sink View', function () {
             viewTestUtils.verifyRuntimeMessage(chart, 'WAITING_FOR_DATA');
 
             chart.consume([
-                { time : test_date, host : 'host1', pop : 'pop1', value : 2 },
+                { time : test_date, host : 'host1', pop : 'pop1', value : 2 }
             ]);
 
             viewTestUtils.verifyNoRuntimeMessages(chart);

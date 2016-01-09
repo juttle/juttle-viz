@@ -39,11 +39,11 @@ var FileSink = JuttleView.extend({
         if (errs !== undefined) {
             this.throwParamValidationError(errs);
         }
-    },
+    }
 },
 // static
-{
-    optionValidationConfig: optionValidationConfig
-});
+    {
+        optionValidationConfig: optionValidationConfig
+    });
 
 module.exports = FileSink;

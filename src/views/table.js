@@ -14,7 +14,7 @@ var optionValidationConfig = {
         'markdownFields',
         'limit',
         'update',
-        'height',
+        'height'
     ],
     properties : {
         limit : [
@@ -144,8 +144,8 @@ var table = JuttleView.extend({
     }
 },
 // static
-{
-    optionValidationConfig: optionValidationConfig
-});
+    {
+        optionValidationConfig: optionValidationConfig
+    });
 
 module.exports = table;

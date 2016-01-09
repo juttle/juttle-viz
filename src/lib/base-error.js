@@ -13,5 +13,5 @@ module.exports = Base.inherits(Error, {
 
         this.code = code;
         this.info = info || this.default_info || {};
-    },
+    }
 });

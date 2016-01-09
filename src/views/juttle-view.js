@@ -386,45 +386,43 @@ var JuttleView = Base.extend({
     },
 
     throwParamValidationError: function(errors) {
-        throw new BaseError(
-            null,
+        throw new BaseError(null,
             "PARAM_VALIDATION",
             {
                 errors: errors,
                 sinkName : this.type,
                 location : this.location
-            }
-        );
+            });
     }
 },
-{
-    getValidOptionsFlattened: function() {
-        var optionValidationConfig = this.optionValidationConfig;
-        if (!optionValidationConfig) {
-            return [];
-        }
+    {
+        getValidOptionsFlattened: function() {
+            var optionValidationConfig = this.optionValidationConfig;
+            if (!optionValidationConfig) {
+                return [];
+            }
 
-        var validFlattenedOptions = [];
-        function findFlattenedOptions(obj, prefix) {
-            _.each(obj.allowedProperties, function(allowedProperty) {
-                if (obj.properties &&
-                    obj.properties[allowedProperty] &&
-                    obj.properties[allowedProperty][0].validator === v.validators.object) {
-                    findFlattenedOptions(
-                        obj.properties[allowedProperty][0].options,
-                        prefix === '' ? allowedProperty : prefix + "." + allowedProperty
-                    );
-                }
-                else {
-                    validFlattenedOptions.push(prefix === '' ? allowedProperty : prefix + "." + allowedProperty);
-                }
-            });
-        }
-        findFlattenedOptions(optionValidationConfig, '');
+            var validFlattenedOptions = [];
+            function findFlattenedOptions(obj, prefix) {
+                _.each(obj.allowedProperties, function(allowedProperty) {
+                    if (obj.properties &&
+                            obj.properties[allowedProperty] &&
+                            obj.properties[allowedProperty][0].validator === v.validators.object) {
+                        findFlattenedOptions(
+                                obj.properties[allowedProperty][0].options,
+                                prefix === '' ? allowedProperty : prefix + "." + allowedProperty
+                                );
+                    }
+                    else {
+                        validFlattenedOptions.push(prefix === '' ? allowedProperty : prefix + "." + allowedProperty);
+                    }
+                });
+            }
+            findFlattenedOptions(optionValidationConfig, '');
 
-        return validFlattenedOptions;
+            return validFlattenedOptions;
+        }
     }
-}
 );
 
 

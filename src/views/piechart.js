@@ -171,8 +171,8 @@ var piechart = JuttleView.extend({
     }
 },
 // static
-{
-    optionValidationConfig: optionValidationConfig
-});
+    {
+        optionValidationConfig: optionValidationConfig
+    });
 
 module.exports = piechart;

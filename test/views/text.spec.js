@@ -1,7 +1,6 @@
 /*jslint browser: true */
 
 require('chai').should();
-var assert = require('chai').assert;
 var $ = require('jquery');
 var _ = require('underscore');
 var viewTestUtils = require('./utils/view-test-utils');
@@ -278,7 +277,7 @@ describe('TextView Sink View', function () {
             chart.runtimeMessages.getMessages().at(0).get('code').should.eql('WAITING_FOR_DATA');
 
             chart.consume([
-                { time : new Date(), value : 1, pop : 'pop1' },
+                { time : new Date(), value : 1, pop : 'pop1' }
             ]);
 
             chart.runtimeMessages.getMessages().length.should.eql(0);

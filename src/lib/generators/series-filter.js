@@ -53,9 +53,9 @@ SeriesFilter.prototype._onKeyUp = function() {
 };
 
 SeriesFilter.prototype._onClearBtnClick = function() {
-      this._input.val('').focus();
-      this._clearBtn.hide();
-      this.trigger('clear');
+    this._input.val('').focus();
+    this._clearBtn.hide();
+    this.trigger('clear');
 };
 
 SeriesFilter.prototype._onKeyPress = function(e) {

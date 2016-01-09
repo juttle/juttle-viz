@@ -237,20 +237,20 @@ Table.prototype.draw = function(columns, data) {
     }
 
     cells.filter(function(cell) {
-            return cell.type === 'markup';
-        }).html(function(d) {
-            return d.content;
-        });
+        return cell.type === 'markup';
+    }).html(function(d) {
+        return d.content;
+    });
 
     cells.filter(function(cell) {
-            return cell.type === 'text';
-        }).text(function(d) {
-            if (_.isDate(d.content)) {
-                return dateFormatter(d.content);
-            } else {
-                return d.content;
-            }
-        });
+        return cell.type === 'text';
+    }).text(function(d) {
+        if (_.isDate(d.content)) {
+            return dateFormatter(d.content);
+        } else {
+            return d.content;
+        }
+    });
 };
 
 

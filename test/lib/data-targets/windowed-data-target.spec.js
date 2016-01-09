@@ -1,3 +1,4 @@
+/*eslint-disable no-console */
 require('chai').should();
 
 describe('Windowed Data Target', function () {

@@ -16,7 +16,7 @@ function HoverRect(container, options) {
         top : 0,
         bottom : 0,
         left : 0,
-        right : 0,
+        right : 0
     };
     
     // Create an invisible rectangle to grab mouse events

@@ -39,7 +39,7 @@ var WindowedDataTarget = BaseDataTarget.extend({
         this.trigger('update', {
             data: this._data,
             newData: newData,
-            id: this.id,
+            id: this.id
         });
     }
 });

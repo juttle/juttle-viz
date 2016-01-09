@@ -1,3 +1,4 @@
+/*eslint-disable no-console */
 require('chai').should();
 
 describe('Base Data Target', function () {

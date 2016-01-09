@@ -40,7 +40,7 @@ var SimplexNoise = function(r) {
 };
 
 SimplexNoise.prototype.dot = function(g, x, y) {
-        return g[0]*x + g[1]*y;
+    return g[0]*x + g[1]*y;
 };
 
 SimplexNoise.prototype.noise = function(xin, yin) {

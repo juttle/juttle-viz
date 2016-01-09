@@ -17,7 +17,7 @@ describe("Event marker generator", function() {
                 top : 0,
                 bottom : 0,
                 left : 0,
-                right : 0,
+                right : 0
             }
         });
 
@@ -35,7 +35,7 @@ describe("Event marker generator", function() {
             },
             {
                 time : new Date(2000)
-            },
+            }
         ];
 
         eventMarkersView.update({ data : data },domain);

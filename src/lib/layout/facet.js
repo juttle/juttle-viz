@@ -16,17 +16,17 @@ var GUTTER = 25;
 
 // allowed values for facet.width
 var FACET_WIDTH_MAP = {
-        '100%': 1,
-        '50%': 2,
-        '25%': 4,
-        '20%': 5,
-        '1': 1,
-        '1/2': 2,
-        '1/3': 3,
-        '1/4': 4,
-        '1/5': 5,
-        '1/6': 6
-    };
+    '100%': 1,
+    '50%': 2,
+    '25%': 4,
+    '20%': 5,
+    '1': 1,
+    '1/2': 2,
+    '1/3': 3,
+    '1/4': 4,
+    '1/5': 5,
+    '1/6': 6
+};
 
 /**
  * Faceted Chart Layout
@@ -168,16 +168,16 @@ FacetLayout.prototype.addChart = function(facetFields) {
  */
 FacetLayout.prototype.addAxisLabelContainers = function() {
 
-     var g = this._svg.append('g')
+    var g = this._svg.append('g')
         .attr('class', 'axis-labels');
 
-     this._xAxisLabelContainer = g.append('g');
-     this._yAxisLabelContainer = g.append('g');
+    this._xAxisLabelContainer = g.append('g');
+    this._yAxisLabelContainer = g.append('g');
 
-     return {
+    return {
         xEl: this._xAxisLabelContainer,
         yEl: this._yAxisLabelContainer
-     };
+    };
 
 };
 

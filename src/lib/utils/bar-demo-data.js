@@ -14,19 +14,19 @@ module.exports = function(howMany) {
 
 
 var names = [
-"ATL",
-"SFO",
-"LHR",
-"JFK",
-"MAD",
-"BCN",
-"OVD",
-"PDX",
-"SAN",
-"SEA",
-"CDG",
-"TXL",
-"DUB",
-"EDI",
-"LAX"
+    "ATL",
+    "SFO",
+    "LHR",
+    "JFK",
+    "MAD",
+    "BCN",
+    "OVD",
+    "PDX",
+    "SAN",
+    "SEA",
+    "CDG",
+    "TXL",
+    "DUB",
+    "EDI",
+    "LAX"
 ];

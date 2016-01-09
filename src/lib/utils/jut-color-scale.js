@@ -48,7 +48,7 @@ var jutColors = _.pluck(colorMappings, 'value');
 // no need to specify the domain if you give
 // an explicit range :)
 module.exports = { 
-        getColorScale: function() {return d3.scale.ordinal()
+    getColorScale: function() {return d3.scale.ordinal()
             .range(jutColors);},
-        getColorMappings: function() {return colorMappings;}
-    };    
+    getColorMappings: function() {return colorMappings;}
+};    

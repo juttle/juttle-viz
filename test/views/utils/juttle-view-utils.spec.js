@@ -14,7 +14,7 @@ describe('juttle-view-utils', function () {
                     },
                     {
                         from: new Date(2000)
-                    },
+                    }
                 ];
 
                 juttleViewUtils.getExtremeTimeBound(timeBounds, now, 'from').getTime().should.equal(1000);
@@ -28,7 +28,7 @@ describe('juttle-view-utils', function () {
                     },
                     {
                         from: new Date(2000)
-                    },
+                    }
                 ];
 
                 juttleViewUtils.getExtremeTimeBound(timeBounds, now, 'from').getTime().should.equal(1000);
@@ -44,7 +44,7 @@ describe('juttle-view-utils', function () {
                     },
                     {
                         to: new Date(2000)
-                    },
+                    }
                 ];
 
                 juttleViewUtils.getExtremeTimeBound(timeBounds, now, 'to').getTime().should.equal(2000);
@@ -58,7 +58,7 @@ describe('juttle-view-utils', function () {
                     },
                     {
                         to: new Date(2000)
-                    },
+                    }
                 ];
 
                 juttleViewUtils.getExtremeTimeBound(timeBounds, now, 'to').getTime().should.equal(3000);

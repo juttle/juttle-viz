@@ -1,3 +1,4 @@
+/*eslint-disable no-console */
 require('chai').should();
 
 describe('Time Windowed Data Target', function () {
@@ -59,15 +60,15 @@ describe('Time Windowed Data Target', function () {
                 this.dt._data = [
                     {
                         value: 1,
-                        time: new Date(d - 5000),
+                        time: new Date(d - 5000)
                     },
                     {
                         value: 2,
-                        time: new Date(d - 4000),
+                        time: new Date(d - 4000)
                     },
                     {
                         value: 3,
-                        time: new Date(d - 3000),
+                        time: new Date(d - 3000)
                     }
                 ];
             });
@@ -79,12 +80,12 @@ describe('Time Windowed Data Target', function () {
             it('should add the data passed to it to the data array', function (done) {
                 var d = new Date();
                 var data = [{
-                        value: 1,
-                        key: new Date(d - 1000),
-                    },
+                    value: 1,
+                    key: new Date(d - 1000)
+                },
                     {
                         value: 1,
-                        key: new Date(d),
+                        key: new Date(d)
                     }
                 ];
 

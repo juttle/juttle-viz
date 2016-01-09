@@ -58,7 +58,7 @@ describe("Bars generator", function() {
         });
     });
 
-    describe("simple drawing", function() { 
+    describe("simple drawing", function() {
         beforeEach(function() {
             this.el = createBarElement();
             this.bars = new Bars(this.el, {

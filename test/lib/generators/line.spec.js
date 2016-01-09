@@ -54,7 +54,7 @@ describe("Line generator", function() {
         });
     });
 
-    describe("simple drawing", function() { 
+    describe("simple drawing", function() {
         beforeEach(function() {
             this.el = document.createElement('svg');
             this.line = new Line(this.el, {
@@ -96,22 +96,22 @@ describe("Line generator", function() {
             this.line.setScales(xScale, yScale);
 
             var data = [
-                    {
-                        time: new Date(2000, 1, 1),
-                        value: 200
-                    },
-                    {
-                        time: new Date(2000, 1, 2),
-                        value: 300
-                    },
-                    {
-                        time: new Date(2000, 1, 3),
-                        value: 150
-                    },
-                    {
-                        time: new Date(2000, 1, 4),
-                        value: 350
-                    }
+                {
+                    time: new Date(2000, 1, 1),
+                    value: 200
+                },
+                {
+                    time: new Date(2000, 1, 2),
+                    value: 300
+                },
+                {
+                    time: new Date(2000, 1, 3),
+                    value: 150
+                },
+                {
+                    time: new Date(2000, 1, 4),
+                    value: 350
+                }
             ];
 
             var xExtent = d3.extent(data, function(d) { return d.time; });

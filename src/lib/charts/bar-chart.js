@@ -10,7 +10,6 @@ var yAxisGenerator = require('../generators/y-axis');
 var AxisLabelGenerator = require('../generators/axis-label');
 var HoverRect = require('../components/hover-rect');
 var commonOptionDefaults = require('../utils/default-options')();
-var Backbone = require('backbone');
 
 var CategoricalDataTarget = require('../data-targets/categorical-data-target');
 var axisUtils = require('../utils/axis-utils');
@@ -216,8 +215,8 @@ BarChart.prototype._onCategoryLimitReachedUpdate = function(eventName, limitReac
  */
 BarChart.prototype._calculateNiceMinValue = function(data, field, threshold) {
     var minValue = d3.min(data, function(d) {
-            return d[field];
-        } );
+        return d[field];
+    } );
     return minValue === undefined || minValue > threshold ? threshold : minValue;
 };
 
@@ -380,7 +379,6 @@ BarChart.prototype._registerInteractions = function() {
     var d,
         bars,
         data,
-        series,
         mousePosition,
         barPosition,
         barSize,
@@ -390,7 +388,6 @@ BarChart.prototype._registerInteractions = function() {
         d = d3.event;
         bars = this.bars;
         data = bars._data;
-        series = bars.series;
         showTooltip = false;
 
         data.forEach(function(point) {

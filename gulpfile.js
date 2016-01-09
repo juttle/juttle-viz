@@ -5,6 +5,7 @@ var connect = require('gulp-connect');
 var del = require('del');
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
+var eslint = require('gulp-eslint');
 var merge = require('merge-stream');
 var mocha = require('gulp-mocha');
 var mochaPhantomJS = require('gulp-mocha-phantomjs');
@@ -96,5 +97,26 @@ gulp.task('test', ['tests-browserify'], function () {
 
     return merge(browserTests, nodeTests);
 });
+
+gulp.task('lint-test', function() {
+    return gulp.src([
+        'test/**/*.spec.js',
+        '!test/build/**'
+    ])
+ 	.pipe(eslint())
+	.pipe(eslint.format())
+	.pipe(eslint.failAfterError());
+});
+
+gulp.task('lint-src', function() {
+    return gulp.src([
+        'src/**/*.js'
+    ])
+ 	.pipe(eslint())
+	.pipe(eslint.format())
+	.pipe(eslint.failAfterError());
+});
+
+gulp.task('lint', ['lint-src', 'lint-test']);
 
 gulp.task('default', ['browserify', 'styles', 'lib']);
