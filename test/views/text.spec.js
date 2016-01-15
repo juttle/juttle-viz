@@ -1,5 +1,3 @@
-/*jslint browser: true */
-
 require('chai').should();
 var $ = require('jquery');
 var _ = require('underscore');

@@ -1,4 +1,3 @@
-/*jslint browser: true */
 require('chai').should();
 
 describe('Legend', function () {

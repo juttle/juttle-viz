@@ -6,9 +6,7 @@ var del = require('del');
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
 var eslint = require('gulp-eslint');
-var merge = require('merge-stream');
 var mocha = require('gulp-mocha');
-var mochaPhantomJS = require('gulp-mocha-phantomjs');
 var sass = require('gulp-sass');
 var source = require('vinyl-source-stream');
 
@@ -56,46 +54,19 @@ gulp.task('example-serve', ['browserify', 'styles', 'watch'], function() {
     });
 });
 
-gulp.task('tests-browserify', function() {
-    return browserify('./test/tests')
-        .bundle()
-        .on('error', function (err) {
-            console.log(err.toString());
-            this.emit('end');
-        })
-        .pipe(source('tests.js'))
-        .pipe(gulp.dest('test/build/'));
-});
-
-gulp.task('test', ['tests-browserify'], function () {
-    var browserTests = gulp
-    .src('./test/test-runner.html')
-    .pipe(mochaPhantomJS({
-        log: true,
-        timeout: 10000,
-        slow: 3000,
-        reporter: 'spec',
-        ui: 'bdd'
-    }));
-
-    var nodeTests = gulp
+gulp.task('test', function () {
+    return gulp
     .src([
-        'test/lib/**/*.spec.js',
-
-        // exclude lib browser tests
-        '!test/lib/charts/*.spec.js',
-        '!test/lib/generators/*.spec.js',
-        '!test/lib/components/*.spec.js'
+        'test/**/*.spec.js'
     ])
     .pipe(mocha({
         log: true,
         timeout: 10000,
         slow: 3000,
         reporter: 'spec',
-        ui: 'bdd'
+        ui: 'bdd',
+        require: ['./test/init.js']
     }));
-
-    return merge(browserTests, nodeTests);
 });
 
 gulp.task('lint-test', function() {
@@ -103,7 +74,7 @@ gulp.task('lint-test', function() {
         'test/**/*.spec.js',
         '!test/build/**'
     ])
- 	.pipe(eslint())
+    .pipe(eslint())
 	.pipe(eslint.format())
 	.pipe(eslint.failAfterError());
 });
@@ -112,7 +83,7 @@ gulp.task('lint-src', function() {
     return gulp.src([
         'src/**/*.js'
     ])
- 	.pipe(eslint())
+    .pipe(eslint())
 	.pipe(eslint.format())
 	.pipe(eslint.failAfterError());
 });

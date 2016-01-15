@@ -1,5 +1,3 @@
-/*jslint browser: true */
-
 require('chai').should();
 var _ = require('underscore');
 var d3Formatters = require('../../../src/lib/utils/d3-formatters');

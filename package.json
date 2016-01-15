@@ -49,7 +49,7 @@
     "gulp-mocha": "^2.2.0",
     "gulp-mocha-phantomjs": "^0.10.1",
     "gulp-sass": "^2.1.0",
-    "merge-stream": "^1.0.0",
+    "jsdom": "^7.2.2",
     "mocha": "^2.3.4",
     "vinyl-source-stream": "^1.1.0"
   },

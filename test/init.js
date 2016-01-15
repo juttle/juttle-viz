@@ -1,0 +1,1 @@
+require('./fakebrowser.js').init();

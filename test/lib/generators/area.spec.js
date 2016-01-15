@@ -1,5 +1,3 @@
-/*jslint browser: true */
-
 require('chai').should();
 
 describe('Area generator', function() {

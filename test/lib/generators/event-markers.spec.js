@@ -1,5 +1,3 @@
-/*jslint browser: true */
-
 require('chai').should();
 
 var EventMarkers = require('../../../src/lib/generators/event-markers');
