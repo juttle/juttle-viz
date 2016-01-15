@@ -58,7 +58,9 @@ module.exports = {
         global.HTMLElement = window.HTMLElement;
 
         var d3 = require('d3');
-        // d3 transformations will simply be mocked out this way
+        // d3 transformations will simply be mocked out this way due to same
+        // problem identified here:
+        // http://stackoverflow.com/questions/31236338/jsdom-svg-transform-transitions-cannot-read-property-baseval-of-undefined
         d3.transform = function() {
             return {
                 translate: function() {},
