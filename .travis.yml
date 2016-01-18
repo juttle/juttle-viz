@@ -5,4 +5,4 @@ node_js:
 
 script:
     - gulp lint
-    - gulp test
+    - gulp test-coverage

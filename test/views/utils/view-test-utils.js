@@ -1,5 +1,3 @@
-/*jslint browser: true */
-
 var assert = require('chai').assert;
 var v = require('../../../src/lib/object-validation');
 var _ = require('underscore');

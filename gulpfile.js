@@ -3,12 +3,12 @@ var babelify = require('babelify');
 var browserify = require('browserify');
 var connect = require('gulp-connect');
 var del = require('del');
+var eslint = require('gulp-eslint');
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
-var eslint = require('gulp-eslint');
-var merge = require('merge-stream');
+var isparta = require('isparta');
+var istanbul = require('gulp-istanbul');
 var mocha = require('gulp-mocha');
-var mochaPhantomJS = require('gulp-mocha-phantomjs');
 var sass = require('gulp-sass');
 var source = require('vinyl-source-stream');
 
@@ -56,54 +56,56 @@ gulp.task('example-serve', ['browserify', 'styles', 'watch'], function() {
     });
 });
 
-gulp.task('tests-browserify', function() {
-    return browserify('./test/tests')
-        .bundle()
-        .on('error', function (err) {
-            console.log(err.toString());
-            this.emit('end');
-        })
-        .pipe(source('tests.js'))
-        .pipe(gulp.dest('test/build/'));
-});
-
-gulp.task('test', ['tests-browserify'], function () {
-    var browserTests = gulp
-    .src('./test/test-runner.html')
-    .pipe(mochaPhantomJS({
-        log: true,
-        timeout: 10000,
-        slow: 3000,
-        reporter: 'spec',
-        ui: 'bdd'
-    }));
-
-    var nodeTests = gulp
-    .src([
-        'test/lib/**/*.spec.js',
-
-        // exclude lib browser tests
-        '!test/lib/charts/*.spec.js',
-        '!test/lib/generators/*.spec.js',
-        '!test/lib/components/*.spec.js'
+function gulp_test() {
+    return gulp.src([
+        'test/**/*.spec.js'
     ])
     .pipe(mocha({
         log: true,
         timeout: 10000,
         slow: 3000,
         reporter: 'spec',
-        ui: 'bdd'
+        ui: 'bdd',
+        require: ['./test/init.js']
     }));
+}
 
-    return merge(browserTests, nodeTests);
+gulp.task('instrument', function () {
+    return gulp.src([
+        'src/**/*.js'
+    ])
+    .pipe(istanbul({
+        includeUntested: true,
+        // ES6 Instrumentation
+        instrumenter: isparta.Instrumenter
+    }))
+    .pipe(istanbul.hookRequire());
+});
+
+gulp.task('test-coverage', ['instrument'], function() {
+    return gulp_test()
+    .pipe(istanbul.writeReports())
+    .pipe(istanbul.enforceThresholds({
+        thresholds: {
+            global: {
+                statements: 55,
+                branches: 43,
+                functions: 50,
+                lines: 55
+            }
+        }
+    }));
+});
+
+gulp.task('test', function () {
+    return gulp_test();
 });
 
 gulp.task('lint-test', function() {
     return gulp.src([
-        'test/**/*.spec.js',
-        '!test/build/**'
+        'test/**/*.spec.js'
     ])
- 	.pipe(eslint())
+    .pipe(eslint())
 	.pipe(eslint.format())
 	.pipe(eslint.failAfterError());
 });
@@ -112,7 +114,7 @@ gulp.task('lint-src', function() {
     return gulp.src([
         'src/**/*.js'
     ])
- 	.pipe(eslint())
+    .pipe(eslint())
 	.pipe(eslint.format())
 	.pipe(eslint.failAfterError());
 });
