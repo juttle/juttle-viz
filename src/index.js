@@ -9,7 +9,5 @@ module.exports = {
     Less: require('./views/logexplorer'),
     Tile: require('./views/tile'),
     File: require('./views/file'),
-    Events: require('./views/events'),
-    // prototypes
-    TimechartVisjs: require('./prototype-views/timechart-visjs')
+    Events: require('./views/events')
 };
