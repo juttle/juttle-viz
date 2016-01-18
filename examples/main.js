@@ -331,22 +331,22 @@ var tileData = [
 
 tile.consume(tileData);
 
-
-var File = JuttleViz.File;
-
-var file = new File({
-  juttleEnv: {
-    now: new Date()
-  }
-});
-
-document.querySelector("#file").appendChild(file.visuals[0]);
-
-//   file.setDimensions(null, 800, 500);
-
-var fileData = [
-    {time: new Date(1000), value: 100}
-];
-
-file.consume(fileData);
-file.consume_eof();
+//
+// var File = JuttleViz.File;
+//
+// var file = new File({
+//   juttleEnv: {
+//     now: new Date()
+//   }
+// });
+//
+// document.querySelector("#file").appendChild(file.visuals[0]);
+//
+// //   file.setDimensions(null, 800, 500);
+//
+// var fileData = [
+//     {time: new Date(1000), value: 100}
+// ];
+//
+// file.consume(fileData);
+// file.consume_eof();
