@@ -1,4 +1,5 @@
 var JuttleViz = require("../lib");
+var moment = require("moment");
 
 var Text = JuttleViz.Text;
 
@@ -38,7 +39,7 @@ var timechart = new Timechart({
   },
   params: {
       title: "has a title!",
-      duration: "50s"
+      duration: moment.duration(50, "seconds")
   }
 });
 
@@ -64,7 +65,7 @@ var timechartWithLast = new Timechart({
     now: new Date()
   },
   _jut_time_bounds: [{
-      last: "20m"
+      last: moment.duration(20, "minutes")
   }],
   params: {
       id: "timechart1",
@@ -90,7 +91,7 @@ var events = new Events({
     now: new Date()
   },
   _jut_time_bounds: [{
-      last: "20m"
+      last: moment.duration(20, "minutes")
   }],
   params: {
       on: "timechart1",
@@ -116,7 +117,7 @@ var timechartWithTimerangeOverlay = new Timechart({
   },
   params: {
       title: "has a title!",
-      duration: "2m",
+      duration: moment.duration(2, "minutes"),
       overlayTime: true
   }
 });
@@ -161,7 +162,7 @@ var timechartWithRuntimeMessage = new Timechart({
     now: new Date()
   },
   _jut_time_bounds: [{
-      last: "20m"
+      last: moment.duration(20, "minutes")
   }],
   params: {
       valueField: "<b>value</b>"
@@ -186,7 +187,7 @@ var timechartWithRuntimeMessage = new Timechart({
     now: new Date()
   },
   _jut_time_bounds: [{
-      last: "20m"
+      last: moment.duration(20, "minutes")
   }],
   params: {
       valueField: "<b>value</b>"
@@ -212,7 +213,7 @@ try {
         now: new Date()
       },
       _jut_time_bounds: [{
-          last: "20m"
+          last: moment.duration(20, "minutes")
       }],
       params: {
           valueField: 10,

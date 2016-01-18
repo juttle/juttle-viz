@@ -1,5 +1,4 @@
 var _ = require('underscore');
-var paramUtils = require('./param-utils');
 var moment = require('moment');
 
 var SUPPORTED_BOUND_TYPES = ["from","to"];
@@ -13,7 +12,7 @@ module.exports = {
         var bound;
         if (timeBound.last) {
             if (boundType === 'from') {
-                bound = moment(now).subtract(paramUtils.convertToDuration(timeBound.last)).toDate();
+                bound = moment(now).subtract(timeBound.last).toDate();
             }
             else if (boundType === 'to') {
                 bound = now;

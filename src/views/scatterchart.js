@@ -13,7 +13,6 @@ var d3formatters = require('../lib/utils/d3-formatters');
 
 var ScatterChart = require('../lib/charts/scatter-chart');
 var ValueValidator = require('./utils/value-validator');
-var paramUtils = require('./utils/param-utils');
 
 var axisUtils = require('../lib/utils/axis-utils');
 var calculateTickValues = axisUtils.calculateTickValues;
@@ -22,6 +21,8 @@ var SimpleLayout = require('../lib/layout/simple');
 
 var FacetLayout = require('../lib/layout/facet');
 var Faceter = require('../lib/facet/faceter');
+
+var moment = require('moment');
 
 
 var optionValidationConfig = {
@@ -287,10 +288,6 @@ var ScatterChartView = JuttleView.extend({
     initialize: function(options) {
 
         options = this._applyOptionDefaults(options.params);
-
-        if (options.duration !== undefined) {
-            options.duration = paramUtils.convertToDuration(options.duration);
-        }
 
         this._verifyOptionsAreValid(options);
 
@@ -978,7 +975,7 @@ var ScatterChartView = JuttleView.extend({
             markerSize : 6,
             markerOpacity: 1,
             limit: 1000,
-            duration: this._live ? 300 : 0 // default to 5min for life feeds
+            duration: this._live ? moment.duration(5, "minutes") : moment.duration(0, "seconds") // default to 5min for life feeds
         });
 
         options.xScales = this._applyScaleOptionDefaults('x', options.xScales, options.controlField);
