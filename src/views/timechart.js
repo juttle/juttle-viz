@@ -22,7 +22,6 @@ var juttleViewUtils = require('./utils/juttle-view-utils');
 var d3Formatters = require('../lib/utils/d3-formatters');
 
 var Backbone = require('backbone');
-var paramUtils = require('./utils/param-utils');
 
 var DOWNSAMPLING_WARNING_MESSSAGE = new Backbone.Model({
     code : 'DOWNSAMPLING_WARNING'
@@ -212,14 +211,6 @@ var TimeChartView = JuttleView.extend({
         }
 
         options = this._applyOptionDefaults(options.params);
-
-        if (options.duration !== undefined) {
-            options.duration = paramUtils.convertToDuration(options.duration);
-        }
-
-        if (options.interval !== undefined) {
-            options.interval = paramUtils.convertToDuration(options.interval);
-        }
 
         this._verifyOptionsAreValid(options);
 
@@ -1089,10 +1080,6 @@ var TimeChartView = JuttleView.extend({
         } else {
             this._seriesFilter.el.removeClass('hidden');
         }
-    },
-
-    _validateTimeField : function(time) {
-        return _.isDate(time) && !_.isNaN(time.getTime());
     },
 
     _createIntervalBasedInterpolationBreaks : function(series, points) {
