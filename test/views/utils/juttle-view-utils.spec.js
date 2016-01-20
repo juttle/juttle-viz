@@ -1,5 +1,6 @@
 require('chai').should();
 var juttleViewUtils = require('../../../src/views/utils/juttle-view-utils');
+var moment = require('moment');
 
 describe('juttle-view-utils', function () {
     describe('getExtremeTimeBound', function() {
@@ -22,7 +23,7 @@ describe('juttle-view-utils', function () {
                 var now = new Date(3000);
                 var timeBounds = [
                     {
-                        last: "2s"
+                        last: moment.duration(2,'seconds')
                     },
                     {
                         from: new Date(2000)
@@ -52,7 +53,7 @@ describe('juttle-view-utils', function () {
                 var now = new Date(3000);
                 var timeBounds = [
                     {
-                        last: "2s"
+                        last: moment.duration(2,'seconds')
                     },
                     {
                         to: new Date(2000)
