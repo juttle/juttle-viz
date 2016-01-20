@@ -1,6 +1,6 @@
 {
   "name": "juttle-viz",
-  "version": "0.2.0",
+  "version": "0.3.0-rc.0",
   "description": "Juttle visualization library",
   "keywords": [
     "juttle",
@@ -26,7 +26,6 @@
     "filesaver.js": "^0.2.0",
     "jquery": "^2.1.4",
     "marked": "^0.3.5",
-    "moment": "^2.10.6",
     "moment-parser": "^0.1.0",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
@@ -53,7 +52,11 @@
     "isparta": "^4.0.0",
     "jsdom": "^7.2.2",
     "mocha": "^2.3.4",
+    "moment": "^2.11.1",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "peerDependencies": {
+    "moment": "^2.11.1"
   },
   "engines": {
     "node": ">=4.2.0",

@@ -24,20 +24,6 @@ gulp.task('lib', function() {
         .pipe(gulp.dest('lib'));
 });
 
-// XXX lib and browserify should use the same babel procedure
-// consider using webpack here instead?
-gulp.task('browserify', function() {
-    return browserify('src/index.js', {
-        standalone: 'JuttleViz'
-    })
-        .transform(babelify, { presets: ['react'] })
-        .bundle()
-        //Pass desired output filename to vinyl-source-stream
-        .pipe(source('juttle-viz.js'))
-        // Start piping stream to tasks!
-        .pipe(gulp.dest('./build/'));
-});
-
 gulp.task('styles', function() {
     gulp.src('styles/**/*.scss')
         .pipe(sass().on('error', sass.logError))
@@ -45,11 +31,20 @@ gulp.task('styles', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch(['index.js','lib/**/*.js', 'juttle/**/*.js', 'views/**/*.js'], ['browserify']);
+    gulp.watch(['src/**/*.js', 'examples/main.js'], ['browserify-example']);
     gulp.watch('styles/**/*scss', ['styles']);
 });
 
-gulp.task('example-serve', ['browserify', 'styles', 'watch'], function() {
+gulp.task('browserify-example', ['lib'], function() {
+    return browserify('examples/main.js')
+        .bundle()
+        //Pass desired output filename to vinyl-source-stream
+        .pipe(source('bundle.js'))
+        // Start piping stream to tasks!
+        .pipe(gulp.dest('./examples/build/'));
+});
+
+gulp.task('example-serve', ['browserify-example', 'styles', 'watch'], function() {
     connect.server({
         port: 8888,
         root: ['examples', 'build', 'node_modules']
@@ -121,4 +116,4 @@ gulp.task('lint-src', function() {
 
 gulp.task('lint', ['lint-src', 'lint-test']);
 
-gulp.task('default', ['browserify', 'styles', 'lib']);
+gulp.task('default', ['styles', 'lib']);

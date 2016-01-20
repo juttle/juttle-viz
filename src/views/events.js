@@ -141,16 +141,6 @@ var EventsView = JuttleView.extend({
         this.target.stream_end();
     },
 
-    _validateTimeField : function(time) {
-        // if in timechart overlay, timeField needs to actually be a Date
-        if (this._targetView) {
-            return _.isDate(time) && !_.isNaN(time.getTime());
-        }
-        else {
-            return true;
-        }
-    },
-
     _handleInvalidTimeField : function() {
         JuttleView.prototype._handleInvalidTimeField.apply(this);
         if (this._targetView) {
