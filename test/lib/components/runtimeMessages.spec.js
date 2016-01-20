@@ -1,5 +1,3 @@
-/*jslint browser: true */
-
 require('chai').should();
 var Backbone = require('backbone');
 var $ = require('jquery');

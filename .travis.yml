@@ -2,7 +2,8 @@ language: node_js
 
 node_js:
     - '4.2'
+    - '5.0'
 
 script:
     - gulp lint
-    - gulp test
+    - gulp test-coverage

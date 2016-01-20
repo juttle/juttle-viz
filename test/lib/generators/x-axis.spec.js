@@ -1,6 +1,3 @@
-/*jslint browser: true */
-
-//var should = require('chai').should();
 var d3 = require('d3'); 
 
 var sampleScale = d3.scale.linear().domain([0,1]).range(0,800);
@@ -29,7 +26,7 @@ describe("X-Axis generator", function() {
         });
 
         it('should have sensible defaults', function() {
-            var defaults = require('../../../src/lib/generators/utils/default-options')();
+            var defaults = require('../../../src/lib/utils/default-options')();
             var opts = this.xAxis.options;
             opts.width.should.equal(defaults.width);
             opts.height.should.equal(defaults.height);

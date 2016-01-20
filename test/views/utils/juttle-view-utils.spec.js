@@ -1,5 +1,3 @@
-/*jslint browser: true */
-
 require('chai').should();
 var juttleViewUtils = require('../../../src/views/utils/juttle-view-utils');
 

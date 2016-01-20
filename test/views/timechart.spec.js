@@ -1,5 +1,3 @@
-/*jslint browser: true */
-
 require('chai').should();
 var viewTestUtils = require('./utils/view-test-utils');
 var _ = require('underscore');
