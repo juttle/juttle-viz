@@ -214,18 +214,16 @@
                 <h1 id="barchart">barchart</h1>
 <p>Display the output as vertical or horizontal bars for comparing different categories of data.</p>
 <p><img alt="" src="../../images/screenshots/view_barchart.png" /></p>
-<p><img alt="information_source" class="custom_emoji" height="30" src="../../images/emoji/information_source.png" width="30" /> | Note: When working with batched data, only values from the last batch are displayed. See <code>-display.resetCategories</code> below for more details on how categories are treated across batches.</p>
+<p><img alt="information_source" class="custom_emoji" height="30" src="../../images/emoji/information_source.png" width="30" /> | Note: When working with batched data, only values from the last batch are displayed. See <code>-resetCategories</code> below for more details on how categories are treated across batches.</p>
 <pre><code>view barchart -o {
    categoryField: 'fieldname',
    id: 'string',
    title: 'string',
-   display: {
-     color: 'color',
-     negativeColor: 'color',
-     orientation: 'vertical'|'horizontal',
-     resetCategories: n,
-     colorful: true|false
-   },
+   color: 'color',
+   negativeColor: 'color',
+   colorful: true|false,
+   orientation: 'vertical'|'horizontal',
+   resetCategories: n,
    xScale: {
      label: 'auto'|'fieldname'
    },
@@ -249,9 +247,9 @@
 
 <p><em>or</em></p>
 <pre><code>view barchart -id 'string' -title: 'string'
-  -display.color 'color' -display.negativeColor 'color'
-   -display.orientation 'vertical'|'horizontal' -display.resetCategories n
-   -display.colorful true|false -xScale.label 'fieldname'
+  -color 'color' -negativeColor 'color'
+   -orientation 'vertical'|'horizontal' -resetCategories n
+   -colorful true|false -xScale.label 'fieldname'
    -yScales.primary.label 'auto'|'fieldname' -yScales.primary.tickFormat 'd3FormatString' -yScales.primary.minValue 'fieldname' -yScales.primary.maxValue 'fieldname' -yScales.primary.displayOnAxis 'axisname'
    -categoryField 'fieldname' -valueField 'fieldname'
    -tooltip.nameField 'fieldname' -tooltip.valueField 'fieldname' -tooltip.valueFormat 'd3FormatString'
@@ -288,29 +286,29 @@
 <td align="right">No; defaults to the <code>value</code> field that is present in all metrics points. If no value field is present, the first numeric field in the stream is used.</td>
 </tr>
 <tr>
-<td><code>-display.color</code></td>
+<td><code>-color</code></td>
 <td>The color to use for positive bars, specified with any <a href="http://www.w3.org/TR/css3-color/">CSS3-supported hex or name value</a></td>
 <td align="right">No; if not specified, a color is selected from the built-in palette</td>
 </tr>
 <tr>
-<td><code>-display.negativeColor</code></td>
+<td><code>-negativeColor</code></td>
 <td>The color to use for negative bars, specified with any <a href="http://www.w3.org/TR/css3-color/">CSS3-supported hex or name value</a></td>
 <td align="right">No; if not specified, a color is selected from the built-in palette</td>
 </tr>
 <tr>
-<td><code>-display.orientation</code></td>
+<td><code>-colorful</code></td>
+<td>When this is true, each bar in the chart is displayed in a different color.</td>
+<td align="right">No</td>
+</tr>
+<tr>
+<td><code>-orientation</code></td>
 <td>The orientation of the bars, either vertical or horizontal</td>
 <td align="right">No; default is vertical</td>
 </tr>
 <tr>
-<td><code>-display.resetCategories</code></td>
+<td><code>-resetCategories</code></td>
 <td><p>An integer indicating the number of batches before the bar chart resets its internal list of sorted categories. This is useful only with live streaming data, particularly if the set of categories in your data changes from batch to batch and you want to periodically remove stale categories. </p><p>The default behavior is to display all categories seen in all batches. When a category disappears from the data stream, its bar is replaced by a gap indicating a null value. When a new category appears, a new bar appears to the right of all existing bars. </p><p>Set this to zero to reset on every batch, so that the bar chart always displays the categories for the current batch only. Set this to a value greater than zero to refresh the category list on every n<sup>th</sup> batch.</p></td>
 <td align="right">No; defaults to never</td>
-</tr>
-<tr>
-<td><code>-display.colorful</code></td>
-<td>When this is true, each bar in the chart is displayed in a different color.</td>
-<td align="right">No</td>
 </tr>
 <tr>
 <td><code>-xScale.label</code></td>
