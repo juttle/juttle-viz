@@ -66,7 +66,7 @@ var JuttleView = Base.extend({
             this._receivedData();
         }
 
-        this._validateTimeField(batch);
+        this._validateTimeFieldsInBatch(batch);
 
         if (_.isFunction(this._consume)) {
             this._consume(batch);
@@ -296,17 +296,21 @@ var JuttleView = Base.extend({
         this.runtimeMessages.add(commonRuntimeMessages.WAITING_FOR_DATA);
     },
 
-    _validateTimeField : function(batch) {
+    _validateTimeFieldsInBatch : function(batch) {
         if (this._attributes && this._attributes.timeField) {
             for (var i=0; i<batch.length; i++) {
                 var timeFieldValue = batch[i][this._attributes.timeField];
 
-                if (!(_.isDate(timeFieldValue) && !_.isNaN(timeFieldValue.getTime()))) {
+                if (!this._validateTimeField(timeFieldValue)) {
                     this._handleInvalidTimeField();
                     return;
                 }
             }
         }
+    },
+
+    _validateTimeField : function(time) {
+        return true;
     },
 
     _handleInvalidTimeField : function() {

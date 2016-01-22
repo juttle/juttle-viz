@@ -301,6 +301,10 @@ var TimeChartView = JuttleView.extend({
         this.chart.apply_update();
     },
 
+    _validateTimeField: function(time) {
+        return _.isDate(time) && !_.isNaN(time.getTime());
+    },
+
     _setTimeRangeFrom: function(timeBounds, juttleNow) {
         var from = juttleViewUtils.getExtremeTimeBound(timeBounds, juttleNow, "from");
         if (from) {
