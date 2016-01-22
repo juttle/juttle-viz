@@ -270,7 +270,7 @@ var JuttleView = Base.extend({
             wrapper.append(series_filter);
 
             this.title = $('<div>').addClass('jut-chart-title');
-            this.title.html("&nbsp;");
+            this.title.html('&nbsp;');
             wrapper.append(this.title);
             $(this.el).append(header);
         }
@@ -314,7 +314,7 @@ var JuttleView = Base.extend({
     },
 
     _handleInvalidTimeField : function() {
-        this.handleFatalError("TIME_FIELD_ERROR");
+        this.handleFatalError('TIME_FIELD_ERROR');
     },
 
     _receivedData : function() {
@@ -383,7 +383,7 @@ var JuttleView = Base.extend({
 
     throwParamValidationError: function(errors) {
         throw new BaseError(null,
-            "PARAM_VALIDATION",
+            'PARAM_VALIDATION',
             {
                 errors: errors,
                 sinkName : this.type,
@@ -406,11 +406,11 @@ var JuttleView = Base.extend({
                             obj.properties[allowedProperty][0].validator === v.validators.object) {
                         findFlattenedOptions(
                                 obj.properties[allowedProperty][0].options,
-                                prefix === '' ? allowedProperty : prefix + "." + allowedProperty
+                                prefix === '' ? allowedProperty : prefix + '.' + allowedProperty
                                 );
                     }
                     else {
-                        validFlattenedOptions.push(prefix === '' ? allowedProperty : prefix + "." + allowedProperty);
+                        validFlattenedOptions.push(prefix === '' ? allowedProperty : prefix + '.' + allowedProperty);
                     }
                 });
             }

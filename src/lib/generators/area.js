@@ -76,7 +76,7 @@ Area.prototype.draw = function(data) {
         .append('path')
         .attr('class', 'area')
         .attr('fill', this.options.color)
-        .attr("d", this.zeroArea);
+        .attr('d', this.zeroArea);
 
     this.redraw();
 
@@ -124,8 +124,8 @@ Area.prototype.redraw = function() {
         .attr('transform', null)
         .transition()
         .duration(this.options.duration - 25)
-        .ease("linear")
-        .attr("transform", 'translate(' + this.transform + ', 0)');
+        .ease('linear')
+        .attr('transform', 'translate(' + this.transform + ', 0)');
 };
 
 module.exports = Area;

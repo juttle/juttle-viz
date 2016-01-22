@@ -7,8 +7,8 @@ var datefmt = d3Formatters.date;
 
 var Timestamp = function(el) {
 
-    this._wrapper = $("<div>")
-        .addClass("timestamp");
+    this._wrapper = $('<div>')
+        .addClass('timestamp');
 
     $(el).append(this._wrapper);
 
@@ -37,8 +37,8 @@ Timestamp.prototype.update = function(fromDate,toDate) {
  */
 Timestamp.prototype.setHorizontalPadding = function(left, right) {
     this._wrapper.css({
-        "padding-left": left + "px",
-        "padding-right": right + "px"
+        'padding-left': left + 'px',
+        'padding-right': right + 'px'
     });
 };
 

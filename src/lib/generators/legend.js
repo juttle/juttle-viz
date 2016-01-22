@@ -25,7 +25,7 @@ var Legend = function(container, options) {
 
     this._toggleBtn = $('<i>')
         .addClass('fa  fa-angle-double-up legend-toogle-btn')
-        .prop('title', "Collapse/Expand Legend")
+        .prop('title', 'Collapse/Expand Legend')
         .click(_.bind(this._toggleLegend, this))
         .append(collapsedTitle);
 

@@ -59,7 +59,7 @@ AxisLabel.prototype.draw = function() {
             .attr('class', 'axis-label ' + cls);
 
         this._text = this._g.append('text')
-            .attr("text-anchor", "middle")
+            .attr('text-anchor', 'middle')
             .text(this._labelText);
     }
 

@@ -84,7 +84,7 @@ var piechart = JuttleView.extend({
 
         this.timestamp = new Timestamp(this.pieChartEl);
 
-        this.chart.on("time-updated", function(msg) {
+        this.chart.on('time-updated', function(msg) {
             self.timestamp.update(msg);
         });
     },

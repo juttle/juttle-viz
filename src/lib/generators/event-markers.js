@@ -5,7 +5,7 @@ var seriesGeneratorUtils = require('./utils/series-generator-utils');
 var marked = require('marked');
 
 // the marker path generator
-var markerPath = "M44,0C18.818,0,0,21.996,0,47.416C0,79.621,44,100,44,100s44-20.379,44-52.584  C88,22.33,69.228,0,44,0z";
+var markerPath = 'M44,0C18.818,0,0,21.996,0,47.416C0,79.621,44,100,44,100s44-20.379,44-52.584  C88,22.33,69.228,0,44,0z';
 
 // event marker constructor
 var EventMarkers = function(el, options) {
@@ -30,9 +30,9 @@ var EventMarkers = function(el, options) {
     this._data = [];
 
     this.selection = d3.select(el).append('g')
-        .attr("class", "markerSeries");
+        .attr('class', 'markerSeries');
     if (options.clipId) {
-        this.selection.attr("clip-path", "url(#" + options.clipId + ")");
+        this.selection.attr('clip-path', 'url(#' + options.clipId + ')');
     }
 
     this.xScale = function() {
@@ -156,10 +156,10 @@ EventMarkers.prototype.draw = function() {
         // draw the line
         markerGroupEnter.append('line')
             .attr('class', 'vertical-line')
-            .attr("x1", 0)
-            .attr("x2", 0)
-            .attr("y1", self.margin.top)
-            .attr("y2", self.height - self.margin.bottom + 4);
+            .attr('x1', 0)
+            .attr('x2', 0)
+            .attr('y1', self.margin.top)
+            .attr('y2', self.height - self.margin.bottom + 4);
 
         // draw the icon
         var icon = markerGroupEnter.append('g')
@@ -170,7 +170,7 @@ EventMarkers.prototype.draw = function() {
         icon.append('path')
             .attr('class', 'iconMarker')
             .attr('d', markerPath)
-            .attr("transform", "scale(0.2)");
+            .attr('transform', 'scale(0.2)');
 
         icon.append('text')
             .attr('font-family', 'FontAwesome')
@@ -200,8 +200,8 @@ EventMarkers.prototype.resize = function(w, h) {
     this.width = w;
     this.height = h;
     this.selection.select('line.vertical-line')
-        .attr("y1", this.margin.top)
-        .attr("y2", this.height - this.margin.bottom + 4);
+        .attr('y1', this.margin.top)
+        .attr('y2', this.height - this.margin.bottom + 4);
 };
 
 module.exports = EventMarkers;

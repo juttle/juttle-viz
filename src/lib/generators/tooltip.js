@@ -11,7 +11,7 @@ var Tooltip = function(el, options) {
     this.options = options;
 
     var $el = $(el);
-    this.$svg = $el.closest("svg");
+    this.$svg = $el.closest('svg');
 
     //append a tooltip div as a sibling to the svg
     this.div = d3.select(this.$svg.parent().get(0)).append('div')
@@ -102,8 +102,8 @@ Tooltip.prototype.position = function(d) {
 
     this.div
         .classed(orientation, true)
-        .style("left", Math.floor(left) + 'px')
-        .style("top", Math.floor(top) + 'px');
+        .style('left', Math.floor(left) + 'px')
+        .style('top', Math.floor(top) + 'px');
 
 };
 

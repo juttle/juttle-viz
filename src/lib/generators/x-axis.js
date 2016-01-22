@@ -275,7 +275,7 @@ xAxis.prototype.draw = function(animate, options) {
         if (self.g === null) {
             self.g = self.selection
                 .append('g')
-                .attr("class", 'x axis');
+                .attr('class', 'x axis');
         }
 
         self.g.attr('transform', 'translate(0,' + ty + ')');

@@ -15,7 +15,7 @@ var optionValidationConfig = {
 
 var FileSink = JuttleView.extend({
     initialize: function(options) {
-        this._filename = options.params.filename || "output.json";
+        this._filename = options.params.filename || 'output.json';
         this._data = [];
 
         this._verifyOptionsAreValid(options.params);
@@ -28,7 +28,7 @@ var FileSink = JuttleView.extend({
     _consume_eof : function() {
         var blob = new Blob(
             [JSON.stringify(this._data, null, 2)],
-            {type: "application/json;charset=utf-8"});
+            {type: 'application/json;charset=utf-8'});
         FileSaver.saveAs(blob, this._filename);
     },
 

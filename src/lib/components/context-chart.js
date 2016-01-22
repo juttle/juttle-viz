@@ -20,8 +20,8 @@ function ContextChart(options) {
     this._series = [];
 
     this._brush = d3.svg.brush()
-        .on("brush", _.bind(this._onBrushed, this))
-        .on("brushend", _.bind(this._onBrushEnded, this));
+        .on('brush', _.bind(this._onBrushed, this))
+        .on('brushend', _.bind(this._onBrushEnded, this));
 
     this._brushEl = this.chart.el
         .append('g')

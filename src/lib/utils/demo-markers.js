@@ -13,7 +13,7 @@ module.exports = function (datapoints, startDate, increment) {
     for (i = 0; i < datapoints; i++) {
 
         returnable.push({
-            label: "Some Marker some thing",
+            label: 'Some Marker some thing',
             key: (new Date(startDate)).toISOString()
         });
 

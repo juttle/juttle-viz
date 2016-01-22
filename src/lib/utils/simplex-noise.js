@@ -9,7 +9,7 @@
  * It is assumed to have a random() method.
  */
 var SimplexNoise = function(r) {
-    if (typeof r === "undefined") {
+    if (typeof r === 'undefined') {
         r = Math;
     }
     this.grad3 = [[1,1,0],[-1,1,0],[1,-1,0],[-1,-1,0],

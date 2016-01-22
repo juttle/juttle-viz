@@ -9,7 +9,7 @@ module.exports = Base.inherits(Error, {
             Error.captureStackTrace(this, this.constructor);
         }
 
-        this.message = message || this.default_message || "";
+        this.message = message || this.default_message || '';
 
         this.code = code;
         this.info = info || this.default_info || {};
