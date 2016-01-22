@@ -50,12 +50,12 @@ var Line = function(el, options) {
     });
 
     this.series = this.selection.append('g')
-        .attr("class", "series");
+        .attr('class', 'series');
 
     this._attributes = options;
 
     if (options.label) {
-        this.series.attr("id", options.label);
+        this.series.attr('id', options.label);
     }
 
     this.data = [];
@@ -70,7 +70,7 @@ Line.prototype.set_yfield = function(y) {
 
 Line.prototype.set_id = function(id) {
     this.id = id;
-    this.series.attr("id", id);
+    this.series.attr('id', id);
 };
 
 Line.prototype.set_color = function(c) {
@@ -202,9 +202,9 @@ Line.prototype._drawLines = function(data) {
     path = path.data([data]);
 
     path.enter()
-      .append("path")
-        .attr("class", "line")
-        .style("stroke", this.color);
+      .append('path')
+        .attr('class', 'line')
+        .style('stroke', this.color);
 
     path.exit()
         .remove();

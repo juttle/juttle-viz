@@ -37,9 +37,9 @@ var RuntimeMessages = function() {
 
     this._messages = new Backbone.Collection();
 
-    this._messages.on("add", this._render, this);
-    this._messages.on("remove", this._render, this);
-    this._messages.on("change", this._render, this);
+    this._messages.on('add', this._render, this);
+    this._messages.on('remove', this._render, this);
+    this._messages.on('change', this._render, this);
 };
 
 RuntimeMessages.prototype.add = function(message) {

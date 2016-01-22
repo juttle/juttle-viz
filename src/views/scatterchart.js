@@ -778,7 +778,7 @@ var ScatterChartView = JuttleView.extend({
             .text(point[this._attributes.keyField]);
 
         var body = $('<ul>')
-            .addClass("attribute-list");
+            .addClass('attribute-list');
 
         // if time is available
         if (point[this._attributes.timeField]) {
@@ -975,7 +975,7 @@ var ScatterChartView = JuttleView.extend({
             markerSize : 6,
             markerOpacity: 1,
             limit: 1000,
-            duration: this._live ? moment.duration(5, "minutes") : moment.duration(0, "seconds") // default to 5min for life feeds
+            duration: this._live ? moment.duration(5, 'minutes') : moment.duration(0, 'seconds') // default to 5min for life feeds
         });
 
         options.xScales = this._applyScaleOptionDefaults('x', options.xScales, options.controlField);

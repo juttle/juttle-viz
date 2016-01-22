@@ -15,13 +15,13 @@ var BaseDataTarget = Base.extend({
         this.events = {};
     },
     push: function(data) {
-        throw new Error("Not Implemented");
+        throw new Error('Not Implemented');
     },
     batch_end: function(data) {
-        throw new Error("Not Implemented");
+        throw new Error('Not Implemented');
     },
     stream_end: function(data) {
-        throw new Error("Not Implemented");
+        throw new Error('Not Implemented');
     },
 
     on: function(eventName, callback, context) {

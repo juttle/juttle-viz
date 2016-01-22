@@ -161,7 +161,7 @@ var BarChartView = JuttleView.extend({
         var chartMargin = this.chart.getMargin();
         this.timestamp.setHorizontalPadding(chartMargin.left, chartMargin.right);
 
-        this.chart.on("time-updated", function(msg) {
+        this.chart.on('time-updated', function(msg) {
             self.timestamp.update(msg);
         });
 
@@ -230,7 +230,7 @@ var BarChartView = JuttleView.extend({
             yScales : {},
             orientation : 'vertical',
             resetCategories : 0
-        }, this._applyColorDefaultOptions(_.pick(options, "color", "negativeColor", "colorful")));
+        }, this._applyColorDefaultOptions(_.pick(options, 'color', 'negativeColor', 'colorful')));
 
         _.defaults(options.yScales, {
             primary : {}

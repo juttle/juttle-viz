@@ -104,11 +104,11 @@ PieChart.prototype._onUpdate = function(eventName, data) {
     var nonZeroValues = _.without(_.pluck(data, self.options.valueField), 0);
 
     if (nonZeroValues.length === 0) {
-        self.trigger("addRuntimeMessage", ALL_ZERO_VALUES);
+        self.trigger('addRuntimeMessage', ALL_ZERO_VALUES);
         return;
     }
     else {
-        self.trigger("removeRuntimeMessage", ALL_ZERO_VALUES);
+        self.trigger('removeRuntimeMessage', ALL_ZERO_VALUES);
     }
 
     this.draw(data);
@@ -202,7 +202,7 @@ PieChart.prototype._drawLabels = function(data) {
     text.enter()
         .append('text')
         .attr('class', 'label')
-        .attr("dy", ".25em")
+        .attr('dy', '.25em')
         .style('opacity', 0)
         .each(function(d) {
             this._current = d;

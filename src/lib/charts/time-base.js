@@ -68,11 +68,11 @@ var TimeBase = function(element, options) {
         .attr('class', 'axes');
 
     this.id = options.id || (Math.floor(Math.random() * 10000));
-    var clipid = "chartClip-" + this.id;
+    var clipid = 'chartClip-' + this.id;
 
     this.clipRect = this.el.append('defs')
         .append('clipPath')
-        .attr("id", clipid)
+        .attr('id', clipid)
         .append('rect')
         .attr('y', -1 * EVENT_MARKER_HEIGHT);
 
@@ -82,7 +82,7 @@ var TimeBase = function(element, options) {
     // seriesOuter is a simple <g> container to clip the
     // actual drawn series to the display area.
     this.seriesOuter = this.el.append('g')
-        .attr("clip-path", "url(#" + clipid + ")");
+        .attr('clip-path', 'url(#' + clipid + ')');
 
     // seriesArea is the <g> into which generators attached to this
     // chart will render themselves.  Animations on the x axis are
