@@ -279,5 +279,23 @@ describe('Bar Chart Sink View', function () {
                 valueField : 'v'
             });
         });
+
+        it("doesn't complain about timeless points", function() {
+            var chart = new BarChartView({});
+            chart.setDimensions(null, 200, 200);
+
+            chart.consume([
+                {
+                    category: "A",
+                    value: 1
+                },
+                {
+                    category: "B",
+                    value: 1
+                }
+            ]);
+
+            viewTestUtils.verifyNoRuntimeMessages(chart);
+        });
     });
 });

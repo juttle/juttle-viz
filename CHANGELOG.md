@@ -2,6 +2,14 @@
 
 This file documents all notable changes to juttle-viz. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.3.1
+
+Released 2016-01-21
+
+### Bug Fixes
+
+- time field: fix which views require time in points and which ones don't [[#32](https://github.com/juttle/juttle-viz/pull/32)]
+
 ## 0.3.0
 
 Released 2016-01-20
