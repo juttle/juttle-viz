@@ -55,7 +55,7 @@ describe('Area generator', function() {
         });
     });
 
-    describe("drawing", function() {
+    describe('drawing', function() {
         beforeEach(function() {
             this.el = document.createElement('svg');
             this.area = new Area(this.el, {

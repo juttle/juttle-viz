@@ -40,14 +40,14 @@ describe('Time Chart Sink View', function () {
                 });
 
                 chart.consume([
-                    { time : test_date, host : 'host1', pop : 'pop1', country : "Canada", value : 10 }
+                    { time : test_date, host : 'host1', pop : 'pop1', country : 'Canada', value : 10 }
                 ]);
 
                 chart.chart.series['0'].label.should.equal('country: Canada');
 
                 chart.consume([
-                    { time : test_date, host : 'host1', pop : 'pop2', country : "Canada", value : 10 },
-                    { time : test_date, host : 'host2', pop : 'pop2', country : "Canada", value : 10 }
+                    { time : test_date, host : 'host1', pop : 'pop2', country : 'Canada', value : 10 },
+                    { time : test_date, host : 'host2', pop : 'pop2', country : 'Canada', value : 10 }
                 ]);
 
                 chart.chart.series['0'].label.should.equal('host: host1, pop: pop1');
@@ -55,7 +55,7 @@ describe('Time Chart Sink View', function () {
                 chart.chart.series['2'].label.should.equal('host: host2, pop: pop2');
 
                 chart.consume([
-                    { time : test_date, host : 'host1', pop : 'pop2', country : "Portugal", value : 10 }
+                    { time : test_date, host : 'host1', pop : 'pop2', country : 'Portugal', value : 10 }
                 ]);
 
                 chart.chart.series['0'].label.should.equal('country: Canada, host: host1, pop: pop1');
@@ -87,8 +87,8 @@ describe('Time Chart Sink View', function () {
                 });
 
                 chart.consume([
-                    { time : test_date, value : 10, value2 : 20, host : "host1" },
-                    { time : test_date, value : 11, value2 : 30, host : "host2" }
+                    { time : test_date, value : 10, value2 : 20, host : 'host1' },
+                    { time : test_date, value : 11, value2 : 30, host : 'host2' }
                 ]);
 
                 chart.chart.series['0'].label.should.equal('host: host1');
@@ -103,8 +103,8 @@ describe('Time Chart Sink View', function () {
                 });
 
                 chart.consume([
-                    { time : test_date, value : 10, common: "test", not_common: "shown" },
-                    { time : test_date, value : 10, common: "test1" }
+                    { time : test_date, value : 10, common: 'test', not_common: 'shown' },
+                    { time : test_date, value : 10, common: 'test1' }
                 ]);
 
                 chart.chart.series['0'].label.should.equal('common: test, not_common: shown');
@@ -117,8 +117,8 @@ describe('Time Chart Sink View', function () {
                 });
 
                 chart.consume([
-                    { time : test_date, value : 10, common: "test", some_field: "shown" },
-                    { time : test_date, value : 10, common: "test"}
+                    { time : test_date, value : 10, common: 'test', some_field: 'shown' },
+                    { time : test_date, value : 10, common: 'test'}
                 ]);
 
                 chart.chart.series['0'].label.should.equal('some_field: shown');
@@ -274,7 +274,7 @@ describe('Time Chart Sink View', function () {
             viewTestUtils.verifyValidationError({
                 viewConstructor : TimeChartView,
                 params : {
-                    interval : "someString"
+                    interval : 'someString'
                 },
                 errorPath : 'interval',
                 error : {

@@ -111,17 +111,17 @@ describe('Tile Sink View', function () {
             viewTestUtils.verifyNoRuntimeMessages(chart);
         });
 
-        it("doesn't complain about timeless points", function() {
+        it('doesn\'t complain about timeless points', function() {
             var chart = new TileView({});
             chart.setDimensions(null, 200, 200);
 
             chart.consume([
                 {
-                    category: "A",
+                    category: 'A',
                     value: 1
                 },
                 {
-                    category: "B",
+                    category: 'B',
                     value: 1
                 }
             ]);

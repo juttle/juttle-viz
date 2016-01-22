@@ -1,6 +1,6 @@
 require('chai').should();
 
-describe("Bars generator", function() {
+describe('Bars generator', function() {
     function createBarElement() {
         var container = document.createElement('div');
         var svg = document.createElement('svg');
@@ -17,7 +17,7 @@ describe("Bars generator", function() {
     var Bars = require('../../../src/lib/generators/bars');
     var d3 = require('d3');
 
-    describe("initialisation", function() {
+    describe('initialisation', function() {
         beforeEach(function () {
             // create a new svg element
             var el = createBarElement();
@@ -56,7 +56,7 @@ describe("Bars generator", function() {
         });
     });
 
-    describe("simple drawing", function() {
+    describe('simple drawing', function() {
         beforeEach(function() {
             this.el = createBarElement();
             this.bars = new Bars(this.el, {

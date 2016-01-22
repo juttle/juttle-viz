@@ -280,17 +280,17 @@ describe('Bar Chart Sink View', function () {
             });
         });
 
-        it("doesn't complain about timeless points", function() {
+        it('doesn\'t complain about timeless points', function() {
             var chart = new BarChartView({});
             chart.setDimensions(null, 200, 200);
 
             chart.consume([
                 {
-                    category: "A",
+                    category: 'A',
                     value: 1
                 },
                 {
-                    category: "B",
+                    category: 'B',
                     value: 1
                 }
             ]);
