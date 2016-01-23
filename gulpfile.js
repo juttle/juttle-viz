@@ -101,8 +101,8 @@ gulp.task('lint-test', function() {
         'test/**/*.spec.js'
     ])
     .pipe(eslint())
-	.pipe(eslint.format())
-	.pipe(eslint.failAfterError());
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
 gulp.task('lint-src', function() {
@@ -110,8 +110,8 @@ gulp.task('lint-src', function() {
         'src/**/*.js'
     ])
     .pipe(eslint())
-	.pipe(eslint.format())
-	.pipe(eslint.failAfterError());
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
 gulp.task('lint', ['lint-src', 'lint-test']);
