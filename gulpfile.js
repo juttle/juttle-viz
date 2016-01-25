@@ -98,7 +98,7 @@ gulp.task('test', function () {
 
 gulp.task('lint-test', function() {
     return gulp.src([
-        'test/**/*.spec.js'
+        'test/**/*.js'
     ])
     .pipe(eslint())
     .pipe(eslint.format())

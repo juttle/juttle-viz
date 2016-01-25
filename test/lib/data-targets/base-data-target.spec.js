@@ -30,7 +30,7 @@ describe('Base Data Target', function () {
                 this.dt.on('debt', this.payDebt, this);
                 this.dt.events.should.have.property('debt');
                 this.dt.events.debt.should.deep.equal([{
-                    token: "0",
+                    token: '0',
                     callback: this.payDebt,
                     context: this
                 }]);
@@ -59,7 +59,7 @@ describe('Base Data Target', function () {
             });
 
             it('should return false if the token could not be found', function () {
-                this.dt.off("10").should.be.false;
+                this.dt.off('10').should.be.false;
             });
         });
         describe('trigger', function () {
@@ -89,8 +89,8 @@ describe('Base Data Target', function () {
                 };
 
                 this.dt.on('attack', function(eventName, args) {
-                    this.city.should.equal("Winterfell");
-                    this.house.should.equal("Stark");
+                    this.city.should.equal('Winterfell');
+                    this.house.should.equal('Stark');
                     done();
                 }, context);
 

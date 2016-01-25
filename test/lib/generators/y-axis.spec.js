@@ -2,10 +2,10 @@ var d3 = require('d3');
 
 var sampleScale = d3.scale.linear().domain([0,1]).range(0,800);
 
-describe("Y-Axis generator", function() {
+describe('Y-Axis generator', function() {
     var yAxisGenerator = require('../../../src/lib/generators/y-axis');
 
-    describe("initialisation", function() {
+    describe('initialisation', function() {
 
         beforeEach(function() {
             var el = document.createElement('svg');
@@ -37,7 +37,7 @@ describe("Y-Axis generator", function() {
         });
     });
 
-    describe("simple drawing", function() {
+    describe('simple drawing', function() {
         beforeEach(function() {
             this.el = document.createElement('svg');
             this.yAxis = new yAxisGenerator(this.el, {
@@ -85,7 +85,7 @@ describe("Y-Axis generator", function() {
 
     });
 
-    describe("orientation", function() {
+    describe('orientation', function() {
         beforeEach(function() {
             this.el = document.createElement('svg');
             this.yAxis = new yAxisGenerator(this.el);
