@@ -1,0 +1,23 @@
+{
+    "UNKNOWN": "\"{{info.paramName}}\" is not a valid parameter.",
+    "REQUIRED": "\"{{info.paramName}}\" is missing.",
+    "INVALID_TYPE_OBJECT": "The value of \"{{info.paramName}}\" must be an object.",
+    "INVALID_TYPE_STRING": "The value of \"{{info.paramName}}\" must be a string.",
+    "INVALID_TYPE_NUMBER": "The value of \"{{info.paramName}}\" must be a number.",
+    "INVALID_TYPE_INTEGER": "The value of \"{{info.paramName}}\" must be a whole number.",
+    "INVALID_TYPE_BOOLEAN": "The value of \"{{info.paramName}}\" must be true or false.",
+    "OUT_OF_RANGE_GREATER_THAN": "The value of \"{{info.paramName}}\" must be greater than {{info.threshold}}.",
+    "OUT_OF_RANGE_LESS_THAN": "The value of \"{{info.paramName}}\" must be less than {{info.threshold}}.",
+    "OUT_OF_RANGE_GREATER_THAN_OR_EQUAL": "The value of \"{{info.paramName}}\" must be greater than or equal to {{info.threshold}}.",
+    "OUT_OF_RANGE_LESS_THAN_OR_EQUAL": "The value of \"{{info.paramName}}\" must be less than or equal to {{info.threshold}}.",
+    "ENUM": "The value of \"{{info.paramName}}\" must be one of {{info.allowedValues}}",
+    "INVALID_TYPE_ARRAY": "The value of \"{{info.paramName}}\" must be an array.",
+    "INVALID_TYPE_STRING_ARRAY": "The value of \"{{info.paramName}}\" must be an array of strings.",
+    "OVERLAY_SINK_NOT_FOUND": "You specified \"on\" but the id {{info.overlayId}} doesn't exist.",
+    "SERIES_SCALE_NOT_FOUND": "{{info.scale}} isn't a valid scale name; the only valid names are primary or secondary.",
+    "MISSING_KEY_FIELD_FOR_SERIES": "\"keyField\" is required when you're specifying a series.",
+    "MIN_VALUE_LESS_THAN_MAX_VALUE": "\"{{info.paramName}}\" must be less than \"maxValue\".",
+    "MAX_VALUE_GREATER_THAN_MIN_VALUE": "\"{{info.paramName}}\" must be greater than \"minValue\".",
+    "INVALID_SCALE": "{{info.scale}} isn't a valid scale name; the only valid names are primary or secondary.",
+    "DURATION_CANNOT_BE_NEGATIVE": "\"{{info.paramName}}\" must be a Duration or a non-negative number of seconds."
+}

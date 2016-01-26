@@ -11,6 +11,10 @@ var BaseError = require('../lib/base-error');
 
 var SeriesFilter = require('../lib/generators/series-filter');
 
+var StringBundle  = require('../lib/strings/string-bundle');
+var paramValidationErrorStrings = require('../lib/strings/param-validation-error-strings');
+var paramValidationErrorStringBundle = new StringBundle(paramValidationErrorStrings);
+
 // the base view that other views extend.
 
 var JuttleView = Base.extend({
@@ -417,6 +421,26 @@ var JuttleView = Base.extend({
             findFlattenedOptions(optionValidationConfig, '');
 
             return validFlattenedOptions;
+        },
+
+        getFlattenedParamValidationErrors: function(errs) {
+            return _.mapObject(v.flattenErrors(errs), function(flattenedError, paramName) {
+                return flattenedError.map(function(singleError) {
+                    var info = _.extend({
+                        paramName: paramName
+                    }, singleError.info);
+
+                    var code = singleError.code;
+
+                    if (code === 'INVALID_TYPE' || code === 'OUT_OF_RANGE') {
+                        code += '_' + singleError.info.type;
+                    }
+
+                    return _.extend(singleError, {
+                        message: paramValidationErrorStringBundle.getStringForCode(code,{info: info})
+                    });
+                });
+            });
         }
     }
 );
