@@ -94,6 +94,28 @@ describe('Time Chart Sink View', function () {
                 chart.chart.series['0'].label.should.equal('host: host1');
                 chart.chart.series['1'].label.should.equal('host: host2');
             });
+
+            it('null fields should be ignored for determining series', function() {
+                var chart = new TimeChartView({
+                    juttleEnv : juttleEnv,
+                    params : {
+                        valueField : 'value'
+                    }
+                });
+
+                // The second two points should fall into the two series of the first two points
+                // despite having an extra field with a `null` value.
+                chart.consume([
+                    {time: test_date, name: 'metric1', host: 'A', value: 1},
+                    {time: test_date, name: 'metric2', host: 'A', value: 1},
+                    {time: new Date(test_date.getTime() + 1000), name: 'metric1', host: 'A', value: 2, numCores: null},
+                    {time: new Date(test_date.getTime() + 1000), name: 'metric2', host: 'A', value: 2, numCores: null}
+                ]);
+
+                chart.chart.series['0'].label.should.equal('name: metric1');
+                chart.chart.series['1'].label.should.equal('name: metric2');
+                Object.keys(chart.chart.series).length.should.equal(2);
+            });
         });
 
         describe('missing fields', function() {

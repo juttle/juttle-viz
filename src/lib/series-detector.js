@@ -1,3 +1,5 @@
+// Proof of Concept (untested and only used in prototype-views/visjs)
+
 /*
     Series Detector
      - Detects what series a given point belongs to and returns it.
@@ -47,7 +49,7 @@ var SeriesDetector = Base.extend({
         }
         else {
             _.each(point, function(val, name) {
-                if (!_.isNumber(val) && ! _.contains(this._fieldsToIgnore, name)) {
+                if (val === null && !_.isNumber(val) && ! _.contains(this._fieldsToIgnore, name)) {
                     keys[name] = val;
                 }
             }, this);
