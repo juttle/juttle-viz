@@ -27,7 +27,8 @@ gulp.task('lib', function() {
 gulp.task('styles', function() {
     gulp.src('styles/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./dist/'));
+        // .pipe(source('juttle-viz.css'))
+        .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('watch', function() {
