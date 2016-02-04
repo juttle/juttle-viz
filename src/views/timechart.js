@@ -635,7 +635,7 @@ var TimeChartView = JuttleView.extend({
         }
         else {
             _.each(point, function(val, name) {
-                if (!_.isNumber(val) && name !== this._attributes.timeField && name !== this._attributes.valueField) {
+                if (val !== null && !_.isNumber(val) && name !== this._attributes.timeField && name !== this._attributes.valueField) {
                     keys[name] = val;
                 }
             }, this);
