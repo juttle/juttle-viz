@@ -2,6 +2,14 @@
 
 This file documents all notable changes to juttle-viz. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.4.1
+
+Released 2016-02-08
+
+## Minor Changes
+
+- juttle-view: add static method getFlattenedParamValidationErrors [[#40](https://github.com/juttle/juttle-viz/pull/40)]
+
 ## 0.4.0
 
 Released 2016-02-05
