@@ -39,17 +39,17 @@ describe('Table Sink View', function () {
     });
 
     describe('Runtime Messages', function () {
-        it("doesn't complain about timeless points when not in overlay", function() {
+        it('doesn\'t complain about timeless points when not in overlay', function() {
             var chart = new EventsView({});
             chart.setDimensions(null, 200, 200);
 
             chart.consume([
                 {
-                    category: "A",
+                    category: 'A',
                     value: 1
                 },
                 {
-                    category: "B",
+                    category: 'B',
                     value: 1
                 }
             ]);
@@ -57,7 +57,7 @@ describe('Table Sink View', function () {
             viewTestUtils.verifyNoRuntimeMessages(chart);
         });
 
-        it("complains on timechart about timeless points when overlaying", function() {
+        it('complains on timechart about timeless points when overlaying', function() {
             var timeChart = new TimeChartView({
                 juttleEnv: {
                     now: new Date()
@@ -86,11 +86,11 @@ describe('Table Sink View', function () {
 
             chart.consume([
                 {
-                    category: "A",
+                    category: 'A',
                     value: 1
                 },
                 {
-                    category: "B",
+                    category: 'B',
                     value: 1
                 }
             ]);

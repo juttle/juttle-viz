@@ -1,12 +1,12 @@
 var _ = require('underscore');
 var moment = require('moment');
 
-var SUPPORTED_BOUND_TYPES = ["from","to"];
+var SUPPORTED_BOUND_TYPES = ['from','to'];
 
 module.exports = {
     getTimeBound: function(timeBound, now, boundType) {
         if (!_.contains(SUPPORTED_BOUND_TYPES, boundType)) {
-            throw "boundType must be one of " + SUPPORTED_BOUND_TYPES.join(", ");
+            throw 'boundType must be one of ' + SUPPORTED_BOUND_TYPES.join(', ');
         }
 
         var bound;
@@ -27,7 +27,7 @@ module.exports = {
 
     getExtremeTimeBound: function(timeBounds, now, boundType) {
         if (!_.contains(SUPPORTED_BOUND_TYPES, boundType)) {
-            throw "boundType must be one of " + SUPPORTED_BOUND_TYPES.join(", ");
+            throw 'boundType must be one of ' + SUPPORTED_BOUND_TYPES.join(', ');
         }
 
         var extremeBound;

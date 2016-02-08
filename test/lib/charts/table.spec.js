@@ -8,7 +8,7 @@ function verifyHeaders(tableEl, headers) {
     ths.length.should.equal(headers.length);
 
     Array.prototype.forEach.call(ths, function(th, i) {
-        th.innerHTML.should.equal(" " + headers[i] + " " + '<div>'
+        th.innerHTML.should.equal(' ' + headers[i] + ' ' + '<div>'
                                     + headers[i] + '</div>');
     });
 }
@@ -25,13 +25,13 @@ function verifyData(tableEl, headers, data) {
             var dpVal = dp[headers[j]];
 
             if (dpVal === undefined) {
-                td.innerHTML.should.equal("");
+                td.innerHTML.should.equal('');
             }
             else if (_.isDate(dpVal) ) {
                 td.innerHTML.should.equal(timeFormatter(dpVal));
             }
             else {
-                td.innerHTML.should.equal("" + dpVal);
+                td.innerHTML.should.equal('' + dpVal);
             }
             
         });
@@ -100,11 +100,11 @@ describe('Table', function () {
                 it( 'time, name, and value are present in data', function() {
                     var data = [
                         {
-                            someOtherField: "yada",
+                            someOtherField: 'yada',
                             name: 'who',
                             time: new Date(),
                             andAnotherField: 'scoobster',
-                            value: "Winter is coming"
+                            value: 'Winter is coming'
                         }
                     ];
 
@@ -118,7 +118,7 @@ describe('Table', function () {
                 it( 'name is present in data', function() {
                     var data = [
                         {
-                            someOtherField: "yada",
+                            someOtherField: 'yada',
                             name: 'who',
                             andAnotherField: 'scoobster'
                         }
@@ -132,11 +132,11 @@ describe('Table', function () {
                 it('fields not present at first should be added to the right in alpha order', function() {
                     this.table.dataTarget.push([
                         {
-                            someOtherField: "yada",
+                            someOtherField: 'yada',
                             name: 'who',
                             time: new Date(),
                             andAnotherField: 'scoobster',
-                            value: "Winter is coming"
+                            value: 'Winter is coming'
                         }
                     ]);
 

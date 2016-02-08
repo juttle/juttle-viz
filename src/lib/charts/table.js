@@ -36,7 +36,7 @@ var Table = function(element, options) {
     this.innerContainer.appendChild(this.el);
     this.container.appendChild(this.innerContainer);
 
-    this.innerContainer.style.maxHeight = options.height + "px";
+    this.innerContainer.style.maxHeight = options.height + 'px';
 
     this.resize();
 
@@ -116,7 +116,7 @@ Table.prototype._bindScrollBlocker = function() {
 
     if (this.container.parentNode) {
 
-        this.container.parentNode.addEventListener("mouseenter", function startHoverTimer() {
+        this.container.parentNode.addEventListener('mouseenter', function startHoverTimer() {
             self.hoverTimer = setTimeout(function enableScroll() {
                 self.innerContainer.classList.remove('hide-overflow');
             }, HOVER_TIMER);
@@ -199,7 +199,7 @@ Table.prototype.draw = function(columns, data) {
 
     theadCells
         .text(function(column) {
-            return " " + column + " ";
+            return ' ' + column + ' ';
         })
         .append('div')
         .text(function(d) {
@@ -227,7 +227,7 @@ Table.prototype.draw = function(columns, data) {
 
     cells
         .enter()
-        .append("td");
+        .append('td');
 
     var dateFormatter;
     if (this.options.dateFormat) {

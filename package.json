@@ -1,6 +1,6 @@
 {
   "name": "juttle-viz",
-  "version": "0.3.2-rc.0",
+  "version": "0.4.0",
   "description": "Juttle visualization library",
   "keywords": [
     "juttle",
@@ -13,7 +13,8 @@
   "repository": "juttle/juttle-viz",
   "scripts": {
     "test": "gulp test",
-    "prepublish": "gulp clean; gulp"
+    "build:umd": "webpack src/index.js dist/juttle-viz.js",
+    "prepublish": "gulp clean; gulp && npm run build:umd"
   },
   "dependencies": {
     "babelify": "^7.2.0",
@@ -34,6 +35,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^5.0.0-beta6",
+    "babel-loader": "^6.2.1",
     "babel-preset-react": "^6.3.13",
     "browserify": "^12.0.1",
     "chai": "^3.4.1",
@@ -51,9 +53,11 @@
     "gulp-sass": "^2.1.0",
     "isparta": "^4.0.0",
     "jsdom": "^7.2.2",
+    "json-loader": "^0.5.4",
     "mocha": "^2.3.4",
     "moment": "^2.11.1",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "webpack": "^1.12.12"
   },
   "peerDependencies": {
     "moment": "^2.11.1"

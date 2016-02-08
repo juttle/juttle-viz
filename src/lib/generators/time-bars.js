@@ -18,12 +18,12 @@ var TimeBars = function(el, options) {
     this.selection = d3.select(el);
 
     this.series = this.selection.append('g')
-        .attr("class", "series");
+        .attr('class', 'series');
 
     this._attributes = options;
 
     if (options.label) {
-        this.series.attr("id", options.label);
+        this.series.attr('id', options.label);
     }
 
     this.data = [];
@@ -38,7 +38,7 @@ TimeBars.prototype.set_yfield = function(y) {
 
 TimeBars.prototype.set_id = function(id) {
     this.id = id;
-    this.series.attr("id", id);
+    this.series.attr('id', id);
 };
 
 TimeBars.prototype.set_color = function(c) {

@@ -187,7 +187,7 @@ module.exports = v = {
                     findErrors(err.info.errors, prefix === '' ? err.info.property : prefix + '.' + err.info.property);
                 }
                 else {
-                    throw new Error("Unknown type of error: " + err);
+                    throw new Error('Unknown type of error: ' + err);
                 }
             });
         }

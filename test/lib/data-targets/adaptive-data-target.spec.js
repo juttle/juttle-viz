@@ -10,7 +10,7 @@ describe('Adaptive Data Target', function () {
     // var next_time = new Date('2014-09-10T20:00:00Z').getTime();
     
     function assertDatesAreEqual(date1,date2) {
-        assert(date1.getTime() === date2.getTime(), "Expected " + date1 + " to equal " + date2);
+        assert(date1.getTime() === date2.getTime(), 'Expected ' + date1 + ' to equal ' + date2);
     }
     
     function make_points(n) {

@@ -207,7 +207,7 @@ var TimeChartView = JuttleView.extend({
         this._juttleNow = options.juttleEnv.now;
         // fail if we don't receive a value for now
         if (this._juttleNow === undefined) {
-            throw "ERROR: 'juttleEnv.now' not passed into the timechart constructor";
+            throw 'ERROR: \'juttleEnv.now\' not passed into the timechart constructor';
         }
 
         options = this._applyOptionDefaults(options.params);
@@ -306,14 +306,14 @@ var TimeChartView = JuttleView.extend({
     },
 
     _setTimeRangeFrom: function(timeBounds, juttleNow) {
-        var from = juttleViewUtils.getExtremeTimeBound(timeBounds, juttleNow, "from");
+        var from = juttleViewUtils.getExtremeTimeBound(timeBounds, juttleNow, 'from');
         if (from) {
             this.extendTimeRange(from);
         }
     },
 
     _setTimeRangeTo: function(timeBounds, juttleNow) {
-        var to = juttleViewUtils.getExtremeTimeBound(timeBounds, juttleNow, "to");
+        var to = juttleViewUtils.getExtremeTimeBound(timeBounds, juttleNow, 'to');
         if (to) {
             this.extendTimeRange(to);
         }
@@ -635,7 +635,7 @@ var TimeChartView = JuttleView.extend({
         }
         else {
             _.each(point, function(val, name) {
-                if (!_.isNumber(val) && name !== this._attributes.timeField && name !== this._attributes.valueField) {
+                if (val !== null && !_.isNumber(val) && name !== this._attributes.timeField && name !== this._attributes.valueField) {
                     keys[name] = val;
                 }
             }, this);
@@ -760,7 +760,7 @@ var TimeChartView = JuttleView.extend({
             }
             else {
                 options.label = _.keys(seriesKeys.rawKeys).sort().map(function(fieldName) {
-                    return fieldName + ": " + seriesKeys.rawKeys[fieldName];
+                    return fieldName + ': ' + seriesKeys.rawKeys[fieldName];
                 }).join(', ') || this._attributes.valueField;
             }
         }
@@ -958,7 +958,7 @@ var TimeChartView = JuttleView.extend({
             var labels = keys_to_show.map(function(fieldName) {
                 var value = rawKeys[fieldName];
                 if (value === undefined || value === null) { return null; }
-                return fieldName + ": " + value;
+                return fieldName + ': ' + value;
             });
             label = _.compact(labels).join(', ');
         }

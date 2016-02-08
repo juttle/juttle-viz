@@ -13,7 +13,7 @@ var sass = require('gulp-sass');
 var source = require('vinyl-source-stream');
 
 gulp.task('clean', function(cb) {
-    del(['lib', 'build', 'test/build']);
+    del(['lib', 'dist', 'test/dist']);
 });
 
 gulp.task('lib', function() {
@@ -27,7 +27,8 @@ gulp.task('lib', function() {
 gulp.task('styles', function() {
     gulp.src('styles/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./build/'));
+        // .pipe(source('juttle-viz.css'))
+        .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('watch', function() {
@@ -41,13 +42,13 @@ gulp.task('browserify-example', ['lib'], function() {
         //Pass desired output filename to vinyl-source-stream
         .pipe(source('bundle.js'))
         // Start piping stream to tasks!
-        .pipe(gulp.dest('./examples/build/'));
+        .pipe(gulp.dest('./examples/dist/'));
 });
 
 gulp.task('example-serve', ['browserify-example', 'styles', 'watch'], function() {
     connect.server({
         port: 8888,
-        root: ['examples', 'build', 'node_modules']
+        root: ['examples', 'dist', 'node_modules']
     });
 });
 
@@ -98,11 +99,11 @@ gulp.task('test', function () {
 
 gulp.task('lint-test', function() {
     return gulp.src([
-        'test/**/*.spec.js'
+        'test/**/*.js'
     ])
     .pipe(eslint())
-	.pipe(eslint.format())
-	.pipe(eslint.failAfterError());
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
 gulp.task('lint-src', function() {
@@ -110,8 +111,8 @@ gulp.task('lint-src', function() {
         'src/**/*.js'
     ])
     .pipe(eslint())
-	.pipe(eslint.format())
-	.pipe(eslint.failAfterError());
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
 gulp.task('lint', ['lint-src', 'lint-test']);

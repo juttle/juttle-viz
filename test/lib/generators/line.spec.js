@@ -1,10 +1,10 @@
 require('chai').should();
 
-describe("Line generator", function() {
+describe('Line generator', function() {
     var Line = require('../../../src/lib/generators/line');
     var d3 = require('d3');
 
-    describe("initialisation", function() {
+    describe('initialisation', function() {
         beforeEach(function () {
             // create a new svg element
             var el = document.createElement('svg');
@@ -52,7 +52,7 @@ describe("Line generator", function() {
         });
     });
 
-    describe("simple drawing", function() {
+    describe('simple drawing', function() {
         beforeEach(function() {
             this.el = document.createElement('svg');
             this.line = new Line(this.el, {

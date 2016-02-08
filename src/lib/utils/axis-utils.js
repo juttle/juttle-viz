@@ -22,13 +22,13 @@ function default_format(n) {
 }
 
 var defaultTimeFormat = d3.time.format.utc.multi([
-        [".%L", function(d) { return d.getUTCMilliseconds(); }],
-        [":%S", function(d) { return d.getUTCSeconds(); }],
-        ["%H:%M", function(d) { return d.getUTCMinutes() && d.getUTCMinutes() !== 0; }],
-        ["%H:00", function(d) { return d.getUTCHours() && d.getUTCHours() !== 0; }],
-        ["%a %d", function(d) { return d.getUTCDate() !== 1; }],
-        ["%B", function(d) { return d.getUTCMonth() && d.getUTCMonth() !== 0; }],
-        ["%Y", function(d) { return true; }]
+        ['.%L', function(d) { return d.getUTCMilliseconds(); }],
+        [':%S', function(d) { return d.getUTCSeconds(); }],
+        ['%H:%M', function(d) { return d.getUTCMinutes() && d.getUTCMinutes() !== 0; }],
+        ['%H:00', function(d) { return d.getUTCHours() && d.getUTCHours() !== 0; }],
+        ['%a %d', function(d) { return d.getUTCDate() !== 1; }],
+        ['%B', function(d) { return d.getUTCMonth() && d.getUTCMonth() !== 0; }],
+        ['%Y', function(d) { return true; }]
 ]);
 
 function calculateTickValues(min, max, ticks) {
@@ -107,7 +107,7 @@ function calculateRange(start, stop, step) {
        a lot of leading decimals.
        */
     if ((stop - start) / step === Infinity) {
-        throw new Error("infinite range");
+        throw new Error('infinite range');
     }
     var range = [],
         k = integerScale(Math.abs(step)),

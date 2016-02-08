@@ -7,12 +7,12 @@ var Backbone = require('backbone');
  */
 var SeriesFilter = function(el) {
 
-    this._input = $("<input type='text' placeholder='Series Filter'>")
-        .addClass("form-control")
+    this._input = $('<input type=\'text\' placeholder=\'Series Filter\'>')
+        .addClass('form-control')
         .keyup(this._onKeyUp.bind(this))
         .keypress(this._onKeyPress.bind(this));
 
-    this._clearBtn = $("<span class='clear-btn fa fa-remove form-control-feedback' ></span>")
+    this._clearBtn = $('<span class=\'clear-btn fa fa-remove form-control-feedback\' ></span>')
         .hide(this._input.prev('input').val())
         .mouseenter(function() {
             $(this).addClass('hover');

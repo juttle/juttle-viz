@@ -4,7 +4,7 @@ var EventMarkers = require('../../../src/lib/generators/event-markers');
 var d3 = require('d3');
 var $ = require('jquery');
 
-describe("Event marker generator", function() {
+describe('Event marker generator', function() {
     it('hover correctly turned on and off', function() {
         var el = document.createElement('div');
         var eventMarkersView = new EventMarkers(el, {

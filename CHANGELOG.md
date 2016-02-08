@@ -2,6 +2,19 @@
 
 This file documents all notable changes to juttle-viz. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.4.0
+
+Released 2016-02-05
+
+### Major Changes
+
+- add umd build [[#43](https://github.com/juttle/juttle-viz/pull/43)]
+ - This changes the location of the built css from `build/charts.css` to `dist/juttle-viz.css`
+
+### Minor Changes
+
+- timechart series detection: don't add fields with null values to a series' keys [[#44](https://github.com/juttle/juttle-viz/pull/44)]
+
 ## 0.3.1
 
 Released 2016-01-21
