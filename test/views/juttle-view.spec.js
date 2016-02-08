@@ -10,7 +10,7 @@ describe('juttle-view', function() {
             };
 
             var errs = ObjectValidator.validate(obj, {
-                allowedProperties: ["propertyA"]
+                allowedProperties: ['propertyA']
             });
 
             var flattenedErrors = JuttleView.getFlattenedParamValidationErrors(errs);
@@ -28,13 +28,13 @@ describe('juttle-view', function() {
             };
 
             var errs = ObjectValidator.validate(obj, {
-                allowedProperties: ["nested"],
+                allowedProperties: ['nested'],
                 properties: {
                     nested: [
                         {
                             validator: ObjectValidator.validators.object,
                             options: {
-                                allowedProperties: ["propertyA"]
+                                allowedProperties: ['propertyA']
                             }
                         }
                     ]
@@ -42,7 +42,7 @@ describe('juttle-view', function() {
             });
 
             var flattenedErrors = JuttleView.getFlattenedParamValidationErrors(errs);
-            flattenedErrors["nested.propertyD"][0].message.should.equal('"nested.propertyD" is not a valid parameter.');
+            flattenedErrors['nested.propertyD'][0].message.should.equal('"nested.propertyD" is not a valid parameter.');
         });
 
         it('multiple errors on one param', function() {
@@ -52,7 +52,7 @@ describe('juttle-view', function() {
             };
 
             var errs = ObjectValidator.validate(obj, {
-                allowedProperties: ["propertyB"],
+                allowedProperties: ['propertyB'],
                 properties: {
                     propertyB: [
                         {
