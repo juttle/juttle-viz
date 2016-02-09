@@ -2,6 +2,14 @@
 
 This file documents all notable changes to juttle-viz. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.4.2
+
+Released 2016-02-09
+
+## Minor Changes
+
+- change Outrigger references to Juttle Engine [[#49](https://github.com/juttle/juttle-viz/pull/49)]
+
 ## 0.4.1
 
 Released 2016-02-08
