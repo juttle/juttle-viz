@@ -1,6 +1,6 @@
 # Juttle Visualization Library
 
-JuttleViz is the chart library used by [Outrigger](http://www.github.com/juttle/outrigger) to render the visual outputs of [Juttle](http://www.github.com/juttle/juttle) programs.
+JuttleViz is the chart library used by [Juttle Engine](http://www.github.com/juttle/juttle-engine) to render the visual outputs of [Juttle](http://www.github.com/juttle/juttle) programs.
 
 ## Basic Usage
 To use use one of these visualizations in your Juttle, use the `view` keyword followed by a particular view name.
