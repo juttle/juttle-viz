@@ -17,7 +17,6 @@
     "prepublish": "gulp clean; gulp && npm run build:umd"
   },
   "dependencies": {
-    "babelify": "^7.2.0",
     "backbone": "^1.2.3",
     "bluebird": "^3.0.5",
     "classnames": "^2.2.1",
@@ -37,6 +36,7 @@
     "babel-eslint": "^5.0.0-beta6",
     "babel-loader": "^6.2.1",
     "babel-preset-react": "^6.3.13",
+    "babelify": "^7.2.0",
     "browserify": "^12.0.1",
     "chai": "^3.4.1",
     "del": "^2.2.0",
