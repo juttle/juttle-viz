@@ -253,29 +253,14 @@ var JuttleView = Base.extend({
     _setupHeader : function() {
         if (this._title) {
             var header = $('<div>').addClass('jut-chart-header');
-            var wrapper = $('<div>').addClass('jut-chart-drag-wrapper');
-            header.append(wrapper);
-
-            var drag_icon = this.dragIcon = $('<i>').addClass('fa fa-arrows chart-drag-icon jut-drag-handle');
-            drag_icon.hover(function () {
-                $(this).parent().addClass('hover');
-            }, function () {
-                $(this).parent().removeClass('hover');
-            });
-
-            drag_icon.on('dragstart', function(e) {
-                e.originalEvent.dataTransfer.setDragImage(this.parentElement, 0, 0);
-            });
-
-            wrapper.append(drag_icon);
 
             // add series filter container
             var series_filter = $('<div>').addClass('series-filter has-feedback');
-            wrapper.append(series_filter);
+            header.append(series_filter);
 
             this.title = $('<div>').addClass('jut-chart-title');
             this.title.html('&nbsp;');
-            wrapper.append(this.title);
+            header.append(this.title);
             $(this.el).append(header);
         }
     },
