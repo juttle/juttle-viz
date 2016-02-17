@@ -485,38 +485,12 @@ div.jut-chart-header {
 }
 
 .jut-chart-header {
-    padding: 10px 15px 0px 15px;
-}
-
-.jut-chart-drag-wrapper {
-    padding: 0px 5px;
-    border: 1px solid transparent;
-
-    &.hover {
-        background-color: $gray-darker;
-    }
-
-    .chart-drag-icon {
-        font-size: 16px;
-        float: left;
-        position: relative;
-        color: $gray-background;
-        padding: 0;
-        padding-top: 3px;
-        margin-right: 6px;
-
-        &.hover {
-            background-color: $gray-darker;
-            color: $gray-icon;
-        }
-    }
+    padding: 10px 15px 0px 20px;
 
     .jut-chart-title {
-        margin-left: 11px;
         font-weight: 500;
         font-size: 18px;
     }
-
 }
 
 .series-filter {
