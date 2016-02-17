@@ -1,5 +1,4 @@
 var babel = require('gulp-babel');
-var babelify = require('babelify');
 var browserify = require('browserify');
 var connect = require('gulp-connect');
 var del = require('del');
