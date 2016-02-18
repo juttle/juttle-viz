@@ -78,7 +78,7 @@ Bars.prototype.draw = function(data,options) {
             .style('fill', function(d) {
                 if (d[self.value_field] === 0) {
                     // keep the current color if we are transitioning to 0
-                    return d3.select(self).style('fill');
+                    return d3.select(this).style('fill');
                 }
                 else if (d[self.value_field] > 0) {
                     return _.isFunction(self.options.color) ?

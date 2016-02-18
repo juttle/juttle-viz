@@ -61,7 +61,8 @@ describe('Bars generator', function() {
             this.el = createBarElement();
             this.bars = new Bars(this.el, {
                 duration: 0,
-                category: 'category'
+                category: 'category',
+                value: 'value'
             });
             var xScale = d3.scale.ordinal();
             var yScale = d3.scale.linear();
@@ -73,16 +74,24 @@ describe('Bars generator', function() {
         });
 
         it('should draw rects correctly', function() {
-            var data = [ { category: 'a', value: 1 },
-                         { category: 'b', value: 2 },
-                         { category: 'c', value: 3 },
-                         { category: 'd', value: 4 } ];
-            this.bars.category_scale.domain([0, 1, 2, 3]).rangeBands([0, 800]);
-            this.bars.value_scale.domain([0, 4]).range([400, 0]);
-            this.bars.draw(data);
-            var rects = this.bars.el.querySelectorAll('rect.bar');
-            rects.should.be.truthy;
-            rects.length.should.equal(4);
+            var self = this;
+            var data = [
+                { category: 'a', value: -1 },
+                { category: 'b', value: 0 },
+                { category: 'c', value: 1 }
+            ];
+            this.bars.category_scale.domain(['a', 'b', 'c']).rangeBands([0, 800]);
+            this.bars.value_scale.domain([-1, 1]).range([200, 0]);
+            return this.bars.draw(data)
+                .then(function() {
+                    var rects = self.bars.el.querySelectorAll('rect.bar');
+                    rects.should.be.truthy;
+                    rects.length.should.equal(3);
+                    parseInt(rects[0].getAttribute('height'), 10).should.be.approximately(100, 2);
+                    parseInt(rects[1].getAttribute('height'), 10).should.equal(0, 2);
+                    parseInt(rects[2].getAttribute('height'), 10).should.equal(100, 2);
+                });
+
         });
 
     });
