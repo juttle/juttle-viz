@@ -17,7 +17,6 @@
     "prepublish": "gulp clean; gulp && npm run build:umd"
   },
   "dependencies": {
-    "babelify": "^7.2.0",
     "backbone": "^1.2.3",
     "bluebird": "^3.0.5",
     "classnames": "^2.2.1",
