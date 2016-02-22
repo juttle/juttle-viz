@@ -2,6 +2,15 @@
 
 This file documents all notable changes to juttle-viz. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.4.3
+
+Released 2016-02-22
+
+## Bug Fixes
+
+- juttle-view: remove drag icon from header [[#55](https://github.com/juttle/juttle-viz/pull/55)]
+- bars.js: fix bug where sending a point with value 0 caused an exception [[#56](https://github.com/juttle/juttle-viz/pull/56)]
+
 ## 0.4.2
 
 Released 2016-02-09
