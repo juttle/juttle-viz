@@ -164,22 +164,6 @@ describe('Time Chart Sink View', function () {
             });
         });
 
-        it('unknown display field', function() {
-            viewTestUtils.verifyValidationError({
-                viewConstructor : TimeChartView,
-                params : {
-                    display : {
-                        columnOrder : 'asdf'
-                    }
-                },
-                errorPath : 'display.columnOrder',
-                error : {
-                    'code' : 'UNKNOWN',
-                    'info' : {}
-                }
-            });
-        });
-
         it('non-string valueField', function() {
             viewTestUtils.verifyValidationError({
                 viewConstructor : TimeChartView,
@@ -432,6 +416,51 @@ describe('Time Chart Sink View', function () {
             ]);
 
             viewTestUtils.verifyRuntimeMessage(chart, 'MULTIPLE_POINTS_SAME_TIME_SAME_SERIES');
+        });
+
+        it('downsampling defaults to 2 pixels per point', function() {
+            var chart = new TimeChartView({
+                juttleEnv : juttleEnv,
+                params : {}
+            });
+
+            chart.setDimensions(null, 800, 500);
+
+            var points = [];
+            for(var i = 0; i < 401; i++) {
+                points.push({
+                    time: new Date(i * 1000),
+                    value: 1
+                });
+            }
+
+            chart.consume(points.slice(0, 400));
+            viewTestUtils.verifyNoRuntimeMessages(chart);
+
+            chart.consume([points[points.length - 1]]);
+            viewTestUtils.verifyRuntimeMessage(chart, 'DOWNSAMPLING_WARNING');
+        });
+
+        it('downsampling can be turned off', function() {
+            var chart = new TimeChartView({
+                juttleEnv : juttleEnv,
+                params : {
+                    downsample: false
+                }
+            });
+
+            chart.setDimensions(null, 800, 500);
+
+            var points = [];
+            for(var i = 0; i < 500; i++) {
+                points.push({
+                    time: new Date(i * 1000),
+                    value: 1
+                });
+            }
+
+            chart.consume(points);
+            viewTestUtils.verifyNoRuntimeMessages(chart);
         });
 
         it('Show downsampling warning', function() {
