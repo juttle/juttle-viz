@@ -2,6 +2,14 @@
 
 This file documents all notable changes to juttle-viz. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.5.0
+
+Released 2016-02-29
+
+## Major changes
+
+- timechart: improve downsampling by changing option name from `-display.dataDensity` to `-downsample` and making it a `boolean` [[#6](https://github.com/juttle/juttle-viz/issues/6)]
+
 ## 0.4.3
 
 Released 2016-02-22
