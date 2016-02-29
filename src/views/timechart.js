@@ -50,6 +50,7 @@ var optionValidationConfig = {
     allowedProperties : [
         'id',
         'title',
+        'downsample',
         'col',
         'row',
         'display',
@@ -69,17 +70,7 @@ var optionValidationConfig = {
         duration : [v.validators.duration],
         overlayTime : [v.validators.boolean],
         markerSize : [v.validators.number],
-        display : [
-            {
-                validator : v.validators.object,
-                options : {
-                    allowedProperties : ['dataDensity'],
-                    properties : {
-                        dataDensity : [v.validators.number]
-                    }
-                }
-            }
-        ],
+        downsample : [v.validators.boolean],
         seriesLimit : [v.validators.number],
         xScales : [
             {
@@ -534,14 +525,11 @@ var TimeChartView = JuttleView.extend({
             timeField : 'time',
             seriesLimit : 20,
             markerSize : 0,
-            overlayTime : false
+            overlayTime : false,
+            downsample: true
         });
 
         options.display = options.display || {};
-
-        _.defaults(options.display, {
-            dataDensity : 5
-        });
 
         options.xScale = options.xScale || {};
 
@@ -584,6 +572,7 @@ var TimeChartView = JuttleView.extend({
             title : options.title,
             series : options.series,
             seriesLimit : options.seriesLimit,
+            downsample : options.downsample,
             keyField : options.keyField,
             valueField : options.valueField,
             timeField : options.timeField,
@@ -1174,7 +1163,9 @@ var TimeChartView = JuttleView.extend({
     // width and height, no monkey business.
     reallySetDimensions: function(width, height) {
         // XXX this should subtract the axis widths...
-        var limit = width / this._attributes.display.dataDensity;
+
+        var MIN_PIXELS_PER_POINT = 2;
+        var limit = this._attributes.downsample ? width / MIN_PIXELS_PER_POINT : Infinity;
         this.chart.set_downsample_limit(limit);
         _.each(this.dataTargets, function(target) {
             target.set_downsample_limit(limit);

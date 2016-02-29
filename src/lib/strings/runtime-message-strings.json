@@ -2,7 +2,7 @@
     "ALL_CATEGORIES_ARE_ZERO": "We can't draw this chart because all values are zero.",
     "WAITING_FOR_DATA": "waiting for data",
     "NO_DATA_RECEIVED": "The program finished and the chart received no data.",
-    "DOWNSAMPLING_WARNING": "There are too many points to fit on the chart so we are downsampling by averaging. You can control this with the \"-display.dataDensity\" parameter.",
+    "DOWNSAMPLING_WARNING": "There are too many points to fit on the chart so we are downsampling by averaging. You can control this with the \"-downsample\" parameter.",
     "TIME_FIELD_ERROR": "The \"timeField\" you specified does not contain valid values.",
     "COULD_NOT_DETERMINE_VALUE_FIELD": "We could not find a field to use for the \"valueField.\" Please specify one for the chart.",
     "COULD_NOT_DETERMINE_CATEGORY_FIELD": "We could not find a field to use for the \"categoryField.\" Please specify one for the chart.",

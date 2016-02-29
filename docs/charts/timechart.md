@@ -24,9 +24,7 @@ view timechart -o {
   duration: duration,
   markerSize: n,
   overlayTime: boolean,
-  display: {
-   dataDensity: n
-  },
+  downsample: boolean,
   xScale: {
    label: 'string',
    tickFormat: 'd3FormatString'
@@ -65,7 +63,7 @@ view timechart -o {
 
 *or*
 ```
-view timechart -id 'string' -title 'string' -duration duration -display.dataDensity n -markerSize n -overlayTime boolean
+view timechart -id 'string' -title 'string' -duration duration -downsample boolean -markerSize n -overlayTime boolean
    -xScale.label 'string' -xScale.tickFormat 'd3FormatString'
   -yScales.primary.label 'string' -yScales.primary.tickFormat 'd3FormatString' -yScales.primary.minValue 'n' -yScales.primary.maxValue 'n' -yScales.primary.displayOnAxis 'left'
    -yScales.secondary.label 'string' -yScales.secondary.tickFormat 'd3FormatString' -yScales.secondary.minValue 'n' -yScales.secondary.maxValue 'n' -yScales.secondary.displayOnAxis 'left'
@@ -82,7 +80,7 @@ Parameter  |  Description  |  Required?
 `-id`  |  An identifier for this sink that serves as a handle for referencing the object in Juttle syntax; conceptually identical to a variable name  |  No
 `-title`  |  The title for the user-visible output, if it has one; the value may be any valid Juttle expression that produces a string  |  No; defaults to the name field that is present in all metrics points
 `-duration`  |  <p>The span of time to display, either in seconds (&gt;=10) or as a Juttle moment literal. <br><br>This feature can also be used for comparing data from multiple intervals, such as this week's Web traffic versus last week's. This is done by setting the -overlayTime flag to true.  |  No
-`-display.dataDensity`  |  The minimum number of pixels between points, for data downsampling  |  No; defaults to 5
+`-downsample`  | Whether the timechart should downsample data by averaging. Downsampling is triggered when the point density exceeds 1 point per 2 pixels.   |  No; defaults to true
 `-markerSize`  |  <p>he diameter of the circle representing each point, in pixels </p><p>When your data is not very dense, the chart renders distinctly separate circles connecting by a one-pixel line. For denser data, circles may be rendered close together, giving the appearance of a continuous line of the specified thickness.  </p>  |  No; defaults to 0 (circle not shown)
 `-overlayTime`  |  Whether the -duration value should be used to overlay time ranges. When true, the value of -duration drives the time-length of each overlayed range.  |  No; defaults to false
 `-xScale.label`  |  The string that labels the X scale  |  No; defaults to the value of the `time` field
