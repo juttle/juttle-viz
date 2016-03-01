@@ -229,9 +229,7 @@
   duration: duration,
   markerSize: n,
   overlayTime: boolean,
-  display: {
-   dataDensity: n
-  },
+  downsample: boolean,
   xScale: {
    label: 'string',
    tickFormat: 'd3FormatString'
@@ -269,7 +267,7 @@
 </code></pre>
 
 <p><em>or</em></p>
-<pre><code>view timechart -id 'string' -title 'string' -duration duration -display.dataDensity n -markerSize n -overlayTime boolean
+<pre><code>view timechart -id 'string' -title 'string' -duration duration -downsample boolean -markerSize n -overlayTime boolean
    -xScale.label 'string' -xScale.tickFormat 'd3FormatString'
   -yScales.primary.label 'string' -yScales.primary.tickFormat 'd3FormatString' -yScales.primary.minValue 'n' -yScales.primary.maxValue 'n' -yScales.primary.displayOnAxis 'left'
    -yScales.secondary.label 'string' -yScales.secondary.tickFormat 'd3FormatString' -yScales.secondary.minValue 'n' -yScales.secondary.maxValue 'n' -yScales.secondary.displayOnAxis 'left'
@@ -304,9 +302,9 @@ for an explanation of how sink parameters can be expressed as object literals.</
 <td align="right">No</td>
 </tr>
 <tr>
-<td><code>-display.dataDensity</code></td>
-<td>The minimum number of pixels between points, for data downsampling</td>
-<td align="right">No; defaults to 5</td>
+<td><code>-downsample</code></td>
+<td>Whether the timechart should downsample data by averaging. Downsampling is triggered when the point density exceeds 1 point per 2 pixels.</td>
+<td align="right">No; defaults to true</td>
 </tr>
 <tr>
 <td><code>-markerSize</code></td>
@@ -321,7 +319,7 @@ for an explanation of how sink parameters can be expressed as object literals.</
 <tr>
 <td><code>-xScale.label</code></td>
 <td>The string that labels the X scale</td>
-<td align="right">No; defaults to the value of the <code>time</code> field</td>
+<td align="right">No; defaults to the value of the <code>time</code>field</td>
 </tr>
 <tr>
 <td><code>-xScale.tickFormat</code></td>
@@ -381,12 +379,12 @@ for an explanation of how sink parameters can be expressed as object literals.</
 <tr>
 <td><code>-keyField</code></td>
 <td>The field containing the name of the series to which each point belongs</td>
-<td align="right"><p>Required when series is configured; otherwise Jut looks for unique streams and creates a series for each one </p><p>For simple metrics, the key field usually defaults to the <code>name</code> field that is present in all metrics points</p></td>
+<td align="right"><p>Required when series is configured; otherwise Jut looks for unique streams and creates a series for each one </p><p>For simple metrics, the key field usually defaults to the <code>name</code>field that is present in all metrics points</p></td>
 </tr>
 <tr>
 <td><code>-valueField</code></td>
 <td>The name of the field to use as the source for the numeric values</td>
-<td align="right">No; defaults to the <code>value</code> field that is present in all metrics points. If no value field is present, the first numeric field in the stream is used.</td>
+<td align="right">No; defaults to the <code>value</code>field that is present in all metrics points. If no value field is present, the first numeric field in the stream is used.</td>
 </tr>
 <tr>
 <td><code>-timeField</code></td>
@@ -424,14 +422,14 @@ for an explanation of how sink parameters can be expressed as object literals.</
 <table>
 <thead>
 <tr>
-<th><code>-series</code> Parameter</th>
+<th><code>-series</code>Parameter</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>name</code></td>
-<td>A series name that can be found in the specified <code>-keyField</code>; omit this option to configure all series in the data set</td>
+<td>A series name that can be found in the specified <code>-keyField</code> omit this option to configure all series in the data set</td>
 </tr>
 <tr>
 <td><code>label</code></td>
@@ -447,7 +445,7 @@ for an explanation of how sink parameters can be expressed as object literals.</
 </tr>
 <tr>
 <td><code>geom</code></td>
-<td>Set this to <code>'bars'</code> to display this series as bars on the time chart; the width of each bar is the interval between the current point and the previous point. The default is <code>'line'</code>.</td>
+<td>Set this to <code>'bars'</code>to display this series as bars on the time chart; the width of each bar is the interval between the current point and the previous point. The default is <code>'line'</code></td>
 </tr>
 </tbody>
 </table>
@@ -535,7 +533,7 @@ view timechart -o {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../timechart_overlay/" class="btn btn-neutral float-right" title="____ Timechart Overlalys">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../timechart_overlay/" class="btn btn-neutral float-right" title="____ Timechart Overlalys"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../tile/" class="btn btn-neutral" title="tile"><span class="icon icon-circle-arrow-left"></span> Previous</a>
