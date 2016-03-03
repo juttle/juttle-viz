@@ -10,6 +10,7 @@ var TimeBars = function(el, options) {
 
     this.xfield = options.xfield || 'time';
     this.yfield = options.yfield || 'value';
+    this.interval = options.interval;
     this.type = 'slide';
     this.duration = options.duration || 0;
 
@@ -83,7 +84,7 @@ TimeBars.prototype.update = function(payload, range) {
     this.data = payload.data;
 
     this.draw_range = range;
-    
+
     this.draw();
 };
 
@@ -94,7 +95,7 @@ TimeBars.prototype.draw = function() {
     var data = this.data.filter(function(d) {
         return d[self.xfield] > self.xScale.domain()[0];
     });
-    
+
     var bars = this.series.selectAll('rect.time-bar').data(data, function(d) {
         return d[self.xfield];
     });
@@ -111,21 +112,12 @@ TimeBars.prototype.draw = function() {
             return self.yScale(0);
         })
         .attr('x', function(d, i) {
-            if (i === 0) {
-                return self.xScale.range()[0];
-            }
-            else {
-                return self.xScale(data[i - 1][self.xfield]);
-            }
+            var leftBound = self.getLeftTimeBoundForPoint(i);
+            return self.xScale(leftBound);
         })
         .attr('width', function(d, i) {
-            if (i === 0) {
-                return self.xScale(d[self.xfield]) - self.xScale.range()[0];
-            }
-            else {
-                return self.xScale(d[self.xfield]) - self.xScale(data[i - 1][self.xfield]);
-            }
-            
+            var leftBound = self.getLeftTimeBoundForPoint(i);
+            return self.xScale(d[self.xfield]) - self.xScale(leftBound);
         })
         .attr('height', function(d) {
             return Math.abs(self.yScale(0)
@@ -135,6 +127,13 @@ TimeBars.prototype.draw = function() {
     bars.exit().remove();
 };
 
+TimeBars.prototype.getLeftTimeBoundForPoint = function(i) {
+    var point = this.data[i];
+    var pointBound = i === 0 ? this.xScale.domain()[0] : this.data[i - 1][this.xfield];
+    var intervalBound = new Date(this.interval ? point[this.xfield].getTime() - this.interval.asMilliseconds() : 0);
+    return pointBound > intervalBound ? pointBound : intervalBound;
+};
+
 TimeBars.prototype.hover_find = function(t) {
     var closestIndex = seriesGeneratorUtils.getClosestIndex(
                         t,
@@ -142,7 +141,9 @@ TimeBars.prototype.hover_find = function(t) {
                         'right'
                     );
 
-    return this.data[closestIndex];
+
+    var leftBound = this.getLeftTimeBoundForPoint(closestIndex);
+    return t > leftBound ? this.data[closestIndex] : null;
 };
 
 TimeBars.prototype.hover_on = function(d) {

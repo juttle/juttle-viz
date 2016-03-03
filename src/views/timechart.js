@@ -776,7 +776,8 @@ var TimeChartView = JuttleView.extend({
 
         var generator = new GeneratorConstructor(this.chart.field(), _.extend({
             clipId: this.chart.clipId,
-            markerSize: this._attributes.markerSize
+            markerSize: this._attributes.markerSize,
+            interval: this._attributes.interval
         }, seriesopts));
 
         if (this._isTimeRangeOverlay) {
