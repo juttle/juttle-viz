@@ -33,6 +33,7 @@ pages:
 - 'events': 'charts/events.md'
 - 'file': 'charts/file.md'
 - 'less': 'charts/less.md'
+- 'markdown': 'charts/markdown.md'
 - 'text': 'charts/text.md'
 - 'piechart': 'charts/piechart.md'
 - 'scatterchart': 'charts/scatterchart.md'

@@ -18,6 +18,7 @@ View | Description | Image
 [events](charts/events.md) | Overlay events as markers on top of a time chart.  | ![screenshot](images/screenshots/thumbnail/view_events.png "events screenshot")
 [file](charts/file.md) | Not a visual view. Download the data to a local file. | N/A
 [less](charts/less.md) | Navigate the data in a manner similar to the UNIX `less` command. | ![screenshot](images/screenshots/thumbnail/view_less.png "less screenshot")
+[markdown](charts/markdown.md) | Create annotation blocks using markdown. | ![screenshot](images/screenshots/thumbnail/view_markdown.png "markdown screenshot")
 [text](charts/text.md) | Display the output in raw text, CSV or JSON format. | ![screenshot](images/screenshots/thumbnail/view_text.png "text screenshot")
 [piechart](charts/piechart.md) | Render data as a pie or donut chart. | ![screenshot](images/screenshots/thumbnail/view_piechart.png "piechart screenshot")
 [scatterchart](charts/scatterchart.md) | Plot data points as individual dots across two axes sourced from the data fields. | ![screenshot](images/screenshots/thumbnail/view_scatterchart.png "scatterchart screenshot")

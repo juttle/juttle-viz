@@ -331,6 +331,23 @@ var tileData = [
 
 tile.consume(tileData);
 
+var MarkdownView = JuttleViz.Markdown;
+
+var markdownView = new MarkdownView({
+    type: 'markdown'
+});
+
+markdownView.consume([
+    {
+        time: new Date(0),
+        message: '# This is an annotation\n## Sub Heading\n\n- list item 1 \n- list item 2\n\n[juttle](http://github.com/juttle/juttle)'
+    }
+]);
+
+markdownView.setDimensions(null, document.body.clientWidth, 500);
+
+document.querySelector("#markdown").appendChild(markdownView.visuals[0]);
+
 //
 // var File = JuttleViz.File;
 //
