@@ -422,7 +422,7 @@ var JuttleView = Base.extend({
                     }
 
                     return _.extend(singleError, {
-                        message: paramValidationErrorStringBundle.getStringForCode(code,{info: info})
+                        message: paramValidationErrorStringBundle.getStringForCode(code,info)
                     });
                 });
             });
