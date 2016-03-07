@@ -1,4 +1,4 @@
-var _ = require('underscore');
+var format = require('string-template');
 var Base = require('extendable-base');
 
 module.exports = Base.extend({
@@ -12,10 +12,6 @@ module.exports = Base.extend({
             return code;
         }
 
-        var template = _.template(string, {
-            interpolate: /\{\{([^}]*)\}\}/g
-        });
-
-        return template(info);
+        return format(string, info);
     }
 });
