@@ -10,6 +10,7 @@ module.exports = {
     Tile: require('./views/tile'),
     File: require('./views/file'),
     Events: require('./views/events'),
+    Markdown: require('./views/markdown'),
     // prototypes
     TimechartVisjs: require('./prototype-views/timechart-visjs')
 };
