@@ -2,6 +2,26 @@
 
 This file documents all notable changes to juttle-viz. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.6.0
+
+Released 2016-03-09
+
+## Major changes
+
+- Support markdown view for annotations [[#62](https://github.com/juttle/juttle-viz/issues/62)]
+
+## Minor changes
+
+- timechart: use -interval value to set bar width when appropriate [[#64](https://github.com/juttle/juttle-viz/issues/64)]
+- add ecosystem link [[#68](https://github.com/juttle/juttle-viz/pull/68)]
+- text: make options and default behavior match CLI's `view text` [[#5]([https://github.com/juttle/juttle-viz/issues/5)]
+ - default format to 'json' instead of raw
+ - add support for `indent` option to control pretty-printing
+
+## Bug fixes
+
+- json output of `view text` should be dense by default [[#5]([https://github.com/juttle/juttle-viz/issues/5)]
+
 ## 0.5.0
 
 Released 2016-02-29
