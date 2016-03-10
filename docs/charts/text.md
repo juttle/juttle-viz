@@ -13,6 +13,7 @@ Display a raw dump of the output, in a fixed-width, console-style font, or as JS
 view text -o {
    id: 'string',
    title: 'string',
+   indent: n,
    height: n,
    limit: n,
    format: 'raw|json|csv'
@@ -23,6 +24,7 @@ view text -o {
 ```
 view text -id 'string' -title 'string'
   -height n
+  -indent n
   -limit n
   -format 'raw'
 ```
@@ -35,7 +37,8 @@ Parameter  |  Description  |  Required?
 `-title`  |  The title for the user-visible output, if it has one; the value may be any valid Juttle expression that produces a string  |  No; defaults to the name field that is present in all metrics points
 `-height`   The height of the log display in number of lines  |  No; default is 20 lines
 `-limit`  |  The total number of log lines to display  |  No; default is all log lines produced by the flowgraph
-`-format`  |  You can set this to 'csv' or 'json' to get CSV or pretty-printed JSON output, respectively. Batch delimiters are ignored when 'json' or 'csv' is specified. |  No; default is 'raw', which produces one data point per line, plus batch delimiters
+`-format`  |  You can set this to 'csv' or 'raw'. 'raw' will print each individual point as JSON and show batch delimiters. |  No; default is 'json'.
+`-indent`  | When `-format` is 'json', specifies how many spaces to use for indentation for pretty-printing the JSON.
 
 _Example: raw display style_
 

@@ -53,7 +53,6 @@ function verifyTextViewContents(textView, data, format) {
 
     switch(format) {
         case 'json':
-            textAreaValue.should.equal(JSON.stringify(data,null,4));
             compareJSONtoJS(textAreaValue,data);
             break;
         case 'raw':
@@ -72,7 +71,11 @@ describe('TextView Sink View', function () {
 
     describe('format', function() {
         it('raw', function() {
-            var textView = new TextView({});
+            var textView = new TextView({
+                params: {
+                    format: 'raw'
+                }
+            });
 
             textView.consume([POINT_1_FIELD]);
             verifyTextViewContents(textView, [POINT_1_FIELD], 'raw');
@@ -143,6 +146,7 @@ describe('TextView Sink View', function () {
             it('times: true', function() {
                 var textView = new TextView({
                     params : {
+                        format : 'raw',
                         marks : true,
                         times : true
                     }
@@ -158,6 +162,7 @@ describe('TextView Sink View', function () {
             it('times: false', function() {
                 var textView = new TextView({
                     params : {
+                        format : 'raw',
                         marks : true,
                         times : false
                     }
@@ -174,6 +179,7 @@ describe('TextView Sink View', function () {
         it('false', function() {
             var textView = new TextView({
                 params : {
+                    format : 'raw',
                     marks : false
                 }
             });
@@ -185,11 +191,38 @@ describe('TextView Sink View', function () {
         });
     });
 
+    describe('indent', function() {
+        it('defaults to 0', function() {
+            var textView = new TextView({});
+
+            textView.consume([POINT_1_FIELD, POINT_1_FIELD]);
+
+            var textArea = $(textView.visuals['0']).find('textarea');
+
+            textArea.val().should.equal('[\n{"a":"AAA"},\n{"a":"AAA"}\n]');
+        });
+
+        it('can be configured', function() {
+            var textView = new TextView({
+                params: {
+                    indent: 3
+                }
+            });
+
+            textView.consume([POINT_1_FIELD, POINT_1_FIELD]);
+
+            var textArea = $(textView.visuals['0']).find('textarea');
+
+            textArea.val().should.equal('[\n   {\n      "a": "AAA"\n   },\n   {\n      "a": "AAA"\n   }\n]');
+        });
+    });
+
     describe('ticks', function() {
         describe('true', function() {
             it('times: true', function() {
                 var textView = new TextView({
                     params : {
+                        format : 'raw',
                         ticks : true,
                         times : true
                     }
@@ -205,6 +238,7 @@ describe('TextView Sink View', function () {
             it('times: false', function() {
                 var textView = new TextView({
                     params : {
+                        format : 'raw',
                         ticks : true,
                         times : false
                     }
@@ -221,6 +255,7 @@ describe('TextView Sink View', function () {
         it('false', function() {
             var textView = new TextView({
                 params : {
+                    format : 'raw',
                     ticks : false
                 }
             });
@@ -285,12 +320,13 @@ describe('TextView Sink View', function () {
             var chart = new TextView({});
 
             chart.consume_eof();
-            chart.runtimeMessages.getMessages().length.should.eql(0);
+            chart.runtimeMessages.getMessages().length.should.eql(1);
         });
 
         it('Too many items', function() {
             var chart = new TextView({
                 params : {
+                    format : 'raw',
                     limit : 2
                 }
             });

@@ -4,7 +4,6 @@ var JuttleView = require('./juttle-view');
 var tabularDataUtils = require('../lib/utils/tabular-data-utils');
 var Backbone = require('backbone');
 
-var JSON_INDENT = 4;
 var v = require('../lib/object-validation');
 
 var TextComponent = function(element, options) {
@@ -131,7 +130,20 @@ TextComponent.prototype._formatAsRaw = function(data) {
 };
 
 TextComponent.prototype._formatAsJSON = function(data) {
-    return JSON.stringify(data, null, JSON_INDENT);
+    if (this.options.indent !== 0) {
+        return JSON.stringify(data, null, this.options.indent);
+    }
+    else {
+        var points = data.map(function(item) {
+            return JSON.stringify(item);
+        }).join(',\n');
+
+        if (points !== '') {
+            points = points + '\n';
+        }
+
+        return '[\n' + points + ']';
+    }
 };
 
 TextComponent.prototype._formatAsCSV = function(data, columnOrder) {
@@ -163,6 +175,7 @@ var optionValidationConfig = {
         'row',
         'height',
         'limit',
+        'indent',
         'format',
         'times',
         'ticks',
@@ -188,6 +201,7 @@ var optionValidationConfig = {
                 }
             }
         ],
+        indent : [ v.validators.integer ],
         format : [
             {
                 validator : v.validators.enum,
@@ -236,7 +250,8 @@ var TextView = JuttleView.extend({
             title: '',
             height : 20,
             limit : 1000,
-            format : 'raw',
+            indent : 0,
+            format : 'json',
             times : false,
             ticks : false,
             marks : true
