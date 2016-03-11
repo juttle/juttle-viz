@@ -92,11 +92,11 @@ TimeBars.prototype.draw = function() {
     var self = this;
     if (this.data.length === 0) { return; }
 
-    var data = this.data.filter(function(d) {
+    this.data = this.data.filter(function(d) {
         return d[self.xfield] > self.xScale.domain()[0];
     });
 
-    var bars = this.series.selectAll('rect.time-bar').data(data, function(d) {
+    var bars = this.series.selectAll('rect.time-bar').data(this.data, function(d) {
         return d[self.xfield];
     });
 
