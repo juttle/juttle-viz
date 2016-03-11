@@ -149,7 +149,7 @@ var optionValidationConfig = {
 
                 _.each(value,function(series, i) {
                     var err = v.validators.object.call(this, series, {
-                        allowedProperties : ['name','color','label','yScale','geom','valueFormat'],
+                        allowedProperties : ['name','color','label','yScale','geom','valueFormat', 'width'],
                         properties : {
                             yScale : [
                                 function(value, options) {
@@ -171,6 +171,7 @@ var optionValidationConfig = {
                                     }
                                 }
                             ],
+                            width : [v.validators.number],
                             valueFormat : [v.validators.string]
                         }
                     });
@@ -766,7 +767,8 @@ var TimeChartView = JuttleView.extend({
         var seriesopts = {
             xfield: this._attributes.timeField,
             yfield: this._attributes.valueField,
-            label: options.label
+            label: options.label,
+            width: options.width
         };
 
         var yScaleName = options.yScale || 'primary';
