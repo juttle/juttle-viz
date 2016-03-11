@@ -130,4 +130,3 @@ describe('Line generator', function() {
     });
 
 });
-

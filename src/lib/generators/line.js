@@ -129,12 +129,12 @@ Line.prototype.update = function(payload, range) {
     var noLongerExistingPointsFromPreviousRange = this._getPreviousPointsToKeep(payloadData[0]);
 
     if (interplationBreaks !== undefined) {
-        this._interpolationBreaks = interplationBreaks.map(function(breakTime) { 
+        this._interpolationBreaks = interplationBreaks.map(function(breakTime) {
             var obj = {};
             obj[self.xfield] = breakTime;
             obj[self.yfield] = INTERPOLATION_BREAK;
             return obj;
-        });        
+        });
     }
 
     this.draw_range = range;
@@ -149,7 +149,7 @@ Line.prototype.update = function(payload, range) {
     else {
         this.data = payloadData;
     }
-    
+
     this.draw();
 };
 
@@ -293,7 +293,7 @@ Line.prototype.draw_hover = function() {
         .attr('class', 'hover')
         .attr('r', 4.5)
         .attr('fill', this.color);
-    
+
     circle.exit().remove();
 
     circle
