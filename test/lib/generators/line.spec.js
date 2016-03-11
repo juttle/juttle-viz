@@ -127,6 +127,31 @@ describe('Line generator', function() {
             d.should.not.match(/NaN/);
         });
 
+        it('width option is used to set stroke-width', function() {
+            var el = document.createElement('svg');
+            var line = new Line(el, {
+                xAccessor: function(d) {
+                    return d.time;
+                },
+                yAccessor: function(d) {
+                    return d.value;
+                },
+                width: 20
+            });
+
+            var xScale = d3.time.scale().domain([new Date(0), new Date(2000)]).range([0, 800]);
+            var yScale = d3.scale.linear().domain([0, 4]).range([400, 0]);
+            line.setScales(xScale, yScale);
+            line.update({
+                data : [{
+                    time: new Date(1000),
+                    value: 10
+                }]
+            });
+            var path = line.el.querySelector('path');
+            path.getAttribute('style').should.contain('stroke-width: 20');
+        });
+
     });
 
 });

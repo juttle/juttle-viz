@@ -36,6 +36,7 @@ var Line = function(el, options) {
 
     this.xfield = options.xfield || 'time';
     this.yfield = options.yfield || 'value';
+    this.width = options.width || 1;
     this.type = 'slide';
     this.duration = options.duration || 0;
 
@@ -204,6 +205,7 @@ Line.prototype._drawLines = function(data) {
     path.enter()
       .append('path')
         .attr('class', 'line')
+        .style('stroke-width', this.width)
         .style('stroke', this.color);
 
     path.exit()
