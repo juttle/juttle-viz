@@ -55,7 +55,8 @@ view timechart -o {
     label: 'string',
     yScale: 'primary|secondary',
     color: 'color',
-    geom: 'line|bars'
+    geom: 'line|bars',
+    width: n
    }
   ]
 }   
@@ -68,7 +69,7 @@ view timechart -id 'string' -title 'string' -duration duration -downsample boole
   -yScales.primary.label 'string' -yScales.primary.tickFormat 'd3FormatString' -yScales.primary.minValue 'n' -yScales.primary.maxValue 'n' -yScales.primary.displayOnAxis 'left'
    -yScales.secondary.label 'string' -yScales.secondary.tickFormat 'd3FormatString' -yScales.secondary.minValue 'n' -yScales.secondary.maxValue 'n' -yScales.secondary.displayOnAxis 'left'
    -keyField 'fieldname' -valueField 'fieldname' -timeField 'fieldname'
-   -interval n -series [{name : 'seriesname', label : 'string', yScale : 'primary|secondary', color : 'color', geom : 'line|bars'}]
+   -interval n -series [{name : 'seriesname', label : 'string', yScale : 'primary|secondary', color : 'color', geom : 'line|bars', width : n}]
 ```
 
 See [Defining sink parameters](../index.md#defining-view-parameters)
@@ -108,7 +109,8 @@ Parameter  |  Description  |  Required?
     label : 'string',   
     yScale : 'primary|secondary',   
     color : 'color',   
-    geom : 'line|bars'   
+    geom : 'line|bars',
+    width : n   
    },   
    {   
     name : 'someotherseries',   
@@ -126,6 +128,7 @@ Parameter  |  Description  |  Required?
 `yScale`  |  The Y scale to use for this series, either "primary" or "secondary"; the default is "primary"   
 `color`  |  The color to use for this series, specified with any [CSS3-supported hex or name value](http://www.w3.org/TR/css3-color/); if not specified, a color is selected from the built-in palette   
 `geom`  |  Set this to `'bars'` to display this series as bars on the time chart; the width of each bar is the interval between the current point and the previous point. The default is `'line'`.   
+`width`  |  Sets the width of the series. Currently only applies when `geom` is `'line'` (by setting the stroke width).
 
 _Example: Timechart with default series selection_
 
@@ -135,7 +138,7 @@ _Example: Timechart with default series selection_
 
 ![](../images/screenshots/view_timechart_default.png)
 
-_Example: Compare yesterday's CPU usage with usage today so far_ 
+_Example: Compare yesterday's CPU usage with usage today so far_
 
 ```
 {!docs/examples/charts/timechart_time_overlay_1.juttle!}
@@ -143,7 +146,7 @@ _Example: Compare yesterday's CPU usage with usage today so far_
 
 ![](../images/screenshots/view_timechart_overlay_time_1.png)
 
-_Example: Compare CPU usage from today with the same day last week_ 
+_Example: Compare CPU usage from today with the same day last week_
 
 ```
 {!docs/examples/charts/timechart_time_overlay_2.juttle!}
@@ -151,7 +154,7 @@ _Example: Compare CPU usage from today with the same day last week_
 
 ![](../images/screenshots/view_timechart_overlay_time_2.png)
 
-_Example: Configure a multi-series time chart_ 
+_Example: Configure a multi-series time chart_
 
 ```
 {!docs/examples/charts/timechart_multi_series_1.juttle!}
