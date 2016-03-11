@@ -2,6 +2,18 @@
 
 This file documents all notable changes to juttle-viz. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.6.1
+
+Released 2016-03-09
+
+## Minor Changes
+
+- timechart: support series 'width' option [[#72](https://github.com/juttle/juttle-viz/pull/72)]
+
+## Bug fixes
+
+- Fix timechart bars width and positioning bug [[#71](https://github.com/juttle/juttle-viz/pull/71)]
+
 ## 0.6.0
 
 Released 2016-03-09
