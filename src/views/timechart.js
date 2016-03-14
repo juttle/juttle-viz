@@ -641,7 +641,7 @@ var TimeChartView = JuttleView.extend({
         var self = this;
 
         function getTimeRangeBucketStart(time, from, duration) {
-            var tmpDate = moment(from);
+            var tmpDate = moment.utc(from);
 
             while(tmpDate.toDate() <= time) {
                 tmpDate = tmpDate.add(duration);
@@ -845,7 +845,7 @@ var TimeChartView = JuttleView.extend({
     _createAndAddScaleForTimeRange : function(name, timeRangeStart) {
         var scale = d3.time.scale.utc();
         var timeRangeDomain = [timeRangeStart,
-            moment(timeRangeStart).add(this._attributes.duration).toDate()];
+            moment.utc(timeRangeStart).add(this._attributes.duration).toDate()];
         scale.domain(timeRangeDomain);
         this.chart.add_scale(true, name, scale, {});
         this.chart.setDisplayedXScale(scale);
@@ -994,7 +994,7 @@ var TimeChartView = JuttleView.extend({
             if (this._isTimeRangeOverlay) {
                 var mostRecentRange = getMostRecentTimeRange(serie);
                 if (mostRecentRange.getTime() !== serie.keys.derivedKeys.timeRangeStart.getTime()) {
-                    label += ' (' + getHumanizedDuration(moment.duration(moment(mostRecentRange).diff(serie.keys.derivedKeys.timeRangeStart))) + ' ago)';
+                    label += ' (' + getHumanizedDuration(moment.duration(moment.utc(mostRecentRange).diff(serie.keys.derivedKeys.timeRangeStart))) + ' ago)';
                 }
 
             }
@@ -1089,7 +1089,7 @@ var TimeChartView = JuttleView.extend({
                 var time1 = pointsToCheck[i][this._attributes.timeField].getTime();
                 var time2 = pointsToCheck[i+1][this._attributes.timeField].getTime();
 
-                var maxTimeOfNextPoint = moment(time1).add(this._attributes.interval);
+                var maxTimeOfNextPoint = moment.utc(time1).add(this._attributes.interval);
 
                 if (time2 > maxTimeOfNextPoint.toDate().getTime()) {
                     var interpolationBreak = new Date(Math.floor((time2+time1))/2);
