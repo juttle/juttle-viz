@@ -101,4 +101,18 @@ describe('Time Bars generator', function() {
             parseInt(rects[1].getAttribute('width'), 10).should.equal(20);
         });
     });
+
+    describe('hovering', function() {
+        it('does not throw error when hovering with no points present', function() {
+            var el = document.createElement('svg');
+            var timeBars = new TimeBars(el, {});
+            var yScale = d3.scale.linear();
+            var xScale = d3.time.scale.utc();
+            xScale.domain([new Date(0), new Date(10000)]).range([0,100]);
+
+            timeBars.setScales(xScale, yScale);
+
+            (function() { timeBars.hover_find(new Date(1000)); }).should.not.throw();
+        });
+    });
 });
