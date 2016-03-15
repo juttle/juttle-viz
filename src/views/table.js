@@ -14,7 +14,10 @@ var optionValidationConfig = {
         'markdownFields',
         'limit',
         'update',
-        'height'
+        'height',
+        // Not used in this view but used in the CLI table.
+        // Add here so juttle written for the CLI can be run in the browser.
+        'progressive'
     ],
     properties : {
         limit : [
