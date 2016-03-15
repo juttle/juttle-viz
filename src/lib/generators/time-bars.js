@@ -141,6 +141,9 @@ TimeBars.prototype.hover_find = function(t) {
                         'right'
                     );
 
+    if (closestIndex === null) {
+        return;
+    }
 
     var leftBound = this.getLeftTimeBoundForPoint(closestIndex);
     return t > leftBound ? this.data[closestIndex] : null;
