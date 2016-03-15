@@ -2,6 +2,19 @@
 
 This file documents all notable changes to juttle-viz. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.6.2
+
+Release 2016-03-15
+
+## Minor changes
+
+- table view: allow progressive option (so juttles written for CLI work here) [[#79](https://github.com/juttle/juttle-viz/pull/79)]
+
+## Bug fixes
+
+- time-bars: properly handle case when hovering with no points present [[#77](https://github.com/juttle/juttle-viz/pull/77)]
+- timechart: -interval creates break in line when it shouldn't [[#75](https://github.com/juttle/juttle-viz/issues/75)]
+
 ## 0.6.1
 
 Released 2016-03-09
