@@ -4,7 +4,7 @@ This file documents all notable changes to juttle-viz. The release numbering use
 
 ## 0.6.2
 
-Release 2016-03-15
+Release 2016-03-16
 
 ## Minor changes
 
