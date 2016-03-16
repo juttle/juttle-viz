@@ -7,30 +7,29 @@
      - A point belongs to a series if its fields and values (except for the ignored ones) match a series' keys.
 */
 
-var Base = require('extendable-base');
-var _ = require('underscore');
+let _ = require('underscore');
 
-var SeriesDetector = Base.extend({
-    initialize: function(options) {
+class SeriesDetector {
+    constructor(options) {
         this._fieldsToIgnore = options.fieldsToIgnore;
         this._keyField = options.keyField;
         this._series = {};
-    },
+    }
 
-    getSeriesForPoint: function(point) {
+    getSeriesForPoint(point) {
         var keys = this._findKeys(point);
         var series = this._findSeriesWithKeys(keys);
 
         return series || this._createSeries(keys);
-    },
+    }
 
-    _findSeriesWithKeys: function(keys) {
+    _findSeriesWithKeys(keys) {
         return _.find(_.values(this._series), function(thisSeries) {
             return _.isEqual(thisSeries.keys, keys);
         });
-    },
+    }
 
-    _createSeries: function(keys) {
+    _createSeries(keys) {
         var newSeriesId = _.keys(this._series).length;
 
         this._series[newSeriesId] = {
@@ -39,9 +38,9 @@ var SeriesDetector = Base.extend({
         };
 
         return this._series[newSeriesId];
-    },
+    }
 
-    _findKeys: function(point) {
+    _findKeys(point) {
         var keys = {};
 
         if (this.keyField !== undefined) {
@@ -57,6 +56,6 @@ var SeriesDetector = Base.extend({
 
         return keys;
     }
-});
+}
 
 module.exports = SeriesDetector;
