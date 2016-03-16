@@ -11,6 +11,7 @@ module.exports = {
     File: require('./views/file'),
     Events: require('./views/events'),
     Markdown: require('./views/markdown'),
+    Highchart: require('./views/highchart'),
     // prototypes
     TimechartVisjs: require('./prototype-views/timechart-visjs')
 };

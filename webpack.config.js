@@ -4,6 +4,7 @@ module.exports = {
         libraryTarget: 'umd'
     },
     externals: {
+        highcharts: 'Highcharts',
         moment: 'moment'
     },
     module: {

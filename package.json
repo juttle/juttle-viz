@@ -17,6 +17,7 @@
     "prepublish": "gulp clean; gulp && npm run build:umd"
   },
   "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.6.0",
     "backbone": "^1.2.3",
     "bluebird": "^3.0.5",
     "classnames": "^2.2.1",
@@ -51,15 +52,18 @@
     "gulp-istanbul": "^0.10.3",
     "gulp-mocha": "^2.2.0",
     "gulp-sass": "^2.1.0",
+    "highcharts": "^4.2.3",
     "isparta": "^4.0.0",
     "jsdom": "^7.2.2",
     "json-loader": "^0.5.4",
     "mocha": "^2.3.4",
     "moment": "^2.11.1",
+    "sinon": "^1.17.3",
     "vinyl-source-stream": "^1.1.0",
     "webpack": "^1.12.12"
   },
   "peerDependencies": {
+    "highcharts": "^4.2.3",
     "moment": "^2.11.1"
   },
   "engines": {
