@@ -49,7 +49,6 @@
     "gulp-if": "^2.0.0",
     "gulp-istanbul": "^0.10.3",
     "gulp-mocha": "^2.2.0",
-    "gulp-mocha-phantomjs": "^0.10.1",
     "gulp-sass": "^2.1.0",
     "isparta": "^4.0.0",
     "jsdom": "^7.2.2",
