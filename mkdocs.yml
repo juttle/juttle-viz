@@ -5,7 +5,7 @@ docs_dir: docs
 repo_url: https://github.com/juttle/juttle-viz
 repo_docs_dir: docs
 
-google_analytics: ['UA-45515012-4', 'auto']
+google_analytics: ['UA-45515012-3', 'auto']
 
 dev_addr: '0.0.0.0:8000'
 
