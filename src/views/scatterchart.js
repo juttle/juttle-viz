@@ -515,7 +515,7 @@ var ScatterChartView = JuttleView.extend({
             return;
         }
 
-        this._determineTitleAndKeyField(batch);
+        this._determineKeyField(batch);
 
         // clip data that is outside of configured scale min/max
         batch = this._clipDataOutsideOfRange(batch);
@@ -875,15 +875,9 @@ var ScatterChartView = JuttleView.extend({
 
     },
 
-    _determineTitleAndKeyField: function(batch) {
+    _determineKeyField: function(batch) {
 
         for (var i=0; i<batch.length && (!this._attributes.title || !this._attributes.keyField); i++) {
-
-            // attempt to determine a title
-            if (!this._attributes.title && batch[i].hasOwnProperty('name')) {
-                this.title.text(batch[i].name);
-                this._attributes.title = batch[i].name;
-            }
 
             // attempt to determine a keyField
             if (!this._attributes.keyField) {
