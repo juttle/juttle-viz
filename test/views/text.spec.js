@@ -155,7 +155,7 @@ describe('TextView Sink View', function () {
                 var textArea = $(textView.visuals['0']).find('textarea');
 
                 var time = new Date();
-                textView.consume_mark(time);
+                textView.consume_mark({ time: time });
                 textArea.val().should.equal(MARK + time.toISOString());
             });
 

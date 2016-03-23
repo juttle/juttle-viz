@@ -35,13 +35,13 @@ var TextComponent = function(element, options) {
             }
             self.dataTarget.push([text]);
         },
-        batch_end: function(time) {
+        batch_end: function(mark) {
             if (!options.marks || options.format !== 'raw') {
                 return ;
             }
             var text = '--------------------------------------------------------------';
             if (options.times) {
-                text += time.toISOString();
+                text += mark.time.toISOString();
             }
             self.dataTarget.push([text]);
         },
@@ -274,8 +274,8 @@ var TextView = JuttleView.extend({
     },
 
     // gets called when a batch finishes
-    _consume_mark: function(time) {
-        this.textComponent.dataTarget.batch_end(time);
+    _consume_mark: function(mark) {
+        this.textComponent.dataTarget.batch_end(mark);
     },
 
     // gets called for ticks
