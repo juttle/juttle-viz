@@ -72,9 +72,7 @@ var JuttleView = Base.extend({
 
         this._validateTimeFieldsInBatch(batch);
 
-        if (_.isFunction(this._consume)) {
-            this._consume(batch);
-        }
+        this._consume(batch);
     },
 
     _consume_mark: function(mark) {}, //to be overridden as part of the consume_mark template pattern defined below
@@ -84,9 +82,7 @@ var JuttleView = Base.extend({
             return;
         }
 
-        if (_.isFunction(this._consume_mark)) {
-            this._consume_mark(mark);
-        }
+        this._consume_mark(mark);
     },
 
     _consume_eof: function() {}, //to be overridden as part of the consume_eof template pattern defined below
@@ -96,9 +92,7 @@ var JuttleView = Base.extend({
             return;
         }
 
-        if (_.isFunction(this._consume_eof)) {
-            this._consume_eof();
-        }
+        this._consume_eof();
 
         if (!this._hasReceivedData) {
             this.runtimeMessages.remove(commonRuntimeMessages.WAITING_FOR_DATA);
@@ -117,9 +111,7 @@ var JuttleView = Base.extend({
             return;
         }
 
-        if (_.isFunction(this._consume_tick)) {
-            this._consume_tick(time);
-        }
+        this._consume_tick(time);
     },
 
     pause : function() {
