@@ -77,15 +77,15 @@ var JuttleView = Base.extend({
         }
     },
 
-    _consume_mark: function(time) {}, //to be overridden as part of the consume_mark template pattern defined below
-    consume_mark: function(time) {
+    _consume_mark: function(mark) {}, //to be overridden as part of the consume_mark template pattern defined below
+    consume_mark: function(mark) {
         if (this._paused) {
-            this.pauseQueue.push(this.consume_mark.bind(this, time));
+            this.pauseQueue.push(this.consume_mark.bind(this, mark));
             return;
         }
 
         if (_.isFunction(this._consume_mark)) {
-            this._consume_mark(time);
+            this._consume_mark(mark);
         }
     },
 
