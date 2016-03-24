@@ -348,6 +348,50 @@ markdownView.setDimensions(null, document.body.clientWidth, 500);
 
 document.querySelector("#markdown").appendChild(markdownView.visuals[0]);
 
+var HighchartView = JuttleViz.Highchart;
+
+var highchartView = new HighchartView({
+    params: {
+        highchartOptions: {
+            title: {
+                text: 'hello world!'
+            }
+        },
+        series: {
+            'A': {
+                color: 'green'
+            }
+        }
+    }
+});
+
+highchartView.consume([
+    {
+        time: new Date(1000),
+        host: 'A',
+        value: 10
+    },
+    {
+        time: new Date(1000),
+        host: 'B',
+        value: 12
+    },
+    {
+        time: new Date(2000),
+        host: 'A',
+        value: 22
+    },
+    {
+        time: new Date(2000),
+        host: 'B',
+        value: 24
+    }
+]);
+
+highchartView.setDimensions(null, document.body.clientWidth, 500);
+
+document.querySelector('#highchart').appendChild(highchartView.visuals[0]);
+
 //
 // var File = JuttleViz.File;
 //
