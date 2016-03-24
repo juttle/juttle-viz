@@ -188,8 +188,10 @@ var JuttleView = Base.extend({
 
     },
 
-    _determineValueField: function(batch) {
+    _determineValueField: function(batch, fieldsToIgnore) {
         var self = this;
+
+        fieldsToIgnore = fieldsToIgnore || [ this._attributes.timeField ];
 
         var pt = batch[0];
         if ( 'value' in pt && this._valueValidator.isValidValue(pt, 'value')) {
@@ -201,7 +203,7 @@ var JuttleView = Base.extend({
 
         for (var i = 0; i < fields.length; i++) {
             var field = fields[i];
-            if (field !== self._attributes.timeField && this._valueValidator.isValidValue(pt, field)) {
+            if (!_.contains(fieldsToIgnore, field) && this._valueValidator.isValidValue(pt, field)) {
                 self._setValueField(field);
                 return true;
             }
