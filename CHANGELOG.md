@@ -2,15 +2,33 @@
 
 This file documents all notable changes to juttle-viz. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.7.0
+
+Released 2016-03-24
+
+### Major Changes
+
+- New highchart view [[#82](https://github.com/juttle/juttle-viz/pull/82)]
+- juttle-view#consume_mark now expects object with time property [[#87](https://github.com/juttle/juttle-viz/pull/87)]
+
+### Minor Changes
+
+- Scatterchart no longer defaults title to 'name' field of points [[#85](https://github.com/juttle/juttle-viz/pull/85)]
+- package.json: remove unused gulp-mocha-phantomjs dependency [[#81](https://github.com/juttle/juttle-viz/pull/81)]
+
+### Bug Fixes
+
+- Fix bug with scatterchart when 'name' was present in points but -title option wasn't specified [[#84](https://github.com/juttle/juttle-viz/issues/84)]
+
 ## 0.6.2
 
 Release 2016-03-16
 
-## Minor changes
+### Minor Changes
 
 - table view: allow progressive option (so juttles written for CLI work here) [[#79](https://github.com/juttle/juttle-viz/pull/79)]
 
-## Bug fixes
+### Bug Fixes
 
 - time-bars: properly handle case when hovering with no points present [[#77](https://github.com/juttle/juttle-viz/pull/77)]
 - timechart: -interval creates break in line when it shouldn't [[#75](https://github.com/juttle/juttle-viz/issues/75)]
@@ -19,11 +37,11 @@ Release 2016-03-16
 
 Released 2016-03-09
 
-## Minor Changes
+### Minor Changes
 
 - timechart: support series 'width' option [[#72](https://github.com/juttle/juttle-viz/pull/72)]
 
-## Bug fixes
+### Bug Fixes
 
 - Fix timechart bars width and positioning bug [[#71](https://github.com/juttle/juttle-viz/pull/71)]
 
@@ -31,11 +49,11 @@ Released 2016-03-09
 
 Released 2016-03-09
 
-## Major changes
+### Major Changes
 
 - Support markdown view for annotations [[#62](https://github.com/juttle/juttle-viz/issues/62)]
 
-## Minor changes
+### Minor Changes
 
 - timechart: use -interval value to set bar width when appropriate [[#64](https://github.com/juttle/juttle-viz/issues/64)]
 - add ecosystem link [[#68](https://github.com/juttle/juttle-viz/pull/68)]
@@ -43,7 +61,7 @@ Released 2016-03-09
  - default format to 'json' instead of raw
  - add support for `indent` option to control pretty-printing
 
-## Bug fixes
+### Bug Fixes
 
 - json output of `view text` should be dense by default [[#5]([https://github.com/juttle/juttle-viz/issues/5)]
 
@@ -51,7 +69,7 @@ Released 2016-03-09
 
 Released 2016-02-29
 
-## Major changes
+### Major Changes
 
 - timechart: improve downsampling by changing option name from `-display.dataDensity` to `-downsample` and making it a `boolean` [[#6](https://github.com/juttle/juttle-viz/issues/6)]
 
@@ -59,7 +77,7 @@ Released 2016-02-29
 
 Released 2016-02-22
 
-## Bug Fixes
+### Bug Fixes
 
 - juttle-view: remove drag icon from header [[#55](https://github.com/juttle/juttle-viz/pull/55)]
 - bars.js: fix bug where sending a point with value 0 caused an exception [[#56](https://github.com/juttle/juttle-viz/pull/56)]
@@ -68,7 +86,7 @@ Released 2016-02-22
 
 Released 2016-02-09
 
-## Minor Changes
+### Minor Changes
 
 - change Outrigger references to Juttle Engine [[#49](https://github.com/juttle/juttle-viz/pull/49)]
 
@@ -76,7 +94,7 @@ Released 2016-02-09
 
 Released 2016-02-08
 
-## Minor Changes
+### Minor Changes
 
 - juttle-view: add static method getFlattenedParamValidationErrors [[#40](https://github.com/juttle/juttle-viz/pull/40)]
 
