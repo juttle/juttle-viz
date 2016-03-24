@@ -126,28 +126,6 @@ class HighchartView extends JuttleView {
         super.destroy();
     }
 
-    _findValueField(point) {
-        if (point.value !== null && _.isNumber(point.value)) {
-            return 'value';
-        }
-        else {
-            let valueField;
-
-            let fields = Object.keys(point);
-
-            for(let i = 0; i < fields.length; i++) {
-                let field = fields[i];
-
-                if (field !== this._attributes.xField && _.isNumber(point[field])) {
-                    valueField = field;
-                    break;
-                }
-            }
-
-            return valueField;
-        }
-    }
-
     _verifyOptionsAreValid(options) {
         var errs = objectValidation.validate(options, HighchartView.optionValidationConfig);
 
