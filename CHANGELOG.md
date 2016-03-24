@@ -2,6 +2,24 @@
 
 This file documents all notable changes to juttle-viz. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.7.0
+
+Released 2016-03-24
+
+### Major Changes
+
+- New highchart view [[#82](https://github.com/juttle/juttle-viz/pull/82)]
+- juttle-view#consume_mark now expects object with time property [[#87](https://github.com/juttle/juttle-viz/pull/87)]
+
+### Minor Changes
+
+- Scatterchart no longer defaults title to 'name' field of points [[#85](https://github.com/juttle/juttle-viz/pull/85)]
+- package.json: remove unused gulp-mocha-phantomjs dependency [[#81](https://github.com/juttle/juttle-viz/pull/81)]
+
+### Bug Fixes
+
+- Fix bug with scatterchart when 'name' was present in points but -title option wasn't specified [[#84](https://github.com/juttle/juttle-viz/issues/84)]
+
 ## 0.6.2
 
 Release 2016-03-16
