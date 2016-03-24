@@ -99,22 +99,9 @@ class HighchartView extends JuttleView {
     // Check to see if any of the `keys` values matches a user-specified
     // series configuration key. If it does, return the series configuration.
     _findMatchingSeriesConfig(keys) {
-        let keyValues = _.values(keys);
-        let seriesConfig = {};
-        if (this._attributes.series) {
-            let seriesConfigKeys = Object.keys(this._attributes.series);
-            for(let i = 0; i < seriesConfigKeys.length; i++) {
-                let configKey = seriesConfigKeys[i];
-                let config = this._attributes.series[configKey];
-
-                if (_.contains(keyValues, configKey)) {
-                    seriesConfig = config;
-                    break;
-                }
-            }
-        }
-
-        return seriesConfig;
+        return _.find(this._attributes.series, function(value, key) {
+            return _.contains(keys, key);
+        });
     }
 
     setDimensions(id, width, height) {
