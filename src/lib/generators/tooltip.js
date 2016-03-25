@@ -76,7 +76,7 @@ Tooltip.prototype.position = function(d) {
 
     var tooltipEndpoint = left + width;
 
-    var svgWidth = this.$svg.width();
+    var svgWidth = this.$svg[0].getBoundingClientRect().width;
 
     // see if we should orient left
     if (tooltipEndpoint > svgWidth) {
