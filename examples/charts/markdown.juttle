@@ -1,0 +1,3 @@
+const message = '# This is an annotation\n## Sub Heading\n\n- list item 1 \n- list item 2\n\n[juttle](http://github.com/juttle/juttle)';
+
+emit -points [ { message: message } ] | view markdown

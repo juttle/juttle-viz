@@ -7,7 +7,7 @@
   
   
   
-  <title>file - Juttle Visualization Library</title>
+  <title>markdown - Juttle Visualization Library</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -23,9 +23,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "file";
-    var mkdocs_page_input_path = "charts/file.md";
-    var mkdocs_page_url = "/charts/file/";
+    var mkdocs_page_name = "markdown";
+    var mkdocs_page_input_path = "charts/markdown.md";
+    var mkdocs_page_url = "/charts/markdown/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -93,8 +93,8 @@
           
             <li>
   
-    <li class="toctree-l1 current">
-        <a class="current" href="./">file</a>
+    <li class="toctree-l1 ">
+        <a class="" href="../file/">file</a>
 <!-- Removed the subsection list that duplicates subsection title in most cases -->
     </li>
   
@@ -111,8 +111,8 @@
           
             <li>
   
-    <li class="toctree-l1 ">
-        <a class="" href="../markdown/">markdown</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">markdown</a>
 <!-- Removed the subsection list that duplicates subsection title in most cases -->
     </li>
   
@@ -214,12 +214,12 @@
     
       
     
-    <li>file</li>
+    <li>markdown</li>
     <li class="wy-breadcrumbs-aside">
       
         
           
-            <a href="https://github.com/juttle/juttle-viz/blob/master/docs/charts/file.md" class="icon icon-github"> Edit on GitHub</a>
+            <a href="https://github.com/juttle/juttle-viz/blob/master/docs/charts/markdown.md" class="icon icon-github"> Edit on GitHub</a>
           
         
       
@@ -230,10 +230,10 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="file">file</h1>
-<p>Save the program's output to a JSON file in your browser's downloads
-directory.</p>
-<pre><code>view file -filename filename
+                <h1 id="markdown">markdown</h1>
+<p>Render the contents of a field as markdown.</p>
+<p><img alt="" src="../../images/screenshots/view_markdown.png" /></p>
+<pre><code>view markdown -title string -field string
 </code></pre>
 
 <table>
@@ -246,16 +246,22 @@ directory.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>-filename</code></td>
-<td>The file name to use for the output. No path information is supported; the file is saved in the downloads directory configured for your browser.</td>
-<td align="right">No; the default is 'output.json'</td>
+<td><code>-title</code></td>
+<td>The title for the user-visible output.</td>
+<td align="right">No</td>
+</tr>
+<tr>
+<td><code>-field</code></td>
+<td>The field to render.</td>
+<td align="right">No; defaults to a field other than <code>time</code> found in the points.</td>
 </tr>
 </tbody>
 </table>
-<p><em>Example: Emit one point and output it to a local JSON file</em></p>
-<pre><code>emit -limit 1 
-| put v = &quot;A&quot; 
-| view file -filename 'someOutput.json'
+<p><em>Example</em></p>
+<p>Output shown above</p>
+<pre><code>const message = '# This is an annotation\n## Sub Heading\n\n- list item 1 \n- list item 2\n\n[juttle](http://github.com/juttle/juttle)';
+
+emit -points [ { message: message } ] | view markdown
 </code></pre>
               
             </div>
@@ -264,10 +270,10 @@ directory.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../less/" class="btn btn-neutral float-right" title="less">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../text/" class="btn btn-neutral float-right" title="text">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../events/" class="btn btn-neutral" title="events"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../less/" class="btn btn-neutral" title="less"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -295,10 +301,10 @@ directory.</p>
           <a href="https://github.com/juttle/juttle-viz" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../events/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../less/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../less/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../text/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

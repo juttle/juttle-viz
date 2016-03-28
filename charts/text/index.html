@@ -40,7 +40,7 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-45515012-4', 'auto');
+      ga('create', 'UA-45515012-3', 'auto');
       ga('send', 'pageview');
   </script>
   
@@ -104,6 +104,15 @@
   
     <li class="toctree-l1 ">
         <a class="" href="../less/">less</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../markdown/">markdown</a>
 <!-- Removed the subsection list that duplicates subsection title in most cases -->
     </li>
   
@@ -227,6 +236,7 @@
 <pre><code>view text -o {
    id: 'string',
    title: 'string',
+   indent: n,
    height: n,
    limit: n,
    format: 'raw|json|csv'
@@ -236,6 +246,7 @@
 <p><em>or</em></p>
 <pre><code>view text -id 'string' -title 'string'
   -height n
+  -indent n
   -limit n
   -format 'raw'
 </code></pre>
@@ -272,8 +283,13 @@
 </tr>
 <tr>
 <td><code>-format</code></td>
-<td>You can set this to 'csv' or 'json' to get CSV or pretty-printed JSON output, respectively. Batch delimiters are ignored when 'json' or 'csv' is specified.</td>
-<td align="right">No; default is 'raw', which produces one data point per line, plus batch delimiters</td>
+<td>You can set this to 'csv' or 'raw'. 'raw' will print each individual point as JSON and show batch delimiters.</td>
+<td align="right">No; default is 'json'.</td>
+</tr>
+<tr>
+<td><code>-indent</code></td>
+<td>When <code>-format</code> is 'json', specifies how many spaces to use for indentation for pretty-printing the JSON.</td>
+<td align="right"></td>
 </tr>
 </tbody>
 </table>
@@ -311,7 +327,7 @@
         <a href="../piechart/" class="btn btn-neutral float-right" title="piechart">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../less/" class="btn btn-neutral" title="less"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../markdown/" class="btn btn-neutral" title="markdown"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -339,7 +355,7 @@
           <a href="https://github.com/juttle/juttle-viz" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../less/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../markdown/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../piechart/" style="color: #fcfcfc">Next &raquo;</a></span>

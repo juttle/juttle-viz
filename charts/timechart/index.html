@@ -40,7 +40,7 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-45515012-4', 'auto');
+      ga('create', 'UA-45515012-3', 'auto');
       ga('send', 'pageview');
   </script>
   
@@ -104,6 +104,15 @@
   
     <li class="toctree-l1 ">
         <a class="" href="../less/">less</a>
+<!-- Removed the subsection list that duplicates subsection title in most cases -->
+    </li>
+  
+<li>
+          
+            <li>
+  
+    <li class="toctree-l1 ">
+        <a class="" href="../markdown/">markdown</a>
 <!-- Removed the subsection list that duplicates subsection title in most cases -->
     </li>
   
@@ -239,9 +248,7 @@
   duration: duration,
   markerSize: n,
   overlayTime: boolean,
-  display: {
-   dataDensity: n
-  },
+  downsample: boolean,
   xScale: {
    label: 'string',
    tickFormat: 'd3FormatString'
@@ -272,19 +279,20 @@
     label: 'string',
     yScale: 'primary|secondary',
     color: 'color',
-    geom: 'line|bars'
+    geom: 'line|bars',
+    width: n
    }
   ]
 }   
 </code></pre>
 
 <p><em>or</em></p>
-<pre><code>view timechart -id 'string' -title 'string' -duration duration -display.dataDensity n -markerSize n -overlayTime boolean
+<pre><code>view timechart -id 'string' -title 'string' -duration duration -downsample boolean -markerSize n -overlayTime boolean
    -xScale.label 'string' -xScale.tickFormat 'd3FormatString'
   -yScales.primary.label 'string' -yScales.primary.tickFormat 'd3FormatString' -yScales.primary.minValue 'n' -yScales.primary.maxValue 'n' -yScales.primary.displayOnAxis 'left'
    -yScales.secondary.label 'string' -yScales.secondary.tickFormat 'd3FormatString' -yScales.secondary.minValue 'n' -yScales.secondary.maxValue 'n' -yScales.secondary.displayOnAxis 'left'
    -keyField 'fieldname' -valueField 'fieldname' -timeField 'fieldname'
-   -interval n -series [{name : 'seriesname', label : 'string', yScale : 'primary|secondary', color : 'color', geom : 'line|bars'}]
+   -interval n -series [{name : 'seriesname', label : 'string', yScale : 'primary|secondary', color : 'color', geom : 'line|bars', width : n}]
 </code></pre>
 
 <p>See <a href="../..#defining-view-parameters">Defining sink parameters</a>
@@ -314,9 +322,9 @@ for an explanation of how sink parameters can be expressed as object literals.</
 <td align="right">No</td>
 </tr>
 <tr>
-<td><code>-display.dataDensity</code></td>
-<td>The minimum number of pixels between points, for data downsampling</td>
-<td align="right">No; defaults to 5</td>
+<td><code>-downsample</code></td>
+<td>Whether the timechart should downsample data by averaging. Downsampling is triggered when the point density exceeds 1 point per 2 pixels.</td>
+<td align="right">No; defaults to true</td>
 </tr>
 <tr>
 <td><code>-markerSize</code></td>
@@ -421,7 +429,8 @@ for an explanation of how sink parameters can be expressed as object literals.</
     label : 'string',   
     yScale : 'primary|secondary',   
     color : 'color',   
-    geom : 'line|bars'   
+    geom : 'line|bars',
+    width : n   
    },   
    {   
     name : 'someotherseries',   
@@ -459,6 +468,10 @@ for an explanation of how sink parameters can be expressed as object literals.</
 <td><code>geom</code></td>
 <td>Set this to <code>'bars'</code> to display this series as bars on the time chart; the width of each bar is the interval between the current point and the previous point. The default is <code>'line'</code>.</td>
 </tr>
+<tr>
+<td><code>width</code></td>
+<td>Sets the width of the series. Currently only applies when <code>geom</code> is <code>'line'</code> (by setting the stroke width).</td>
+</tr>
 </tbody>
 </table>
 <p><em>Example: Timechart with default series selection</em></p>
@@ -469,7 +482,7 @@ for an explanation of how sink parameters can be expressed as object literals.</
 </code></pre>
 
 <p><img alt="" src="../../images/screenshots/view_timechart_default.png" /></p>
-<p><em>Example: Compare yesterday's CPU usage with usage today so far</em> </p>
+<p><em>Example: Compare yesterday's CPU usage with usage today so far</em></p>
 <pre><code>read stochastic -source 'cdn' -source_type 'metric' -last :2 days: -daily .5 name = 'cpu'
 | view timechart
     -duration :1 day:
@@ -477,7 +490,7 @@ for an explanation of how sink parameters can be expressed as object literals.</
 </code></pre>
 
 <p><img alt="" src="../../images/screenshots/view_timechart_overlay_time_1.png" /></p>
-<p><em>Example: Compare CPU usage from today with the same day last week</em> </p>
+<p><em>Example: Compare CPU usage from today with the same day last week</em></p>
 <pre><code>(
 read stochastic -source 'cdn' -from :7 days ago: -to :6 days ago: -daily .5  -source_type 'metrics' name = 'cpu';
 read stochastic -source 'cdn' -from :1 days ago: -to :now: -daily .5  -source_type 'metrics' name = 'cpu'
@@ -488,7 +501,7 @@ read stochastic -source 'cdn' -from :1 days ago: -to :now: -daily .5  -source_ty
 </code></pre>
 
 <p><img alt="" src="../../images/screenshots/view_timechart_overlay_time_2.png" /></p>
-<p><em>Example: Configure a multi-series time chart</em> </p>
+<p><em>Example: Configure a multi-series time chart</em></p>
 <pre><code>sub src(cate, coefficient) {
   emit -limit 100 -hz 10 |
   put category = cate       |
