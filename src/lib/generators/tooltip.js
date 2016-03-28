@@ -61,7 +61,7 @@ Tooltip.prototype.position = function(d) {
     else {
         d = this.currentPosition;
     }
-    
+
 
     //svg's offset parent is always the window for firefox, so we need to use the parent to get the position
     var svgPosition = this.$svg.parent().position();
@@ -76,7 +76,7 @@ Tooltip.prototype.position = function(d) {
 
     var tooltipEndpoint = left + width;
 
-    var svgWidth = this.$svg.width();
+    var svgWidth = this.$svg[0].getBoundingClientRect().width;
 
     // see if we should orient left
     if (tooltipEndpoint > svgWidth) {
