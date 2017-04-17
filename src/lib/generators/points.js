@@ -90,14 +90,16 @@ Points.prototype.draw = function(data) {
 
 Points.prototype.redraw = function() {
     var self = this;
-
-    this._circles
-        .transition()
-        .duration(this._attributes.duration)
-        .ease('linear')
-        .attr('cx', function(d) { return self._getX(d); })
-        .attr('cy', function(d) { return self._getY(d); })
-        .attr('fill-opacity', this._opacity);
+    
+    if (this._attributes.duration !== 0) {
+        this._circles
+            .transition()
+            .duration(this._attributes.duration)
+            .ease('linear')
+            .attr('cx', function(d) { return self._getX(d); })
+            .attr('cy', function(d) { return self._getY(d); })
+            .attr('fill-opacity', this._opacity);
+    }
 
 };
 
@@ -120,9 +122,11 @@ Points.prototype._onMouseLeave = function(d) {
 // stops animation of data-points
 Points.prototype._stopAnimation = function() {
     // stop all animation
-    this._points.selectAll('.point')
-        .transition()
-        .duration(0);
+    if (this._attributes.duration !== 0) { 
+        this._points.selectAll('.point')
+            .transition()
+            .duration(0);
+    }
 };
 
 

@@ -171,7 +171,8 @@ BarChart.prototype._addBars = function() {
         tooltip : this.options.tooltip,
         margin : this.options.margin,
         color : this.options.color,
-        negativeColor : this.options.negativeColor
+        negativeColor : this.options.negativeColor,
+        duration: this.options.duration
     };
 
     this.bars = new Bars(barsArea.node(), baropts);

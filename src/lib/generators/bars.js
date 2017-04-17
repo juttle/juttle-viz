@@ -47,7 +47,7 @@ Bars.prototype.set_value = function(val) {
     this.tooltipOptions.valueField = this.tooltipOptions.valueField || val;
 };
 
-Bars.prototype.draw = function(data,options) {
+Bars.prototype.draw = function(data, options) {
     var self = this;
 
     return new Promise(function(resolve, reject) {
@@ -70,8 +70,11 @@ Bars.prototype.draw = function(data,options) {
             .attr('class', 'bar');
 
         var barsexit = bars.exit()
-            .each(function(d) { self.removeTooltip(d); } )
-            .transition().duration(duration);
+            .each(function(d) { self.removeTooltip(d); } );
+        
+        if (duration !== 0) { 
+            barsexit = barsexit.transition().duration(duration);
+        }
 
         var update = bars
             .each(function(d) { self.updateTooltip(d); } )
@@ -91,8 +94,11 @@ Bars.prototype.draw = function(data,options) {
                         self.options.negativeColor;
                 }
 
-            })
-            .transition().duration(self.options.duration);
+            });
+
+        if (duration !== 0) { 
+            update = update.transition().duration(duration);
+        }
 
         var transitionCount = update.size() + barsexit.size();
 
@@ -114,10 +120,13 @@ Bars.prototype.draw = function(data,options) {
                 .attr('y', self.value_scale(0))
                 .attr('height', 0)
                 .attr('opacity', 0)
-                .remove()
-                .each( 'end', function(d) {
+                .remove();
+
+            if (duration !== 0) { 
+                barsexit.each( 'end', function(d) {
                     transitionFinished();
                 });
+            }
 
             update
                 .attr('x', function(d) {
@@ -142,10 +151,13 @@ Bars.prototype.draw = function(data,options) {
                     else {
                         return self.value_scale(d[self.value_field]) - self.value_scale(0);
                     }
-                } )
-                .each( 'end', function() {
+                });
+
+            if (duration !== 0) { 
+                update.each( 'end', function() {
                     transitionFinished();
                 });
+            }
         }
         else {
             barsenter
@@ -161,10 +173,13 @@ Bars.prototype.draw = function(data,options) {
                 .attr('x', self.value_scale(0))
                 .attr('width', 0)
                 .attr('opacity', 0)
-                .remove()
-                .each( 'end', function(d) {
+                .remove();
+
+            if (duration !== 0) { 
+                barsexit.each( 'end', function(d) {
                     transitionFinished();
                 });
+            }
 
             update
                 .attr('x', function(d) {
@@ -189,14 +204,21 @@ Bars.prototype.draw = function(data,options) {
                         return self.value_scale(0) - self.value_scale(d[self.value_field]);
                     }
                 } )
-                .attr('height', self.category_scale.rangeBand())
-                .each( 'end', function() {
+                .attr('height', self.category_scale.rangeBand());
+
+            if (duration !== 0) { 
+                update.each( 'end', function() {
                     transitionFinished();
                 });
+            }
         }
 
-        if (transitionCount === 0) {
-            transitionFinished();
+        if (duration !== 0) { 
+            if (transitionCount === 0) {
+                transitionFinished();
+            }
+        } else { 
+            resolve();
         }
     });
 };

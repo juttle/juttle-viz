@@ -16,13 +16,14 @@ var PieChart = function(element, options) {
     _.extend(this, Backbone.Events);
     var self = this;
 
-    this.options = _.clone(options);
+    this.options = _.extend({
+        duration: 500
+    },options);
 
     this.options.valueField = options.valueField === undefined ? 'value' : options.valueField;
 
     this.color_scale = chartColors.getColorScale();
     _.extend(this, Backbone.Events);
-    this.options.duration = 500;
 
     this.svg = d3.select(element)
         .append('svg')
@@ -137,21 +138,23 @@ PieChart.prototype._drawSlices = function(data) {
             this._current = d;
         });
 
-    slice
-        .transition().duration(self.options.duration)
-        .attrTween('d', function(d) {
-            var _self = this;
-            var interpolate = d3.interpolate(this._current, d);
+    if (this.options.duration !== 0) {
+        slice
+            .transition().duration(self.options.duration !== 0)
+            .attrTween('d', function(d) {
+                var _self = this;
+                var interpolate = d3.interpolate(this._current, d);
 
-            return function(t) {
-                _self._current = interpolate(t);
-                return self.pieArc(_self._current);
-            };
-        });
+                return function(t) {
+                    _self._current = interpolate(t);
+                    return self.pieArc(_self._current);
+                };
+            });
 
-    slice
-        .exit().transition().delay(self.options.duration).duration(0)
-        .remove();
+        slice
+            .exit().transition().delay(self.options.duration).duration(0)
+            .remove();
+    }
 };
 
 PieChart.prototype._drawLines = function(data) {
@@ -170,25 +173,27 @@ PieChart.prototype._drawLines = function(data) {
             this._current = d;
         });
 
-    polyline.transition().duration(self.options.duration)
-        .style('opacity', function (d) {
-            return self.valueAccessor(d.data) === 0 ? 0 : 1;
-        })
-        .attrTween('points', function (d) {
-            var _self = this;
-            var interpolate = d3.interpolate(this._current, d);
-            return function(t) {
-                var d2 = interpolate(t);
-                _self._current = d2;
-                var pos = self.labelArc.centroid(d2);
-                pos[0] = ( self.radius + OUTER_RADIUS_PADDING/2 ) * (calculateMiddleAngle(d2) < Math.PI ? 1 : -1);
-                return [self.pieArc.centroid(d2), self.labelArc.centroid(d2), pos];
-            };
-        });
+    if (this.options.duration !== 0) {
+        polyline.transition().duration(self.options.duration)
+            .style('opacity', function (d) {
+                return self.valueAccessor(d.data) === 0 ? 0 : 1;
+            })
+            .attrTween('points', function (d) {
+                var _self = this;
+                var interpolate = d3.interpolate(this._current, d);
+                return function(t) {
+                    var d2 = interpolate(t);
+                    _self._current = d2;
+                    var pos = self.labelArc.centroid(d2);
+                    pos[0] = ( self.radius + OUTER_RADIUS_PADDING/2 ) * (calculateMiddleAngle(d2) < Math.PI ? 1 : -1);
+                    return [self.pieArc.centroid(d2), self.labelArc.centroid(d2), pos];
+                };
+            });
 
-    polyline
-        .exit().transition().delay(self.options.duration)
-        .remove();
+        polyline
+            .exit().transition().delay(self.options.duration)
+            .remove();
+    }
 };
 
 PieChart.prototype._drawLabels = function(data) {
@@ -208,41 +213,43 @@ PieChart.prototype._drawLabels = function(data) {
             this._current = d;
         });
 
-    text.transition().duration(self.options.duration)
-        .style('opacity', function(d) {
-            return self.valueAccessor(d.data) === 0 ? 0 : 1;
-        })
-        .text(function(d) {
-            var label = d.data[self.options.sliceLabels.nameField];
+    if (this.options.duration !== 0) {
+        text.transition().duration(self.options.duration)
+            .style('opacity', function(d) {
+                return self.valueAccessor(d.data) === 0 ? 0 : 1;
+            })
+            .text(function(d) {
+                var label = d.data[self.options.sliceLabels.nameField];
 
-            if (self.options.sliceLabels.valueField !== '') {
-                label += ': ' + d3.format(self.options.sliceLabels.valueFormat)(d.data[self.options.sliceLabels.valueField]);
-            }
-            return label;
-        })
-        .attrTween('transform', function(d) {
-            var _self = this;
-            var interpolate = d3.interpolate(this._current, d);
+                if (self.options.sliceLabels.valueField !== '') {
+                    label += ': ' + d3.format(self.options.sliceLabels.valueFormat)(d.data[self.options.sliceLabels.valueField]);
+                }
+                return label;
+            })
+            .attrTween('transform', function(d) {
+                var _self = this;
+                var interpolate = d3.interpolate(this._current, d);
 
-            return function(t) {
-                var d2 = interpolate(t);
-                _self._current = d2;
-                var pos = self.labelArc.centroid(d2);
-                pos[0] = ( self.radius + OUTER_RADIUS_PADDING/2 + 3) * (calculateMiddleAngle(d2) < Math.PI ? 1 : -1);
-                return 'translate('+ pos +')';
-            };
-        })
-        .styleTween('text-anchor', function(d) {
-            var interpolate = d3.interpolate(this._current, d);
-            return function(t) {
-                var d2 = interpolate(t);
-                return calculateMiddleAngle(d2) < Math.PI ? 'start':'end';
-            };
-        });
+                return function(t) {
+                    var d2 = interpolate(t);
+                    _self._current = d2;
+                    var pos = self.labelArc.centroid(d2);
+                    pos[0] = ( self.radius + OUTER_RADIUS_PADDING/2 + 3) * (calculateMiddleAngle(d2) < Math.PI ? 1 : -1);
+                    return 'translate('+ pos +')';
+                };
+            })
+            .styleTween('text-anchor', function(d) {
+                var interpolate = d3.interpolate(this._current, d);
+                return function(t) {
+                    var d2 = interpolate(t);
+                    return calculateMiddleAngle(d2) < Math.PI ? 'start':'end';
+                };
+            });
 
-    text
-        .exit().transition().delay(self.options.duration)
-        .remove();
+        text
+            .exit().transition().delay(self.options.duration)
+            .remove();
+    }
 };
 
 PieChart.prototype.setCategoryField = function(category) {
